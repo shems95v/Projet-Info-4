@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Gourmand</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <div class="conteneur-recherche">
+            <input type="text" id="barreRecherche" placeholder="Rechercher un plat, une saveur...">
+            <button type="submit">🔍</button>
+        </div>
+    </header>
+
+    <main class="conteneur-principal">
+        <aside class="filtres">
+            <h3>Filtrer par</h3>
+            
+                
+                <h4>Types de plats</h4>
+                <label><input type="checkbox" name="type" value="entree"> Entrées</label>
+                <label><input type="checkbox" name="type" value="plat"> Plats</label>
+                <label><input type="checkbox" name="type" value="dessert"> Desserts</label>
+            </div>
+
+            <div class="groupe-filtre">
+                <h4>Saveurs</h4>
+                <label><input type="checkbox" name="flavor" value="epice"> Épicé</label>
+                <label><input type="checkbox" name="flavor" value="sucre"> Sucré-Salé</label>
+                <label><input type="checkbox" name="flavor" value="frais"> Frais</label>
+            </div>
+
+            <div class="groupe-filtre">
+                <h4>Allergènes (Sans)</h4>
+                <label><input type="checkbox" name="allergen" value="gluten"> Sans Gluten</label>
+                <label><input type="checkbox" name="allergen" value="lactose"> Sans Lactose</label>
+            </div>
+            
+            <button class="bouton-reinitialiser">Réinitialiser</button>
+        </aside>
+
+        <section class="grille-produits">
+            <article class="carte-produit">
+                <div class="image-produit"></div>
+                <div class="infos-produit">
+                    <span class="categorie">Plat Principal</span>
+                    <h3>Curry de Pois Chiches</h3>
+                    <p class="description">Saveur : Épicé • Sans Gluten</p>
+                    <div class="prix">14,50 €</div>
+                </div>
+            </article>
+
+            <article class="carte-produit">
+                <div class="image-produit"></div>
+                <div class="infos-produit">
+                    <span class="categorie">Entrée</span>
+                    <h3>Salade de Saison</h3>
+                    <p class="description">Saveur : Frais • Sans Lactose</p>
+                    <div class="prix">8,00 €</div>
+                </div>
+            </article>
+            
+            </section>
+    </main>
+
+</body>
+</html>

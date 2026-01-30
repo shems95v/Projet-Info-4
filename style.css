@@ -1,0 +1,87 @@
+:root {
+    --borderradius: 10px;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f4f4f4;
+}
+
+
+header {
+    background: white;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.conteneur-recherche {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+}
+
+.conteneur-recherche input {
+    flex: 1;
+    padding: 10px;
+    border-radius: var(--borderradius)
+}
+
+.conteneur-recherche button {
+    padding: 10px;
+    background: blue;
+    border: none;
+    cursor: pointer;
+    border-radius: var(--borderradius);
+}
+
+
+.conteneur-principal {
+    display: grid;
+    grid-template-columns: 250px 1fr; 
+    gap: 20px;
+    padding: 20px;
+}
+
+
+.filtres {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+}
+
+.groupe-filtre {
+    margin-bottom: 20px;
+}
+
+
+.grille-produits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.carte-produit {
+    background: white;
+    border: 1px solid #ddd;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    border-radius: var(--borderradius) ;
+}
+
+.image-produit {
+    height: 150px;
+    background: #eee;
+    margin-bottom: 10px;
+}
+
+/* 6. Responsive (Mobile) */
+@media (max-width: 768px) {
+    .conteneur-principal {
+        grid-template-columns: 1fr; /* On empile tout sur une colonne */
+    }
+}   
