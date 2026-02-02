@@ -1,87 +1,226 @@
+/* Variables pour les couleurs */
 :root {
     --borderradius: 10px;
+    --couleur-bleu: #2563eb;
+    --couleur-bleu-fonce: #1d4ed8;
 }
 
-
+/* Reset de base */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    background-color: #f4f4f4;
+    background-color: #f8fafc;
 }
 
-
+/* Header */
 header {
-    background: white;
-    padding: 20px;
+    background-color: var(--couleur-bleu);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    font-size: 2em;
+    margin: 0 0 20px 0;
+}
+
+/* Navigation */
+.navigation {
     display: flex;
     justify-content: center;
-    border-bottom: 1px solid #ddd;
+    gap: 30px;
+    margin-bottom: 20px;
 }
 
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+.navigation a:hover {
+    background-color: var(--couleur-bleu-fonce);
+}
+
+/* Barre de recherche */
 .conteneur-recherche {
     display: flex;
     width: 100%;
     max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
 }
 
 .conteneur-recherche input {
     flex: 1;
-    padding: 10px;
-    border-radius: var(--borderradius)
+    padding: 12px;
+    border: none;
+    border-radius: var(--borderradius);
+    font-size: 16px;
 }
 
 .conteneur-recherche button {
-    padding: 10px;
-    background: blue;
+    padding: 12px 20px;
+    background: white;
+    color: var(--couleur-bleu);
     border: none;
     cursor: pointer;
     border-radius: var(--borderradius);
+    font-size: 18px;
 }
 
+.conteneur-recherche button:hover {
+    background-color: #f0f0f0;
+}
 
+/* Layout principal */
 .conteneur-principal {
     display: grid;
     grid-template-columns: 250px 1fr; 
     gap: 20px;
     padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
 }
 
-
+/* Panneau de filtres */
 .filtres {
     background: white;
     padding: 20px;
     border: 1px solid #ddd;
+    border-radius: var(--borderradius);
+}
+
+.filtres h3 {
+    color: var(--couleur-bleu);
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    margin-top: 0;
 }
 
 .groupe-filtre {
     margin-bottom: 20px;
 }
 
+.groupe-filtre h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
 
+.groupe-filtre label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    color: #666;
+}
+
+.groupe-filtre input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Bouton réinitialiser */
+.bouton-reinitialiser {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--couleur-bleu);
+    color: white;
+    border: none;
+    border-radius: var(--borderradius);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.bouton-reinitialiser:hover {
+    background-color: var(--couleur-bleu-fonce);
+}
+
+/* Grille de produits */
 .grille-produits {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
+/* Carte produit */
 .carte-produit {
     background: white;
     border: 1px solid #ddd;
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    border-radius: var(--borderradius) ;
+    border-radius: var(--borderradius);
+    overflow: hidden;
 }
 
+/* Image produit */
 .image-produit {
-    height: 150px;
-    background: #eee;
+    height: 180px;
+    background: linear-gradient(135deg, #60a5fa 0%, var(--couleur-bleu) 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 50px;
+}
+
+.image-produit::after {
+    content: '🍽️';
+    opacity: 0.4;
+}
+
+/* Infos produit */
+.infos-produit {
+    padding: 15px;
+}
+
+.categorie {
+    background-color: var(--couleur-bleu);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: bold;
+    display: inline-block;
     margin-bottom: 10px;
 }
 
-/* 6. Responsive (Mobile) */
+.infos-produit h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+}
+
+.description {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 12px;
+}
+
+.prix {
+    color: var(--couleur-bleu);
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/* Responsive mobile */
 @media (max-width: 768px) {
     .conteneur-principal {
-        grid-template-columns: 1fr; /* On empile tout sur une colonne */
+        grid-template-columns: 1fr;
     }
-}   
+    
+    header h1 {
+        font-size: 1.5em;
+    }
+    
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .navigation a {
+        display: block;
+    }
+}
