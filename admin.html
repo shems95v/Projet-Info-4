@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panneau Admin - Gestion Utilisateurs</title>
+    <link rel="stylesheet" href="style1.css">
+</head>
+<body>
+    <div class="conteneur-admin">
+        <nav class="barre-laterale">
+            <h2>AdminShop</h2>
+            <ul>
+                <li><a href="#">Tableau de bord</a></li>
+                <li class="actif"><a href="#">Utilisateurs</a></li>
+                <li><a href="#">Commandes</a></li>
+                <li><a href="#">Produits</a></li>
+                <li><a href="#">Paramètres</a></li>
+            </ul>
+        </nav>
+
+        <main class="contenu-principal">
+            <header>
+                <h1>Liste des Utilisateurs</h1>
+                <div class="filtres">
+                    <button class="btn actif">Tous</button>
+                    <button class="btn">Avec commandes</button>
+                    <button class="btn">Nouveaux</button>
+                </div>
+            </header>
+
+            <section class="conteneur-tableau">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Utilisateur</th>
+                            <th>Email</th>
+                            <th>Commandes</th>
+                            <th>Statut</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>#001</td>
+                            <td><strong>Jean Dupont</strong></td>
+                            <td>jean@example.com</td>
+                            <td>5</td>
+                            <td><span class="badge actif">Client Fidèle</span></td>
+                            <td><button class="btn-modifier">Modifier</button></td>
+                        </tr>
+                        <tr>
+                            <td>#002</td>
+                            <td><strong>Marie Curie</strong></td>
+                            <td>marie@lab.fr</td>
+                            <td>0</td>
+                            <td><span class="badge">Inscrit</span></td>
+                            <td><button class="btn-modifier">Modifier</button></td>
+                        </tr>
+                        <tr>
+                            <td>#003</td>
+                            <td><strong>Luc Lucas</strong></td>
+                            <td>luc@web.com</td>
+                            <td>12</td>
+                            <td><span class="badge actif">Client Fidèle</span></td>
+                            <td><button class="btn-modifier">Modifier</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </section>
+        </main>
+    </div>
+</body>
+</html>
