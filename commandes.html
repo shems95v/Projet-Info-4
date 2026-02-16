@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page des Commandes</title>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Page des Commandes - Restaurateur</h1>
+        </header>
+
+        <!-- Commandes en attente de préparation -->
+        <section class="orders-section">
+            <h2>Commandes en attente de prise en charge (À préparer)</h2>
+            <div class="order-card pending">
+                <p><strong>Commande #12345</strong></p>
+                <p>Nom du client : Jean Dupont</p>
+                <p>Plats : Pizza, Salade</p>
+                <p>Montant : 25€</p>
+                <p>Adresse : 123 rue Exemple</p>
+                <button class="start-delivery">Passer en livraison</button>
+            </div>
+            <div class="order-card pending">
+                <p><strong>Commande #12346</strong></p>
+                <p>Nom du client : Marie Dubois</p>
+                <p>Plats : Burger, Frites</p>
+                <p>Montant : 18€</p>
+                <p>Adresse : 456 rue Exemple</p>
+                <button class="start-delivery">Passer en livraison</button>
+            </div>
+        </section>
+
+        <!-- Commandes en cours de livraison -->
+        <section class="orders-section">
+            <h2>Commandes en cours de livraison</h2>
+            <div class="order-card delivering">
+                <p><strong>Commande #12347</strong></p>
+                <p>Nom du client : Claire Martin</p>
+                <p>Plats : Sushi, Maki</p>
+                <p>Montant : 30€</p>
+                <p>Adresse : 789 rue Exemple</p>
+                <p>Livraison par : Paul</p>
+                <button class="mark-delivered">Marquer comme livrée</button>
+            </div>
+            <div class="order-card delivering">
+                <p><strong>Commande #12348</strong></p>
+                <p>Nom du client : Luc Bernard</p>
+                <p>Plats : Poulet rôti, Riz</p>
+                <p>Montant : 22€</p>
+                <p>Adresse : 101 rue Exemple</p>
+                <p>Livraison par : Sarah</p>
+                <button class="mark-delivered">Marquer comme livrée</button>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
