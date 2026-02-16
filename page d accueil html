@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>L'Atlas Des Saveurs</title>
+    <link rel="stylesheet" href="Projet4.css">
+</head>
+<body>
+    <header>
+    <nav class="menu">
+    <a href="Projet4.html">Accueil</a>
+    <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html">Menu</a>
+    <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html">contact</a>
+    <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html">s'inscrire</a>
+    </nav>
+    <h1>L'Atlas Des Saveurs</h1>
+    <form action="#" method="post">
+        <input type="search" placeholder="rechercher un plat">
+        <button type="submit">🍔</button>
+    </form>
+    </header>
+    <p>
+L’Italie, avec Passion.
+
+Situé à Vauréal, Carpe Diem vous invite à savourer l’Italie dans un cadre chaleureux et convivial. Fidèle aux traditions culinaires transalpines, le chef vous propose une cuisine authentique et généreuse, qui célèbre la fraîcheur et la qualité des produits.
+
+Dans une ambiance élégante et détendue, laissez-vous séduire par des plats qui font voyager, servis avec le sourire et la passion de l’accueil à l’italienne.
+</p>
+<h4>Nos formule :</h4>
+   <div class="plats">
+    <div class="colonne">
+        <h3>Plat du jour</h3>
+        
+        <ul>
+            <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html"  class="Lplats">
+            <li>
+                shems
+                <br>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvIjjTJyMXKf2nJ2e7bRLUz2x2gi4OdZ6r8g&s" width="30">
+            </li>
+            </a>
+        </ul>
+        
+    </div>
+
+    <div class="colonne">
+        <h3>Plat souvent commandé</h3>
+        <ul>
+            <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html" class="Lplats">
+            <li>
+                shems
+                <br>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvIjjTJyMXKf2nJ2e7bRLUz2x2gi4OdZ6r8g&s" width="30">
+            </li>
+            </a>
+            <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html"  class="Lplats">
+            <li>
+                shems
+                <br>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvIjjTJyMXKf2nJ2e7bRLUz2x2gi4OdZ6r8g&s" width="30">
+            </li>
+            </a>
+            <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html"  class="Lplats">
+            <li>
+                shems
+                <br>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvIjjTJyMXKf2nJ2e7bRLUz2x2gi4OdZ6r8g&s" width="30">
+            </li>
+            </a>
+        </ul>
+    </div>
+</div>
+
+</body>
+</html>
