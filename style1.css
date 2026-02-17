@@ -71,6 +71,12 @@ header {
     background: white;
     cursor: pointer;
     border-radius: 20px;
+    transition: 0.2s;
+}
+
+.filtres .btn:hover {
+    border-color: var(--couleur-accent);
+    color: var(--couleur-accent);
 }
 
 .filtres .btn.actif {
@@ -105,19 +111,45 @@ th {
     letter-spacing: 1px;
 }
 
-/* Badges & Boutons */
+tr:hover td {
+    background-color: #f9fbff;
+}
+
+/* Badges - Base */
 .badge {
     padding: 5px 10px;
     border-radius: 12px;
     font-size: 0.85em;
     background: #e0e0e0;
+    color: #555;
+    white-space: nowrap;
 }
 
+/* Badge - Client Fidèle / Actif / En service */
 .badge.actif {
     background: #d4edda;
     color: #155724;
 }
 
+/* Badge - Restaurateur */
+.badge.restaurateur {
+    background: #fff3cd;
+    color: #856404;
+}
+
+/* Badge - Livreur (rôle) */
+.badge.livreur {
+    background: #d1ecf1;
+    color: #0c5460;
+}
+
+/* Badge - Hors service */
+.badge.hors-service {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+/* Boutons */
 .btn-modifier {
     background: none;
     border: 1px solid var(--couleur-accent);

@@ -1,500 +1,221 @@
-/* ===================================
-   CHARTE GRAPHIQUE DU SITE
-   =================================== */
-
-/* Couleurs principales :
-   - Primaire (fond header/footer) : #1E3A8A (Bleu foncé)
-   - Secondaire (accents) : #3B82F6 (Bleu vif)
-   - Fond principal : #F0F9FF (Bleu très clair)
-   - Texte principal : #1E3A8A (Bleu foncé)
-   - Texte clair : #FFFFFF (Blanc)
-   - Bordures : #93C5FD (Bleu clair)
-   - Hover liens : #2563EB (Bleu moyen)
-   - Succès : #10B981 (Vert)
-   - Erreur : #EF4444 (Rouge)
-*/
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* Variables pour les couleurs */
+:root {
+    --borderradius: 10px;
+    --couleur-bleu: #2563eb;
+    --couleur-bleu-fonce: #1d4ed8;
 }
 
+/* Reset de base */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #F0F9FF;
-    color: #1E3A8A;
-    line-height: 1.6;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #f8fafc;
 }
 
-/* ===================================
-   HEADER
-   =================================== */
-
+/* Header */
 header {
-    background-color: #1E3A8A;
-    color: #FFFFFF;
-    padding: 1.5rem 2rem;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    background-color: var(--couleur-bleu);
+    padding: 30px 20px;
+    text-align: center;
 }
 
 header h1 {
-    font-size: 2rem;
-    margin-bottom: 0.5rem;
+    color: white;
+    font-size: 2em;
+    margin: 0 0 20px 0;
 }
 
-nav {
-    margin-top: 1rem;
-}
-
-nav a {
-    color: #FFFFFF;
-    text-decoration: none;
-    margin-right: 1.5rem;
-    padding: 0.5rem 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-}
-
-nav a:hover {
-    background-color: #3B82F6;
-}
-
-nav a:visited {
-    color: #BFDBFE;
-}
-
-/* ===================================
-   CONTENEUR PRINCIPAL
-   =================================== */
-
-main {
-    flex: 1;
+/* Navigation */
+.navigation {
     display: flex;
     justify-content: center;
-    align-items: center;
-    padding: 2rem;
+    gap: 30px;
+    margin-bottom: 20px;
 }
 
-.form-container {
-    background-color: #FFFFFF;
-    padding: 2.5rem;
-    border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    max-width: 500px;
-    width: 100%;
-}
-
-.form-container h2 {
-    color: #1E3A8A;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    font-size: 1.8rem;
-}
-
-/* ===================================
-   FORMULAIRES
-   =================================== */
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-label {
-    display: block;
-    margin-bottom: 0.5rem;
-    color: #1E3A8A;
-    font-weight: 500;
-}
-
-input[type="text"],
-input[type="email"],
-input[type="password"],
-input[type="tel"],
-textarea {
-    width: 100%;
-    padding: 0.75rem;
-    border: 2px solid #93C5FD;
-    border-radius: 4px;
-    font-size: 1rem;
-    transition: border-color 0.3s;
-}
-
-input[type="text"]:focus,
-input[type="email"]:focus,
-input[type="password"]:focus,
-input[type="tel"]:focus,
-textarea:focus {
-    outline: none;
-    border-color: #3B82F6;
-}
-
-textarea {
-    resize: vertical;
-    min-height: 100px;
-}
-
-.required {
-    color: #E74C3C;
-}
-
-/* ===================================
-   BOUTONS
-   =================================== */
-
-button,
-.btn {
-    width: 100%;
-    padding: 0.75rem;
-    background-color: #3B82F6;
-    color: #FFFFFF;
-    border: none;
-    border-radius: 4px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-button:hover,
-.btn:hover {
-    background-color: #2563EB;
-}
-
-.btn-secondary {
-    background-color: #95A5A6;
-}
-
-.btn-secondary:hover {
-    background-color: #7F8C8D;
-}
-
-/* ===================================
-   LIENS
-   =================================== */
-
-.form-links {
-    margin-top: 1.5rem;
-    text-align: center;
-}
-
-.form-links a {
-    color: #3B82F6;
+.navigation a {
+    color: white;
     text-decoration: none;
-    transition: color 0.3s;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
 
-.form-links a:hover {
-    color: #2563EB;
-    text-decoration: underline;
+.navigation a:hover {
+    background-color: var(--couleur-bleu-fonce);
 }
 
-.form-links a:visited {
-    color: #2563EB;
-}
-
-/* ===================================
-   FOOTER
-   =================================== */
-
-footer {
-    background-color: #1E3A8A;
-    color: #FFFFFF;
-    text-align: center;
-    padding: 1.5rem;
-    margin-top: auto;
-}
-
-footer p {
-    margin: 0;
-}
-
-/* ===================================
-   MESSAGES D'INFORMATION
-   =================================== */
-
-.info-message {
-    background-color: #D6EAF8;
-    border-left: 4px solid #3498DB;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    border-radius: 4px;
-}
-
-.success-message {
-    background-color: #D1FAE5;
-    border-left: 4px solid #10B981;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    border-radius: 4px;
-}
-
-.error-message {
-    background-color: #FEE2E2;
-    border-left: 4px solid #EF4444;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-    border-radius: 4px;
-}
-
-/* ===================================
-   PAGE DE PROFIL
-   =================================== */
-
-.profil-container {
-    max-width: 900px;
+/* Barre de recherche */
+.conteneur-recherche {
+    display: flex;
     width: 100%;
-    margin: 2rem auto;
-    padding: 0 1rem;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
 }
 
-.profil-container h2 {
-    color: #1E3A8A;
-    margin-bottom: 2rem;
-    text-align: center;
-    font-size: 2rem;
-}
-
-.profil-section {
-    background-color: #FFFFFF;
-    padding: 2rem;
-    margin-bottom: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.profil-section h3 {
-    color: #1E3A8A;
-    margin-bottom: 1.5rem;
-    font-size: 1.4rem;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.edit-icon {
-    cursor: pointer;
-    font-size: 1.2rem;
-    transition: transform 0.2s;
-    user-select: none;
-}
-
-.edit-icon:hover {
-    transform: scale(1.2);
-}
-
-/* Grille d'informations */
-.info-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-}
-
-.info-item {
-    display: flex;
-    flex-direction: column;
-}
-
-.info-item.full-width {
-    grid-column: 1 / -1;
-}
-
-.info-item strong {
-    color: #1E3A8A;
-    margin-bottom: 0.3rem;
-    font-size: 0.9rem;
-}
-
-.info-item span {
-    color: #374151;
-    font-size: 1rem;
-}
-
-/* Mode édition */
-.info-edit {
-    margin-top: 1rem;
-}
-
-.form-row {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1rem;
-    margin-bottom: 1rem;
-}
-
-.form-actions {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1.5rem;
-}
-
-.form-actions button {
+.conteneur-recherche input {
     flex: 1;
-}
-
-/* Section Fidélité */
-.fidelite-section {
-    background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 100%);
-}
-
-.fidelite-content {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    align-items: center;
-}
-
-.points-card {
-    background-color: #FFFFFF;
-    padding: 2rem;
-    border-radius: 12px;
-    text-align: center;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.points-number {
-    font-size: 3rem;
-    font-weight: bold;
-    color: #3B82F6;
-    margin-bottom: 0.5rem;
-}
-
-.points-label {
-    color: #1E3A8A;
-    font-size: 0.9rem;
-    font-weight: 600;
-}
-
-.avantages h4 {
-    color: #1E3A8A;
-    margin-bottom: 1rem;
-}
-
-.avantages ul {
-    list-style: none;
-    padding: 0;
-}
-
-.avantages li {
-    padding: 0.5rem 0;
-    color: #374151;
-    font-size: 1rem;
-}
-
-/* Commandes */
-.commandes-list {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.commande-card {
-    background-color: #F9FAFB;
-    padding: 1.5rem;
-    border-radius: 8px;
-    border-left: 4px solid #3B82F6;
-}
-
-.commande-header {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-}
-
-.commande-numero {
-    font-weight: bold;
-    color: #1E3A8A;
-}
-
-.commande-date {
-    color: #6B7280;
-    font-size: 0.9rem;
-}
-
-.commande-details {
-    margin-bottom: 1rem;
-}
-
-.commande-details p {
-    margin: 0.5rem 0;
-    color: #374151;
-}
-
-.statut-badge {
-    display: inline-block;
-    padding: 0.3rem 0.8rem;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-top: 0.5rem;
-}
-
-.statut-livree {
-    background-color: #D5F4E6;
-    color: #065F46;
-}
-
-.statut-preparation {
-    background-color: #FEF3C7;
-    color: #92400E;
-}
-
-.statut-livraison {
-    background-color: #DBEAFE;
-    color: #1E40AF;
-}
-
-.btn-details {
-    width: auto;
-    padding: 0.5rem 1.5rem;
-    background-color: #3B82F6;
-    color: #FFFFFF;
+    padding: 12px;
     border: none;
-    border-radius: 4px;
+    border-radius: var(--borderradius);
+    font-size: 16px;
+}
+
+.conteneur-recherche button {
+    padding: 12px 20px;
+    background: white;
+    color: var(--couleur-bleu);
+    border: none;
     cursor: pointer;
-    font-size: 0.9rem;
-    transition: background-color 0.3s;
+    border-radius: var(--borderradius);
+    font-size: 18px;
 }
 
-.btn-details:hover {
-    background-color: #2563EB;
+.conteneur-recherche button:hover {
+    background-color: #f0f0f0;
 }
 
-/* ===================================
-   RESPONSIVE
-   =================================== */
+/* Layout principal */
+.conteneur-principal {
+    display: grid;
+    grid-template-columns: 250px 1fr; 
+    gap: 20px;
+    padding: 20px;
+    max-width: 1400px;
+    margin: 0 auto;
+}
 
+/* Panneau de filtres */
+.filtres {
+    background: white;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: var(--borderradius);
+}
+
+.filtres h3 {
+    color: var(--couleur-bleu);
+    font-size: 1.4em;
+    margin-bottom: 20px;
+    margin-top: 0;
+}
+
+.groupe-filtre {
+    margin-bottom: 20px;
+}
+
+.groupe-filtre h4 {
+    color: #333;
+    margin-bottom: 10px;
+    font-size: 1em;
+}
+
+.groupe-filtre label {
+    display: block;
+    margin-bottom: 8px;
+    cursor: pointer;
+    color: #666;
+}
+
+.groupe-filtre input[type="checkbox"] {
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Bouton réinitialiser */
+.bouton-reinitialiser {
+    width: 100%;
+    padding: 12px;
+    background-color: var(--couleur-bleu);
+    color: white;
+    border: none;
+    border-radius: var(--borderradius);
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+.bouton-reinitialiser:hover {
+    background-color: var(--couleur-bleu-fonce);
+}
+
+/* Grille de produits */
+.grille-produits {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+/* Carte produit */
+.carte-produit {
+    background: white;
+    border: 1px solid #ddd;
+    border-radius: var(--borderradius);
+    overflow: hidden;
+}
+
+/* Image produit */
+.image-produit {
+    height: 180px;
+    width: 100%;
+    object-fit: cover;    /* recadre l'image sans la déformer */
+    display: block;
+    background-color: #e2e8f0;  /* couleur si l'image ne charge pas */
+}
+
+
+/* Infos produit */
+.infos-produit {
+    padding: 15px;
+}
+
+.categorie {
+    background-color: var(--couleur-bleu);
+    color: white;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: bold;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.infos-produit h3 {
+    color: #333;
+    font-size: 1.2em;
+    margin: 0 0 10px 0;
+}
+
+.description {
+    color: #666;
+    font-size: 0.9em;
+    margin-bottom: 12px;
+}
+
+.prix {
+    color: var(--couleur-bleu);
+    font-size: 1.4em;
+    font-weight: bold;
+}
+
+/* Responsive mobile */
 @media (max-width: 768px) {
-    .form-container {
-        padding: 1.5rem;
+    .conteneur-principal {
+        grid-template-columns: 1fr;
     }
-
+    
     header h1 {
-        font-size: 1.5rem;
-    }
-
-    nav a {
-        display: block;
-        margin: 0.5rem 0;
+        font-size: 1.5em;
     }
     
-    .info-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .fidelite-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .commande-header {
+    .navigation {
         flex-direction: column;
-        gap: 0.5rem;
+        gap: 10px;
+    }
+    
+    .navigation a {
+        display: block;
     }
 }
