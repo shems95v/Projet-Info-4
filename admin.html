@@ -13,7 +13,7 @@
             <ul>
                 <li><a href="#">Tableau de bord</a></li>
                 <li class="actif"><a href="#">Utilisateurs</a></li>
-                <li><a href="#">Commandes</a></li>
+                <li><a href="commandes.html">Commandes</a></li>
                 <li><a href="#">Produits</a></li>
                 <li><a href="#">Paramètres</a></li>
             </ul>
@@ -26,6 +26,8 @@
                     <button class="btn actif">Tous</button>
                     <button class="btn">Avec commandes</button>
                     <button class="btn">Nouveaux</button>
+                    <button class="btn">Restaurateurs</button>
+                    <button class="btn">Livreurs</button>
                 </div>
             </header>
 
@@ -33,37 +35,82 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>
+                            <th>ID</th>     
                             <th>Utilisateur</th>
                             <th>Email</th>
+                            <th>Rôle</th>
                             <th>Commandes</th>
                             <th>Statut</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <!-- Clients existants -->
                         <tr>
                             <td>#001</td>
-                            <td><strong>Jean Dupont</strong></td>
-                            <td>jean@example.com</td>
+                            <td><strong>Maxime VALLET</strong></td>
+                            <td>maxime@example.com</td>
+                            <td><span class="badge">👤 Client</span></td>
                             <td>5</td>
                             <td><span class="badge actif">Client Fidèle</span></td>
                             <td><button class="btn-modifier">Modifier</button></td>
                         </tr>
                         <tr>
                             <td>#002</td>
-                            <td><strong>Marie Curie</strong></td>
-                            <td>marie@lab.fr</td>
+                            <td><strong>Kenzo HAMON</strong></td>
+                            <td>kenzo@lab.fr</td>
+                            <td><span class="badge">👤 Client</span></td>
                             <td>0</td>
                             <td><span class="badge">Inscrit</span></td>
                             <td><button class="btn-modifier">Modifier</button></td>
                         </tr>
                         <tr>
                             <td>#003</td>
-                            <td><strong>Luc Lucas</strong></td>
-                            <td>luc@web.com</td>
+                            <td><strong>Timothée AUBREE</strong></td>
+                            <td>timothee@web.com</td>
+                            <td><span class="badge">👤 Client</span></td>
                             <td>12</td>
                             <td><span class="badge actif">Client Fidèle</span></td>
+                            <td><button class="btn-modifier">Modifier</button></td>
+                        </tr>
+
+                        <!-- Restaurateurs -->
+                        <tr>
+                            <td>#004</td>
+                            <td><strong>Shems BOUDJEBINA</strong></td>
+                            <td>shems.boudjebina@restaurant.fr</td>
+                            <td><span class="badge restaurateur">🍽️ Restaurateur</span></td>
+                            <td>87</td>
+                            <td><span class="badge actif">Actif</span></td>
+                            <td><button class="btn-modifier">Modifier</button></td>
+                        </tr>
+
+                        <!-- Livreurs -->
+                        <tr>
+                            <td>#005</td>
+                            <td><strong>Diego DELVIG</strong></td>
+                            <td>diego.delvig@delivery.fr</td>
+                            <td><span class="badge livreur">🛵 Livreur</span></td>
+                            <td>234</td>
+                            <td><span class="badge actif">En service</span></td>
+                            <td><button class="btn-modifier">Modifier</button></td>
+                        </tr>
+                        <tr>
+                            <td>#006</td>
+                            <td><strong>Mathis LECLERCQ</strong></td>
+                            <td>mathis.leclercq@delivery.fr</td>
+                            <td><span class="badge livreur">🛵 Livreur</span></td>
+                            <td>178</td>
+                            <td><span class="badge actif">En service</span></td>
+                            <td><button class="btn-modifier">Modifier</button></td>
+                        </tr>
+                        <tr>
+                            <td>#007</td>
+                            <td><strong>Youssef CHERIF</strong></td>
+                            <td>y.cherif@delivery.fr</td>
+                            <td><span class="badge livreur">🛵 Livreur</span></td>
+                            <td>56</td>
+                            <td><span class="badge hors-service">Hors service</span></td>
                             <td><button class="btn-modifier">Modifier</button></td>
                         </tr>
                     </tbody>
