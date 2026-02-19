@@ -1,0 +1,78 @@
+:root {
+  --borderradius: 10px;
+  --couleur-bleu: #2563eb;
+  --couleur-bleu-fonce: #1d4ed8;
+  --couleur-blanc: #ffffff;
+  --couleur-texte: #333;
+  --couleur-fond: #f8fafc;
+  --couleur-plat: #60a5fa;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: var(--couleur-fond);
+  color: var(--couleur-texte);
+}
+
+header {
+  background-color: var(--couleur-bleu);
+  color: var(--couleur-blanc);
+  padding: 20px;
+  text-align: center;
+}
+
+main {
+  padding: 20px;
+}
+
+.infos-livraison {
+  background-color: var(--couleur-blanc);
+  padding: 20px;
+  border-radius: var(--borderradius);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.infos-livraison p {
+  margin: 10px 0;
+}
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn {
+  display: block;
+  text-align: center;
+  padding: 15px;
+  background-color: var(--couleur-plat);
+  color: var(--couleur-blanc);
+  text-decoration: none;
+  border-radius: var(--borderradius);
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: var(--couleur-bleu-fonce);
+}
+
+.btn-delivered {
+  background-color: var(--couleur-bleu);
+}
+
+.btn-delivered:hover {
+  background-color: var(--couleur-bleu-fonce);
+}
+
+/* Responsive mobile */
+@media (max-width: 480px) {
+  .infos-livraison, .btn {
+    width: 100%;
+  }
+}
+
