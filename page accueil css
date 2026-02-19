@@ -1,116 +1,207 @@
-body{
+:root {
+    --borderradius: 10px;
+    --couleur-bleu: #2563eb;
+    --couleur-bleu-fonce: #003fec;
+    --couleur-blanc: #ffffff;
+    --couleur-texte: #333;
+    --couleur-fond: #f8fafc;
+    --couleur-plat: #60a5fa;
+}
+.colonne:first-child {
+    flex: 1; /* la première colonne va grandir autant que nécessaire */
+    display: flex;
+    flex-direction: column;
+}
+.colonne:first-child .Lplats {
+  height: 100%;
+}
+.colonne:first-child ul {
+    flex: 1; 
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* centre le plat à l'intérieur */
+}
+
+/* Global */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: #f5f5f5;
+    background-color: #f8fafc;
 }
 
-
-header{
-    background-color: #000;
-    padding: 20px;
-}
-
-
-.menu{
+/* Header */
+header {
+    background-color: var(--couleur-bleu);
+    padding: 30px 20px;
     text-align: center;
-    margin-bottom: 20px;
 }
 
-.menu a{
-    text-decoration: none;
-    border: 2px solid #1a64c5;
-    border-radius: 5px;
-    background-color: #28e2e2;
-    padding: 8px 12px;
-    margin-left: 10px;
-    color: black;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.menu a:hover{
-    background-color: #1a64c5;
+header h1 {
     color: white;
+    font-size: 2em;
+    margin: 0 0 20px 0;
 }
 
-.menu a:last-child{
-    border-color: #165a75;
-    background-color: rgba(110, 130, 219, 0.425);
-}
-
-
-h1{
-    text-align: center;
-    color: #e919aa;
-    margin: 20px 0;
-}
-
-
-form{
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-form input{
-    padding: 8px;
-    width: 200px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-}
-
-form button{
-    padding: 8px 12px;
-    border-radius: 5px;
-    border: none;
-    cursor: pointer;
-}
-
-
-.plats {
+/* Navigation */
+.navigation {
     display: flex;
     justify-content: center;
     gap: 30px;
-    padding: 30px;
-    background-color: #e9ffe0;
+    margin-bottom: 20px;
 }
 
-
-.colonne {
-    width: 250px;
-    border: solid black 1px;
-    border-radius: 10px;
-    background-color: #0e0e94;
-    padding: 15px;
+.navigation a {
     color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
 }
 
+.navigation a:hover {
+    background-color: var(--couleur-bleu-fonce);
+}
 
+/* Formulaire de recherche */
+form {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+/* Barre de recherche */
+.conteneur-recherche {
+    display: flex;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    gap: 10px;
+}
+
+.conteneur-recherche input {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: var(--borderradius);
+    font-size: 16px;
+}
+
+.conteneur-recherche button {
+    padding: 12px 20px;
+    background: white;
+    color: var(--couleur-bleu);
+    border: none;
+    cursor: pointer;
+    border-radius: var(--borderradius);
+    font-size: 18px;
+}
+
+.conteneur-recherche button:hover {
+    background-color: #f0f0f0;
+}
+
+/* Texte de présentation */
+p {
+    max-width: 900px;
+    margin: 20px auto;
+    line-height: 1.6;
+    font-size: 1em;
+}
+
+/* Titres des sections */
+h4 {
+    text-align: center;
+    color: var(--couleur-bleu);
+    margin-bottom: 20px;
+}
+
+/* Section plats */
+.plats {
+    display: flex;
+    align-items: stretch;
+    padding: 20px;
+}
+
+/* Colonnes individuelles */
+.colonne {
+    flex: 1;              /* prend la même largeur */
+    min-width: 250px;
+    border-radius: var(--borderradius);
+    padding: 15px;
+    background-color: var(--couleur-blanc);
+    border: 1px solid #ddd;
+}
+
+/* Titres des colonnes */
+.colonne h3 {
+    color: var(--couleur-bleu);
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+/* Liste des plats */
 ul {
     list-style: none;
     padding: 0;
 }
 
-li{
+li {
     margin-bottom: 15px;
+    text-align: center;
 }
 
 
-.Lplats{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    border: solid black 1px;
-    border-radius: 8px;
-    padding: 20px;
-    background-color: blueviolet;
-    color: white;
+.Lplats {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--borderradius);
+    background-image: url("https://github.com/shems95v/Projet-Info-4/blob/main/katsu-curry.jpg?raw=true");
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: #003fec;
     text-decoration: none;
-    transition: 0.3s;
+}
+.Lplats1 {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--borderradius);
+    background-image: url("https://github.com/shems95v/Projet-Info-4/blob/main/gyozas.jpg?raw=true");
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: var(--couleur-blanc);
+    text-decoration: none;
+}
+.Lplats2 {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--borderradius);
+    background-image: url("https://github.com/shems95v/Projet-Info-4/blob/main/baklava.jpg?raw=true");
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: var(--couleur-blanc);
+    text-decoration: none;
+}
+.Lplats3 {
+    display: block;
+    text-align: center;
+    padding: 15px;
+    border-radius: var(--borderradius);
+    background-image: url("https://github.com/shems95v/Projet-Info-4/blob/main/pastilla.jpg?raw=true");
+    background-size: cover;      
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: var(--couleur-blanc);
+    text-decoration: none;
 }
 
-.Lplats:hover{
-    background-color: darkviolet;
-    
+.Lplats:hover {
+    background-color: var(--couleur-bleu-fonce);
 }
 
 
