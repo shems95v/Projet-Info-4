@@ -8,68 +8,55 @@
 </head>
 <body>
     <header>
-    <nav class="menu">
-    <a href="Projet4.html">Accueil</a>
-    <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html">Menu</a>
-    <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html">contact</a>
-    <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html">s'inscrire</a>
-    </nav>
     <h1>L'Atlas Des Saveurs</h1>
-    <form action="#" method="post">
-        <input type="search" placeholder="rechercher un plat">
-        <button type="submit">🍔</button>
-    </form>
+    <nav class="navigation">
+            <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html">Accueil</a>
+            <a href="file:///home/etu/e-mleclerc4/info3/projet4/menu.html">Menu</a>
+            <a href="#profil">Mon profil</a>
+            <a href="#inscription">Inscription</a>
+            <a href="#connexion">Connexion</a>
+        </nav>
+    
+    <div class="conteneur-recherche">
+            <input type="text" id="barreRecherche" placeholder="Rechercher un plat, une saveur...">
+            <button type="submit">🔍</button>
+        </div>
     </header>
     <p>
-L’Italie, avec Passion.
+Bienvenue à L'Atlas Des Saveurs !
+Plongez dans un voyage culinaire unique au cœur de l’Italie, où chaque plat est préparé avec passion et authenticité. Situé à Vauréal, notre restaurant vous invite à savourer des recettes traditionnelles revisitées avec créativité et soin.
 
-Situé à Vauréal, Carpe Diem vous invite à savourer l’Italie dans un cadre chaleureux et convivial. Fidèle aux traditions culinaires transalpines, le chef vous propose une cuisine authentique et généreuse, qui célèbre la fraîcheur et la qualité des produits.
+Que vous soyez amateur de saveurs italiennes classiques ou curieux de découvrir de nouvelles spécialités, nos plats sont conçus pour éveiller vos sens et ravir vos papilles. Dans une ambiance chaleureuse et conviviale, laissez-vous séduire par la qualité des produits frais, l’attention portée à chaque détail et le sourire de notre équipe.
 
-Dans une ambiance élégante et détendue, laissez-vous séduire par des plats qui font voyager, servis avec le sourire et la passion de l’accueil à l’italienne.
+Venez vivre une expérience culinaire qui allie tradition, générosité et passion. L’Italie n’a jamais été aussi proche… et délicieuse !
 </p>
-<h4>Nos formule :</h4>
-   <div class="plats">
-    <div class="colonne">
-        <h3>Plat du jour</h3>
-        
-        <ul>
-            <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html"  class="Lplats">
-            <li>
-                shems
-                <br>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvIjjTJyMXKf2nJ2e7bRLUz2x2gi4OdZ6r8g&s" width="30">
-            </li>
-            </a>
-        </ul>
-        
-    </div>
+<h4>Nos formules :</h4>
+<div class="plats">
+  <div class="colonne">
+    <h3>Plat du jour</h3>
+    <ul>
+      <li>
+        <a href="#" class="Lplats">
+          <br><br><br><br>katsu-curry<br><br><br><br>
+        </a>
+      </li>
+    </ul>
+  </div>
 
-    <div class="colonne">
-        <h3>Plat souvent commandé</h3>
-        <ul>
-            <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html" class="Lplats">
-            <li>
-                shems
-                <br>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvIjjTJyMXKf2nJ2e7bRLUz2x2gi4OdZ6r8g&s" width="30">
-            </li>
-            </a>
-            <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html"  class="Lplats">
-            <li>
-                shems
-                <br>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvIjjTJyMXKf2nJ2e7bRLUz2x2gi4OdZ6r8g&s" width="30">
-            </li>
-            </a>
-            <a href="file:///home/etu/e-mleclerc4/info3/Projet4.html"  class="Lplats">
-            <li>
-                shems
-                <br>
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvIjjTJyMXKf2nJ2e7bRLUz2x2gi4OdZ6r8g&s" width="30">
-            </li>
-            </a>
-        </ul>
-    </div>
+  <div class="colonne">
+    <h3>Plat souvent commandé</h3>
+    <ul>
+      <li>
+        <a href="#" class="Lplats1"><br>gyozas<br><br></a>
+      </li>
+      <li>
+        <a href="#" class="Lplats2"><br>Baklava<br><br></a>
+      </li>
+      <li>
+        <a href="#" class="Lplats3"><br>pastilla<br><br></a>
+      </li>
+    </ul>
+  </div>
 </div>
 
 </body>
