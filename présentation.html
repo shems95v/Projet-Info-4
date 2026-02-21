@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Gourmand</title>
+    <link rel="stylesheet" href="présentation.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <h1>Menu Gourmand 🍴</h1>
+        
+        <nav class="navigation">
+            <a href="accueil.html">Accueil</a>
+            <a href="#menu">Menu</a>
+            <a href="profil.html">Mon profil</a>
+            <a href="inscription.html">Inscription</a>
+            <a href="connexion.html">Connexion</a>
+        </nav>
+        
+        <div class="conteneur-recherche">
+            <input type="text" id="barreRecherche" placeholder="Rechercher un plat, une saveur...">
+            <button type="submit">🔍</button>
+        </div>
+    </header>
+
+    <div style="flex: 1;">
+    <main class="conteneur-principal">
+        <aside class="filtres">
+            
+            <h3>Filtrer par</h3>
+            
+            <div class="groupe-filtre">
+                <h4>Types de plats</h4>
+                <label><input type="checkbox" name="type" value="entree"> Entrées</label>
+                <label><input type="checkbox" name="type" value="plat"> Plats</label>
+                <label><input type="checkbox" name="type" value="dessert"> Desserts</label>
+            </div>
+
+            <div class="groupe-filtre">
+                <h4>Saveurs</h4>
+                <label><input type="checkbox" name="flavor" value="epice"> Épicé</label>
+                <label><input type="checkbox" name="flavor" value="sucre"> Sucré-Salé</label>
+                <label><input type="checkbox" name="flavor" value="frais"> Frais</label>
+            </div>
+
+            <div class="groupe-filtre">
+                <h4>Allergènes (Sans)</h4>
+                <label><input type="checkbox" name="allergen" value="gluten"> Sans Gluten</label>
+                <label><input type="checkbox" name="allergen" value="lactose"> Sans Lactose</label>
+            </div>
+            
+            <button class="bouton-reinitialiser">Réinitialiser</button>
+        </aside>
+
+        <section class="grille-produits">
+            <article class="carte-produit">
+                <img class="image-produit" src="images/katsu-curry.jpg" alt="Katsu Curry">
+                <div class="infos-produit">
+                    <span class="categorie">Plat Principal</span>
+                    <h3>Katsu Curry</h3>
+                    <p class="description">Saveur : Épicé • Sans Gluten</p>
+                    <div class="prix">14,50 €</div>
+                </div>
+            </article>
+
+            <article class="carte-produit">
+                <img class="image-produit" src="images/gyozas.jpg" alt="Gyozas Maison">
+                <div class="infos-produit">
+                    <span class="categorie">Entrée</span>
+                    <h3>Gyozas Maison</h3>
+                    <p class="description">Saveur : Frais • Sans Lactose</p>
+                    <div class="prix">8,00 €</div>
+                </div>
+            </article>
+
+            <article class="carte-produit">
+                <img class="image-produit" src="images/mochi.jpg" alt="Mochi Glacé Artisanal">
+                <div class="infos-produit">
+                    <span class="categorie">Dessert</span>
+                    <h3>Mochi Glacé Artisanal</h3>
+                    <p class="description">Saveur : Frais • Sans Lactose</p>
+                    <div class="prix">6,50 €</div>
+                </div>
+            </article>
+
+            <article class="carte-produit">
+                <img class="image-produit" src="images/baklava.jpg" alt="Baklava Revisité au Miel et Pistaches">
+                <div class="infos-produit">
+                    <span class="categorie">Dessert</span>
+                    <h3>Baklava Revisité au Miel et Pistaches</h3>
+                    <p class="description">Saveur : Sucré • Sans Lactose</p>
+                    <div class="prix">7,00 €</div>
+                </div>
+            </article>
+
+            <article class="carte-produit">
+                <img class="image-produit" src="images/tres-leches.jpg" alt="Tres Leches au Caramel">
+                <div class="infos-produit">
+                    <span class="categorie">Dessert</span>
+                    <h3>Tres Leches au Caramel</h3>
+                    <p class="description">Saveur : Sucré • Onctueux</p>
+                    <div class="prix">7,50 €</div>
+                </div>
+            </article>
+
+            <article class="carte-produit">
+                <img class="image-produit" src="images/pastilla.jpg" alt="Pastilla Individuelle au Poulet et Amandes">
+                <div class="infos-produit">
+                    <span class="categorie">Entrée</span>
+                    <h3>Pastilla Individuelle au Poulet et Amandes</h3>
+                    <p class="description">Saveur : Sucré-Salé • Épicé</p>
+                    <div class="prix">9,50 €</div>
+                </div>
+            </article>
+
+            <article class="carte-produit">
+                <img class="image-produit" src="images/ceviche.jpg" alt="Ceviche de Crevettes Aguachile">
+                <div class="infos-produit">
+                    <span class="categorie">Entrée</span>
+                    <h3>Ceviche de Crevettes "Aguachile"</h3>
+                    <p class="description">Saveur : Frais • Épicé</p>
+                    <div class="prix">11,00 €</div>
+                </div>
+            </article>
+
+            <article class="carte-produit">
+                <img class="image-produit" src="images/tajine.jpg" alt="Tajine d'Agneau aux Pruneaux et Amandes">
+                <div class="infos-produit">
+                    <span class="categorie">Plat Principal</span>
+                    <h3>Tajine d'Agneau aux Pruneaux et Amandes</h3>
+                    <p class="description">Saveur : Sucré-Salé • Sans Gluten</p>
+                    <div class="prix">16,50 €</div>
+                </div>
+            </article>
+
+            <article class="carte-produit">
+                <img class="image-produit" src="images/risotto.jpg" alt="Risotto aux Champignons Sauvages">
+                <div class="infos-produit">
+                    <span class="categorie">Plat Principal</span>
+                    <h3>Risotto aux Champignons Sauvages et Huile de Truffe</h3>
+                    <p class="description">Saveur : Raffiné • Végétarien</p>
+                    <div class="prix">15,00 €</div>
+                </div>
+            </article>
+        </section>
+    </main>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 L'Atlas Des Saveurs — Tous droits réservés</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mon Profil - Atlas des Saveurs</title>
+    <link rel="stylesheet" href="profil.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1>🍽️ Atlas des Saveurs</h1>
+        <nav>
+            <a href="accueil.html">Accueil</a>
+            <a href="présentation.html">Menu</a>
+            <a href="profil.html">Mon Profil</a>
+            <a href="connexion.html">Déconnexion</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="profil-container">
+            <h2>Mon Profil</h2>
+
+            <!-- Section Informations Personnelles -->
+            <section class="profil-section">
+                <h3>
+                    📋 Informations personnelles
+                    <span class="edit-icon" onclick="toggleEditMode('info-perso')" title="Modifier">✏️</span>
+                </h3>
+
+                <!-- Mode Affichage -->
+                <div id="info-perso-display">
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <strong>Nom :</strong>
+                            <span id="display-nom">Dupont</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Prénom :</strong>
+                            <span id="display-prenom">Jean</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Email :</strong>
+                            <span id="display-email">jean.dupont@email.com</span>
+                        </div>
+                        <div class="info-item">
+                            <strong>Téléphone :</strong>
+                            <span id="display-telephone">0612345678</span>
+                        </div>
+                        <div class="info-item full-width">
+                            <strong>Adresse :</strong>
+                            <span id="display-adresse">12 rue de la République, 75001 Paris</span>
+                        </div>
+                        <div class="info-item full-width">
+                            <strong>Informations complémentaires :</strong>
+                            <span id="display-commentaires">Allergique aux fruits de mer.</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mode Édition (caché par défaut) -->
+                <div id="info-perso-edit" style="display: none;">
+                    <form>
+                        <div class="form-group">
+                            <label for="edit-nom">Nom <span class="required">*</span></label>
+                            <input type="text" id="edit-nom" value="Dupont" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-prenom">Prénom <span class="required">*</span></label>
+                            <input type="text" id="edit-prenom" value="Jean" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-email">Email <span class="required">*</span></label>
+                            <input type="email" id="edit-email" value="jean.dupont@email.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-telephone">Téléphone <span class="required">*</span></label>
+                            <input type="tel" id="edit-telephone" value="0612345678" pattern="[0-9]{10}" maxlength="10" required>
+                            <small>10 chiffres sans espaces</small>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-adresse">Adresse <span class="required">*</span></label>
+                            <input type="text" id="edit-adresse" value="12 rue de la République, 75001 Paris" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="edit-commentaires">Informations complémentaires</label>
+                            <textarea id="edit-commentaires" rows="3">Allergique aux fruits de mer.</textarea>
+                        </div>
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary" onclick="cancelEdit('info-perso')">Annuler</button>
+                            <button type="button" class="btn" onclick="saveEdit('info-perso')">Enregistrer</button>
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <!-- Section Commandes -->
+            <section class="profil-section">
+                <h3>📦 Mes commandes</h3>
+                <div class="commandes-list">
+
+                    <div class="commande-card">
+                        <div class="commande-header">
+                            <span class="commande-numero">Commande #12345</span>
+                            <span class="commande-date">28/01/2024</span>
+                        </div>
+                        <div class="commande-details">
+                            <p><strong>Articles :</strong> Pizza Margherita x1, Tiramisu x2</p>
+                            <p><strong>Montant :</strong> 32,50 €</p>
+                            <span class="statut-badge statut-livree">✓ Livrée</span>
+                        </div>
+                    </div>
+
+                    <div class="commande-card">
+                        <div class="commande-header">
+                            <span class="commande-numero">Commande #12344</span>
+                            <span class="commande-date">15/01/2024</span>
+                        </div>
+                        <div class="commande-details">
+                            <p><strong>Articles :</strong> Burger Végétarien x2, Frites x2</p>
+                            <p><strong>Montant :</strong> 28,00 €</p>
+                            <span class="statut-badge statut-livree">✓ Livrée</span>
+                        </div>
+                    </div>
+
+                    <div class="commande-card">
+                        <div class="commande-header">
+                            <span class="commande-numero">Commande #12343</span>
+                            <span class="commande-date">02/01/2024</span>
+                        </div>
+                        <div class="commande-details">
+                            <p><strong>Articles :</strong> Sushi Mix x1, Soupe Miso x1</p>
+                            <p><strong>Montant :</strong> 45,00 €</p>
+                            <span class="statut-badge statut-livree">✓ Livrée</span>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 Atlas des Saveurs - Tous droits réservés</p>
+    </footer>
+
+    <script>
+        /* Bascule entre le mode affichage et le mode édition */
+        function toggleEditMode(section) {
+            document.getElementById(section + '-display').style.display = 'none';
+            document.getElementById(section + '-edit').style.display = 'block';
+        }
+
+        /* Annule l'édition et revient au mode affichage */
+        function cancelEdit(section) {
+            document.getElementById(section + '-display').style.display = 'block';
+            document.getElementById(section + '-edit').style.display = 'none';
+        }
+
+        /* Sauvegarde les modifications et met à jour l'affichage */
+        function saveEdit(section) {
+            document.getElementById('display-nom').textContent          = document.getElementById('edit-nom').value;
+            document.getElementById('display-prenom').textContent       = document.getElementById('edit-prenom').value;
+            document.getElementById('display-email').textContent        = document.getElementById('edit-email').value;
+            document.getElementById('display-telephone').textContent    = document.getElementById('edit-telephone').value;
+            document.getElementById('display-adresse').textContent      = document.getElementById('edit-adresse').value;
+            document.getElementById('display-commentaires').textContent = document.getElementById('edit-commentaires').value;
+
+            cancelEdit(section);
+        }
+    </script>
+</body>
+</html>
