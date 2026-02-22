@@ -8,6 +8,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
+    <!-- header du site -->
     <header>
         <h1>🍽️ Atlas des Saveurs</h1>
         <nav>
@@ -22,82 +24,45 @@
         <div class="profil-container">
             <h2>Mon Profil</h2>
 
-            <!-- Section Informations Personnelles -->
+            <!-- informations personnelles -->
             <section class="profil-section">
                 <h3>
                     📋 Informations personnelles
-                    <span class="edit-icon" onclick="toggleEditMode('info-perso')" title="Modifier">✏️</span>
+                    <span class="edit-icon" title="Modifier">✏️</span>
                 </h3>
 
-                <!-- Mode Affichage -->
-                <div id="info-perso-display">
-                    <div class="info-grid">
-                        <div class="info-item">
-                            <strong>Nom :</strong>
-                            <span id="display-nom">Dupont</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Prénom :</strong>
-                            <span id="display-prenom">Jean</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Email :</strong>
-                            <span id="display-email">jean.dupont@email.com</span>
-                        </div>
-                        <div class="info-item">
-                            <strong>Téléphone :</strong>
-                            <span id="display-telephone">0612345678</span>
-                        </div>
-                        <div class="info-item full-width">
-                            <strong>Adresse :</strong>
-                            <span id="display-adresse">12 rue de la République, 75001 Paris</span>
-                        </div>
-                        <div class="info-item full-width">
-                            <strong>Informations complémentaires :</strong>
-                            <span id="display-commentaires">Allergique aux fruits de mer.</span>
-                        </div>
+                <div class="info-grid">
+                    <div class="info-item">
+                        <strong>Nom :</strong>
+                        <span>Dupont</span>
                     </div>
-                </div>
-
-                <!-- Mode Édition (caché par défaut) -->
-                <div id="info-perso-edit" style="display: none;">
-                    <form>
-                        <div class="form-group">
-                            <label for="edit-nom">Nom <span class="required">*</span></label>
-                            <input type="text" id="edit-nom" value="Dupont" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="edit-prenom">Prénom <span class="required">*</span></label>
-                            <input type="text" id="edit-prenom" value="Jean" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="edit-email">Email <span class="required">*</span></label>
-                            <input type="email" id="edit-email" value="jean.dupont@email.com" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="edit-telephone">Téléphone <span class="required">*</span></label>
-                            <input type="tel" id="edit-telephone" value="0612345678" pattern="[0-9]{10}" maxlength="10" required>
-                            <small>10 chiffres sans espaces</small>
-                        </div>
-                        <div class="form-group">
-                            <label for="edit-adresse">Adresse <span class="required">*</span></label>
-                            <input type="text" id="edit-adresse" value="12 rue de la République, 75001 Paris" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="edit-commentaires">Informations complémentaires</label>
-                            <textarea id="edit-commentaires" rows="3">Allergique aux fruits de mer.</textarea>
-                        </div>
-                        <div class="form-actions">
-                            <button type="button" class="btn btn-secondary" onclick="cancelEdit('info-perso')">Annuler</button>
-                            <button type="button" class="btn" onclick="saveEdit('info-perso')">Enregistrer</button>
-                        </div>
-                    </form>
+                    <div class="info-item">
+                        <strong>Prénom :</strong>
+                        <span>Jean</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Email :</strong>
+                        <span>jean.dupont@email.com</span>
+                    </div>
+                    <div class="info-item">
+                        <strong>Téléphone :</strong>
+                        <span>0612345678</span>
+                    </div>
+                    <div class="info-item full-width">
+                        <strong>Adresse :</strong>
+                        <span>12 rue de la République, 75001 Paris</span>
+                    </div>
+                    <div class="info-item full-width">
+                        <strong>Informations complémentaires :</strong>
+                        <span>Allergique aux fruits de mer.</span>
+                    </div>
                 </div>
             </section>
 
-            <!-- Section Commandes -->
+            <!-- section commandes -->
             <section class="profil-section">
                 <h3>📦 Mes commandes</h3>
+
                 <div class="commandes-list">
 
                     <div class="commande-card">
@@ -138,6 +103,83 @@
 
                 </div>
             </section>
+
+            <!-- section compte fidelite -->
+            <section class="profil-section">
+                <h3>⭐ Mon compte fidélité</h3>
+
+                <!-- niveau actuel -->
+                <div class="fidelite-niveau">
+                    <p class="niveau-titre">🥈 Niveau Argent</p>
+                    <p>Vous bénéficiez de <strong>5% de réduction</strong> sur toutes vos commandes et d'une livraison offerte à partir de 25 €.</p>
+                </div>
+
+                <!-- points et progression -->
+                <div class="fidelite-points">
+                    <p><strong>Vos points :</strong> 320 / 500 pour atteindre le niveau 🥇 Or</p>
+                    <div class="barre-fond">
+                        <div class="barre-remplie"></div>
+                    </div>
+                    <p class="texte-progression">Il vous manque 180 points pour passer au niveau supérieur.</p>
+                </div>
+
+                <!-- avantages -->
+                <div class="fidelite-avantages">
+                    <h4>Vos avantages actuels :</h4>
+                    <div class="avantages-liste">
+                        <div class="avantage-item">
+                            <span>🚚</span>
+                            <p>Livraison offerte dès 25 €</p>
+                        </div>
+                        <div class="avantage-item">
+                            <span>🏷️</span>
+                            <p>5% de réduction permanente</p>
+                        </div>
+                        <div class="avantage-item">
+                            <span>🎂</span>
+                            <p>Dessert offert pour votre anniversaire</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- historique points -->
+                <div class="fidelite-historique">
+                    <h4>Historique des points :</h4>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Date</th>
+                                <th>Description</th>
+                                <th>Points</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>28/01/2024</td>
+                                <td>Commande #12345 – Pizza Margherita, Tiramisu x2</td>
+                                <td class="points-plus">+ 33 pts</td>
+                            </tr>
+                            <tr>
+                                <td>15/01/2024</td>
+                                <td>Commande #12344 – Burger Végétarien x2, Frites x2</td>
+                                <td class="points-plus">+ 28 pts</td>
+                            </tr>
+                            <tr>
+                                <td>02/01/2024</td>
+                                <td>Commande #12343 – Sushi Mix, Soupe Miso</td>
+                                <td class="points-plus">+ 45 pts</td>
+                            </tr>
+                            <tr>
+                                <td>20/12/2023</td>
+                                <td>Bon de réduction utilisé (–10 €)</td>
+                                <td class="points-moins">− 100 pts</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+            </section>
+
         </div>
     </main>
 
@@ -145,30 +187,5 @@
         <p>&copy; 2026 Atlas des Saveurs - Tous droits réservés</p>
     </footer>
 
-    <script>
-        /* Bascule entre le mode affichage et le mode édition */
-        function toggleEditMode(section) {
-            document.getElementById(section + '-display').style.display = 'none';
-            document.getElementById(section + '-edit').style.display = 'block';
-        }
-
-        /* Annule l'édition et revient au mode affichage */
-        function cancelEdit(section) {
-            document.getElementById(section + '-display').style.display = 'block';
-            document.getElementById(section + '-edit').style.display = 'none';
-        }
-
-        /* Sauvegarde les modifications et met à jour l'affichage */
-        function saveEdit(section) {
-            document.getElementById('display-nom').textContent          = document.getElementById('edit-nom').value;
-            document.getElementById('display-prenom').textContent       = document.getElementById('edit-prenom').value;
-            document.getElementById('display-email').textContent        = document.getElementById('edit-email').value;
-            document.getElementById('display-telephone').textContent    = document.getElementById('edit-telephone').value;
-            document.getElementById('display-adresse').textContent      = document.getElementById('edit-adresse').value;
-            document.getElementById('display-commentaires').textContent = document.getElementById('edit-commentaires').value;
-
-            cancelEdit(section);
-        }
-    </script>
 </body>
 </html>
