@@ -5,9 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Panneau Admin - Gestion Utilisateurs</title>
     <link rel="stylesheet" href="admin.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+
     <div class="conteneur-admin">
+
+        <!-- Barre de navigation latérale -->
         <nav class="barre-laterale">
             <h2>AdminShop</h2>
             <ul>
@@ -19,15 +23,17 @@
             </ul>
         </nav>
 
+        <!-- Contenu principal -->
         <main class="contenu-principal">
+
             <header>
                 <h1>Liste des Utilisateurs</h1>
                 <div class="filtres">
-                    <button class="btn actif">Tous</button>
-                    <button class="btn">Avec commandes</button>
-                    <button class="btn">Nouveaux</button>
-                    <button class="btn">Restaurateurs</button>
-                    <button class="btn">Livreurs</button>
+                    <button class="bouton actif">Tous</button>
+                    <button class="bouton">Avec commandes</button>
+                    <button class="bouton">Nouveaux</button>
+                    <button class="bouton">Restaurateurs</button>
+                    <button class="bouton">Livreurs</button>
                 </div>
             </header>
 
@@ -35,7 +41,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>ID</th>     
+                            <th>ID</th>
                             <th>Utilisateur</th>
                             <th>Email</th>
                             <th>Rôle</th>
@@ -45,7 +51,8 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <!-- Clients existants -->
+
+                        <!-- Clients -->
                         <tr>
                             <td>#001</td>
                             <td><strong>Maxime VALLET</strong></td>
@@ -53,7 +60,7 @@
                             <td><span class="badge">👤 Client</span></td>
                             <td>5</td>
                             <td><span class="badge actif">Client Fidèle</span></td>
-                            <td><button class="btn-modifier">Modifier</button></td>
+                            <td><button class="bouton-modifier">Modifier</button></td>
                         </tr>
                         <tr>
                             <td>#002</td>
@@ -62,7 +69,7 @@
                             <td><span class="badge">👤 Client</span></td>
                             <td>0</td>
                             <td><span class="badge">Inscrit</span></td>
-                            <td><button class="btn-modifier">Modifier</button></td>
+                            <td><button class="bouton-modifier">Modifier</button></td>
                         </tr>
                         <tr>
                             <td>#003</td>
@@ -71,7 +78,7 @@
                             <td><span class="badge">👤 Client</span></td>
                             <td>12</td>
                             <td><span class="badge actif">Client Fidèle</span></td>
-                            <td><button class="btn-modifier">Modifier</button></td>
+                            <td><button class="bouton-modifier">Modifier</button></td>
                         </tr>
 
                         <!-- Restaurateurs -->
@@ -82,7 +89,7 @@
                             <td><span class="badge restaurateur">🍽️ Restaurateur</span></td>
                             <td>87</td>
                             <td><span class="badge actif">Actif</span></td>
-                            <td><button class="btn-modifier">Modifier</button></td>
+                            <td><button class="bouton-modifier">Modifier</button></td>
                         </tr>
 
                         <!-- Livreurs -->
@@ -93,7 +100,7 @@
                             <td><span class="badge livreur">🛵 Livreur</span></td>
                             <td>234</td>
                             <td><span class="badge actif">En service</span></td>
-                            <td><button class="btn-modifier">Modifier</button></td>
+                            <td><button class="bouton-modifier">Modifier</button></td>
                         </tr>
                         <tr>
                             <td>#006</td>
@@ -102,7 +109,7 @@
                             <td><span class="badge livreur">🛵 Livreur</span></td>
                             <td>178</td>
                             <td><span class="badge actif">En service</span></td>
-                            <td><button class="btn-modifier">Modifier</button></td>
+                            <td><button class="bouton-modifier">Modifier</button></td>
                         </tr>
                         <tr>
                             <td>#007</td>
@@ -111,12 +118,15 @@
                             <td><span class="badge livreur">🛵 Livreur</span></td>
                             <td>56</td>
                             <td><span class="badge hors-service">Hors service</span></td>
-                            <td><button class="btn-modifier">Modifier</button></td>
+                            <td><button class="bouton-modifier">Modifier</button></td>
                         </tr>
+
                     </tbody>
                 </table>
             </section>
+
         </main>
     </div>
+
 </body>
 </html>

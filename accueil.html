@@ -9,8 +9,9 @@
 </head>
 <body>
 
+    <!-- header avec nav et barre de recherche -->
     <header>
-        <h1>🍽️ Atlas des Saveurs</h1>
+        <h1>L'Atlas Des Saveurs</h1>
         <nav class="navigation">
             <a href="accueil.html">Accueil</a>
             <a href="présentation.html">Menu</a>
@@ -19,7 +20,7 @@
             <a href="connexion.html">Connexion</a>
         </nav>
         <div class="conteneur-recherche">
-            <input type="text" id="barreRecherche" placeholder="Rechercher un plat, une saveur...">
+            <input type="text" placeholder="Rechercher un plat, une saveur...">
             <button type="button">🔍</button>
         </div>
     </header>
@@ -27,18 +28,20 @@
     <main>
 
         <p class="intro">
-            Bienvenue à <strong>L'Atlas Des Saveurs</strong> ! Plongez dans un voyage culinaire unique où chaque plat est préparé avec passion et authenticité. Que vous soyez amateur de saveurs classiques ou curieux de découvrir de nouvelles spécialités, nos plats sont conçus pour éveiller vos sens et ravir vos papilles.
+            Bienvenue à <strong>L'Atlas Des Saveurs</strong> ! Plongez dans un voyage culinaire unique où chaque plat est préparé avec passion et authenticité. Nos plats sont conçus pour éveiller vos sens et ravir vos papilles.
         </p>
 
         <h4>Nos formules</h4>
 
+        <!-- les deux colonnes de plats -->
         <div class="plats">
 
+            <!-- colonne gauche : plat du jour -->
             <div class="colonne">
                 <h3>Plat du jour</h3>
                 <ul>
                     <li>
-                        <a href="#" class="Lplats">
+                        <a href="#" class="carte-plat carte-plat-grande carte-plat-katsu">
                             <span class="nom-plat">Katsu Curry</span>
                             <span class="prix-plat">14,50 €</span>
                         </a>
@@ -46,23 +49,24 @@
                 </ul>
             </div>
 
+            <!-- colonne droite : plats populaires -->
             <div class="colonne">
                 <h3>Souvent commandés</h3>
                 <ul>
                     <li>
-                        <a href="#" class="Lplats1">
+                        <a href="#" class="carte-plat carte-plat-gyozas">
                             <span class="nom-plat">Gyozas Maison</span>
                             <span class="prix-plat">8,00 €</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="Lplats2">
+                        <a href="#" class="carte-plat carte-plat-baklava">
                             <span class="nom-plat">Baklava au Miel</span>
                             <span class="prix-plat">7,00 €</span>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="Lplats3">
+                        <a href="#" class="carte-plat carte-plat-pastilla">
                             <span class="nom-plat">Pastilla au Poulet</span>
                             <span class="prix-plat">9,50 €</span>
                         </a>
@@ -72,6 +76,7 @@
 
         </div>
 
+        <!-- bouton vers la page menu complète -->
         <div class="voir-menu">
             <a href="présentation.html">Voir tout le menu →</a>
         </div>

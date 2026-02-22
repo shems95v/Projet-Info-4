@@ -1,4 +1,3 @@
-/* Global Styles */
 * {
     margin: 0;
     padding: 0;
@@ -6,40 +5,36 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     background-color: #f4f4f9;
     color: #333;
 }
 
-.container {
+/* ===== MISE EN PAGE ===== */
+.conteneur {
     width: 80%;
     margin: 0 auto;
     padding: 20px;
 }
 
-/* Header */
+/* ===== HEADER ===== */
 header {
     text-align: center;
     margin-bottom: 30px;
 }
 
-h1 {
-    font-size: 2.5rem;
-    color: #333;
-}
-
-/* Section des commandes */
-.orders-section {
+/* ===== SECTIONS ===== */
+.section-commandes {
     margin-bottom: 40px;
 }
 
-.orders-section h2 {
+.section-commandes h2 {
     font-size: 1.8rem;
     margin-bottom: 20px;
 }
 
-/* Card des commandes */
-.order-card {
+/* ===== CARTES ===== */
+.carte-commande {
     background-color: #fff;
     padding: 20px;
     margin-bottom: 15px;
@@ -47,12 +42,16 @@ h1 {
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-.order-card p {
+.carte-commande p {
     margin-bottom: 10px;
 }
 
-.order-card button {
-    background-color: #4CAF50;
+/* bordure statut */
+.en-attente  { border-left: 5px solid #FFEB3B; }
+.en-livraison { border-left: 5px solid #2196F3; }
+
+/* ===== BOUTONS ===== */
+.carte-commande button {
     color: #fff;
     border: none;
     padding: 10px 20px;
@@ -61,34 +60,30 @@ h1 {
     transition: background-color 0.3s;
 }
 
-.order-card button:hover {
+.passer-livraison {
+    background-color: #4CAF50;
+}
+
+.passer-livraison:hover {
     background-color: #45a049;
 }
 
-/* Statuts spécifiques */
-.pending {
-    border-left: 5px solid #FFEB3B; /* Jaune pour en attente */
+.marquer-livree {
+    background-color: #8BC34A;
 }
 
-.delivering {
-    border-left: 5px solid #2196F3; /* Bleu pour en livraison */
-}
-
-.mark-delivered {
-    background-color: #8BC34A; /* Vert pour marquer livrée */
-}
-
-.mark-delivered:hover {
+.marquer-livree:hover {
     background-color: #7cb342;
 }
 
-/* Responsivité */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    .container {
+    .conteneur {
         width: 100%;
     }
+}
 
-    .order-card {
-        padding: 15px;
-    }
+/* ===== POLICES TITRES ===== */
+h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
 }

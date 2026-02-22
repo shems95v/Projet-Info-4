@@ -2,23 +2,23 @@
     --couleur-primaire: #2c3e50;
     --couleur-accent: #3498db;
     --couleur-fond: #f4f7f6;
-    --couleur-texte: #333;
     --blanc: #ffffff;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     margin: 0;
     background-color: var(--couleur-fond);
-    color: var(--couleur-texte);
+    color: #333;
 }
 
+/* ===== MISE EN PAGE ===== */
 .conteneur-admin {
     display: flex;
     min-height: 100vh;
 }
 
-/* Barre Latérale */
+/* ===== BARRE LATERALE ===== */
 .barre-laterale {
     width: 250px;
     background-color: var(--couleur-primaire);
@@ -38,7 +38,7 @@ body {
 
 .barre-laterale li {
     padding: 15px;
-    border-bottom: 1px solid rgba(255,255,255,0.1);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .barre-laterale li.actif {
@@ -51,7 +51,7 @@ body {
     text-decoration: none;
 }
 
-/* Contenu Principal */
+/* ===== CONTENU PRINCIPAL ===== */
 .contenu-principal {
     flex: 1;
     padding: 40px;
@@ -64,7 +64,8 @@ header {
     margin-bottom: 30px;
 }
 
-.filtres .btn {
+/* ===== BOUTONS FILTRES ===== */
+.filtres .bouton {
     padding: 8px 16px;
     margin-left: 10px;
     border: 1px solid #ccc;
@@ -74,23 +75,23 @@ header {
     transition: 0.2s;
 }
 
-.filtres .btn:hover {
+.filtres .bouton:hover {
     border-color: var(--couleur-accent);
     color: var(--couleur-accent);
 }
 
-.filtres .btn.actif {
+.filtres .bouton.actif {
     background: var(--couleur-accent);
     color: white;
     border-color: var(--couleur-accent);
 }
 
-/* Style du Tableau */
+/* ===== TABLEAU ===== */
 .conteneur-tableau {
     background: var(--blanc);
     padding: 20px;
     border-radius: 8px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 table {
@@ -115,7 +116,7 @@ tr:hover td {
     background-color: #f9fbff;
 }
 
-/* Badges - Base */
+/* ===== BADGES ===== */
 .badge {
     padding: 5px 10px;
     border-radius: 12px;
@@ -125,32 +126,28 @@ tr:hover td {
     white-space: nowrap;
 }
 
-/* Badge - Client Fidèle / Actif / En service */
 .badge.actif {
     background: #d4edda;
     color: #155724;
 }
 
-/* Badge - Restaurateur */
 .badge.restaurateur {
     background: #fff3cd;
     color: #856404;
 }
 
-/* Badge - Livreur (rôle) */
 .badge.livreur {
     background: #d1ecf1;
     color: #0c5460;
 }
 
-/* Badge - Hors service */
 .badge.hors-service {
     background: #f8d7da;
     color: #721c24;
 }
 
-/* Boutons */
-.btn-modifier {
+/* ===== BOUTON MODIFIER ===== */
+.bouton-modifier {
     background: none;
     border: 1px solid var(--couleur-accent);
     color: var(--couleur-accent);
@@ -160,7 +157,12 @@ tr:hover td {
     transition: 0.3s;
 }
 
-.btn-modifier:hover {
+.bouton-modifier:hover {
     background: var(--couleur-accent);
     color: white;
+}
+
+/* ===== POLICES TITRES ===== */
+h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
 }

@@ -1,4 +1,3 @@
-
 :root {
     --borderradius: 10px;
     --couleur-bleu: #2563eb;
@@ -6,7 +5,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     margin: 0;
     background-color: #f8fafc;
     min-height: 100vh;
@@ -14,6 +13,7 @@ body {
     flex-direction: column;
 }
 
+/* ===== HEADER ===== */
 header {
     background-color: var(--couleur-bleu);
     padding: 30px 20px;
@@ -23,7 +23,7 @@ header {
 header h1 {
     color: white;
     font-size: 2em;
-    margin: 0 0 20px 0;
+    margin-bottom: 20px;
 }
 
 nav {
@@ -45,6 +45,7 @@ nav a:hover {
     background-color: var(--couleur-bleu-fonce);
 }
 
+/* ===== FORMULAIRE ===== */
 main {
     flex: 1;
     display: flex;
@@ -53,7 +54,7 @@ main {
     padding: 40px 20px;
 }
 
-.form-container {
+.conteneur-formulaire {
     background: white;
     padding: 40px;
     border-radius: var(--borderradius);
@@ -62,29 +63,28 @@ main {
     max-width: 450px;
 }
 
-.form-container h2 {
+.conteneur-formulaire h2 {
     color: var(--couleur-bleu);
     font-size: 1.8em;
-    margin: 0 0 30px 0;
+    margin-bottom: 30px;
     text-align: center;
 }
 
-.form-group {
+.groupe-formulaire {
     margin-bottom: 20px;
 }
 
-.form-group label {
+.groupe-formulaire label {
     display: block;
-    color: #333;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-.required {
+.obligatoire {
     color: #ef4444;
 }
 
-.form-group input {
+.groupe-formulaire input {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
@@ -93,12 +93,12 @@ main {
     box-sizing: border-box;
 }
 
-.form-group input:focus {
+.groupe-formulaire input:focus {
     outline: none;
     border-color: var(--couleur-bleu);
 }
 
-.form-group button {
+.groupe-formulaire button {
     width: 100%;
     padding: 14px;
     background-color: var(--couleur-bleu);
@@ -110,44 +110,41 @@ main {
     cursor: pointer;
 }
 
-.form-group button:hover {
+.groupe-formulaire button:hover {
     background-color: var(--couleur-bleu-fonce);
 }
 
-.form-links {
+.liens-formulaire {
     text-align: center;
     margin-top: 20px;
 }
 
-.form-links a {
+.liens-formulaire a {
     color: var(--couleur-bleu);
     text-decoration: none;
     font-weight: bold;
 }
 
-.form-links a:hover {
+.liens-formulaire a:hover {
     text-decoration: underline;
 }
 
+/* ===== FOOTER ===== */
 footer {
     background-color: var(--couleur-bleu);
     color: white;
     text-align: center;
     padding: 10px;
-    margin-top: auto;
 }
 
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
-    header h1 {
-        font-size: 1.5em;
-    }
-    
-    nav {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .form-container {
-        padding: 30px 20px;
-    }
+    header h1 { font-size: 1.5em; }
+    nav { flex-direction: column; gap: 10px; }
+    .conteneur-formulaire { padding: 30px 20px; }
+}
+
+/* ===== POLICES TITRES ===== */
+h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
 }
