@@ -8,8 +8,9 @@
   --couleur-plat: #60a5fa;
 }
 
+/* style général */
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'DM Sans', Arial, sans-serif;
   margin: 0;
   background-color: var(--couleur-fond);
   color: var(--couleur-texte);
@@ -19,6 +20,7 @@ body {
   padding: 30px 15px;
 }
 
+/* header */
 header {
   background-color: var(--couleur-bleu);
   width: 100%;
@@ -29,8 +31,7 @@ header {
   margin-bottom: 30px;
 }
 
-
-
+/* boîte principale */
 main {
   background-color: var(--couleur-blanc);
   border-radius: var(--borderradius);
@@ -52,17 +53,19 @@ form {
   gap: 25px;
 }
 
-.notation-group {
+/* groupe label + étoiles */
+.notation-groupe {
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-.notation-group label {
+.notation-groupe label {
   font-weight: bold;
   font-size: 1.1em;
 }
 
+/* étoiles affichées de droite à gauche */
 .stars {
   display: flex;
   flex-direction: row-reverse;
@@ -70,6 +73,7 @@ form {
   justify-content: center;
 }
 
+/* on cache les boutons radio */
 input[type="radio"] {
   display: none;
 }
@@ -81,7 +85,7 @@ label.star {
   transition: color 0.3s ease;
 }
 
-/* Survol et sélection : colorer de gauche à droite */
+/* étoiles hover */
 label.star:hover,
 label.star:hover ~ label.star {
   color: var(--couleur-plat);
@@ -92,7 +96,7 @@ input[type="radio"]:checked ~ label.star ~ label.star {
   color: var(--couleur-plat);
 }
 
-
+/* zone de commentaire */
 textarea {
   width: 100%;
   min-height: 100px;
@@ -104,6 +108,7 @@ textarea {
   font-family: inherit;
 }
 
+/* bouton envoyer */
 button {
   background-color: var(--couleur-bleu);
   color: var(--couleur-blanc);
@@ -119,4 +124,7 @@ button:hover {
   background-color: var(--couleur-bleu-fonce);
 }
 
-
+/* Polices titres */
+h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+}

@@ -9,9 +9,9 @@
 </head>
 <body>
 
-    <!-- header du site -->
+    <!-- EN-TÊTE -->
     <header>
-        <h1>🍽️ Atlas des Saveurs</h1>
+        <h1>L'Atlas des Saveurs</h1>
         <nav>
             <a href="accueil.html">Accueil</a>
             <a href="présentation.html">Menu</a>
@@ -20,34 +20,37 @@
         </nav>
     </header>
 
+    <!-- CONTENU PRINCIPAL -->
     <main>
         <div class="profil-container">
             <h2>Mon Profil</h2>
 
-            <!-- informations personnelles -->
+            <!-- ===== SECTION INFORMATIONS PERSONNELLES ===== -->
             <section class="profil-section">
                 <h3>
                     📋 Informations personnelles
-                    <span class="edit-icon" title="Modifier">✏️</span>
+                    <a href="#" class="edit-icon" title="Modifier">✏️</a>
                 </h3>
 
+                <!-- Grille d'affichage des informations -->
                 <div class="info-grid">
                     <div class="info-item">
                         <strong>Nom :</strong>
-                        <span>Dupont</span>
+                        <span>AUBREE</span>
                     </div>
                     <div class="info-item">
                         <strong>Prénom :</strong>
-                        <span>Jean</span>
+                        <span>Timothée</span>
                     </div>
                     <div class="info-item">
                         <strong>Email :</strong>
-                        <span>jean.dupont@email.com</span>
+                        <span>timothee@web.com</span>
                     </div>
                     <div class="info-item">
                         <strong>Téléphone :</strong>
                         <span>0612345678</span>
                     </div>
+                    <!-- full-width = occupe les 2 colonnes de la grille -->
                     <div class="info-item full-width">
                         <strong>Adresse :</strong>
                         <span>12 rue de la République, 75001 Paris</span>
@@ -59,130 +62,61 @@
                 </div>
             </section>
 
-            <!-- section commandes -->
+            <!-- ===== SECTION COMMANDES ===== -->
             <section class="profil-section">
                 <h3>📦 Mes commandes</h3>
 
                 <div class="commandes-list">
 
+                    <!-- Commande 1 -->
                     <div class="commande-card">
                         <div class="commande-header">
                             <span class="commande-numero">Commande #12345</span>
-                            <span class="commande-date">28/01/2026</span>
+                            <span class="commande-date">02/02/2026</span>
                         </div>
                         <div class="commande-details">
-                            <p><strong>Articles :</strong> Gyozas Maison x1, Baklava au Miel x2</p>
-                            <p><strong>Montant :</strong> 24,00 €</p>
+                            <p><strong>Articles :</strong> Katsu curry x1, Tres Leches au caramel x2</p>
+                            <p><strong>Montant :</strong> 29,50 €</p>
                             <span class="statut-badge statut-livree">✓ Livrée</span>
+                            <a href="notation.html" class="btn-noter">⭐ Noter la commande</a>
                         </div>
                     </div>
 
+                    <!-- Commande 2 -->
                     <div class="commande-card">
                         <div class="commande-header">
                             <span class="commande-numero">Commande #12344</span>
-                            <span class="commande-date">15/01/2026</span>
+                            <span class="commande-date">10/02/2026</span>
                         </div>
                         <div class="commande-details">
-                            <p><strong>Articles :</strong> Katsu Curry x1, Frites x2</p>
-                            <p><strong>Montant :</strong> 20,00 €</p>
+                            <p><strong>Articles :</strong> Ceviche de Crevettes "Aguachile" x2, Mochi Glacé Artisanal x2</p>
+                            <p><strong>Montant :</strong> 35,00 €</p>
                             <span class="statut-badge statut-livree">✓ Livrée</span>
+                            <a href="notation.html" class="btn-noter">⭐ Noter la commande</a>
                         </div>
                     </div>
 
+                    <!-- Commande 3 -->
                     <div class="commande-card">
                         <div class="commande-header">
                             <span class="commande-numero">Commande #12343</span>
-                            <span class="commande-date">02/01/2026</span>
+                            <span class="commande-date">30/01/2026</span>
                         </div>
                         <div class="commande-details">
-                            <p><strong>Articles :</strong> Sushi Mix x1, Soupe Miso x1</p>
-                            <p><strong>Montant :</strong> 45,00 €</p>
+                            <p><strong>Articles :</strong> Pastilla Individuelle au Poulet et Amandes x1, Gyozas Maison x1</p>
+                            <p><strong>Montant :</strong> 17,50 €</p>
                             <span class="statut-badge statut-livree">✓ Livrée</span>
+                            <a href="notation.html" class="btn-noter">⭐ Noter la commande</a>
                         </div>
                     </div>
 
                 </div>
-            </section>
-
-            <!-- section compte fidelite -->
-            <section class="profil-section">
-                <h3>⭐ Mon compte fidélité</h3>
-
-                <!-- niveau actuel -->
-                <div class="fidelite-niveau">
-                    <p class="niveau-titre">🥈 Niveau Argent</p>
-                    <p>Vous bénéficiez de <strong>5% de réduction</strong> sur toutes vos commandes et d'une livraison offerte à partir de 25 €.</p>
-                </div>
-
-                <!-- points et progression -->
-                <div class="fidelite-points">
-                    <p><strong>Vos points :</strong> 320 / 500 pour atteindre le niveau 🥇 Or</p>
-                    <div class="barre-fond">
-                        <div class="barre-remplie"></div>
-                    </div>
-                    <p class="texte-progression">Il vous manque 180 points pour passer au niveau supérieur.</p>
-                </div>
-
-                <!-- avantages -->
-                <div class="fidelite-avantages">
-                    <h4>Vos avantages actuels :</h4>
-                    <div class="avantages-liste">
-                        <div class="avantage-item">
-                            <span>🚚</span>
-                            <p>Livraison offerte dès 25 €</p>
-                        </div>
-                        <div class="avantage-item">
-                            <span>🏷️</span>
-                            <p>5% de réduction permanente</p>
-                        </div>
-                        <div class="avantage-item">
-                            <span>🎂</span>
-                            <p>Dessert offert pour votre anniversaire</p>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- historique points -->
-                <div class="fidelite-historique">
-                    <h4>Historique des points :</h4>
-                    <table>
-                        <thead>
-                            <tr>
-                                <th>Date</th>
-                                <th>Description</th>
-                                <th>Points</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>28/01/2026</td>
-                                <td>Commande #12345 – Pizza Margherita, Tiramisu x2</td>
-                                <td class="points-plus">+ 33 pts</td>
-                            </tr>
-                            <tr>
-                                <td>15/01/2026</td>
-                                <td>Commande #12344 – Burger Végétarien x2, Frites x2</td>
-                                <td class="points-plus">+ 28 pts</td>
-                            </tr>
-                            <tr>
-                                <td>02/01/2026</td>
-                                <td>Commande #12343 – Sushi Mix, Soupe Miso</td>
-                                <td class="points-plus">+ 45 pts</td>
-                            </tr>
-                            <tr>
-                                <td>20/12/2025</td>
-                                <td>Bon de réduction utilisé (–10 €)</td>
-                                <td class="points-moins">− 100 pts</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-
             </section>
 
         </div>
     </main>
 
+    <!-- PIED DE PAGE -->
     <footer>
         <p>&copy; 2026 Atlas des Saveurs - Tous droits réservés</p>
     </footer>

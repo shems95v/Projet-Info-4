@@ -1,12 +1,12 @@
-
 :root {
     --borderradius: 10px;
     --couleur-bleu: #2563eb;
     --couleur-bleu-fonce: #1d4ed8;
 }
 
+/* style général de la page */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
     margin: 0;
     background-color: #f8fafc;
     min-height: 100vh;
@@ -14,7 +14,7 @@ body {
     flex-direction: column;
 }
 
-
+/* header */
 header {
     background-color: var(--couleur-bleu);
     padding: 30px 20px;
@@ -46,7 +46,7 @@ nav a:hover {
     background-color: var(--couleur-bleu-fonce);
 }
 
-
+/* contenu principal centré */
 main {
     flex: 1;
     display: flex;
@@ -55,7 +55,8 @@ main {
     padding: 40px 20px;
 }
 
-.form-container {
+/* boîte blanche du formulaire */
+.conteneur-formulaire {
     background: white;
     padding: 40px;
     border-radius: var(--borderradius);
@@ -64,14 +65,15 @@ main {
     max-width: 550px;
 }
 
-.form-container h2 {
+.conteneur-formulaire h2 {
     color: var(--couleur-bleu);
     font-size: 1.8em;
     margin: 0 0 20px 0;
     text-align: center;
 }
 
-.info-message {
+/* message d'info en haut du formulaire */
+.message-info {
     background-color: #dbeafe;
     border-left: 4px solid var(--couleur-bleu);
     padding: 15px;
@@ -79,50 +81,52 @@ main {
     border-radius: 5px;
 }
 
-.info-message p {
+.message-info p {
     margin: 0;
     color: #1e3a8a;
 }
 
-.form-group {
+/* champs du formulaire */
+.groupe-formulaire {
     margin-bottom: 20px;
 }
 
-.form-group label {
+.groupe-formulaire label {
     display: block;
     color: #333;
     font-weight: bold;
     margin-bottom: 8px;
 }
 
-.required {
+/* étoile rouge pour les champs obligatoires */
+.obligatoire {
     color: #ef4444;
 }
 
-.form-group input,
-.form-group textarea {
+.groupe-formulaire input,
+.groupe-formulaire textarea {
     width: 100%;
     padding: 12px;
     border: 1px solid #ddd;
     border-radius: var(--borderradius);
     font-size: 16px;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'DM Sans', Arial, sans-serif;
 }
 
-.form-group input:focus,
-.form-group textarea:focus {
+.groupe-formulaire input:focus,
+.groupe-formulaire textarea:focus {
     outline: none;
     border-color: var(--couleur-bleu);
 }
 
-.form-group textarea {
+.groupe-formulaire textarea {
     resize: vertical;
     min-height: 80px;
 }
 
 /* Bouton */
-.form-group button {
+.groupe-formulaire button {
     width: 100%;
     padding: 14px;
     background-color: var(--couleur-bleu);
@@ -134,25 +138,26 @@ main {
     cursor: pointer;
 }
 
-.form-group button:hover {
+.groupe-formulaire button:hover {
     background-color: var(--couleur-bleu-fonce);
 }
 
-.form-links {
+.liens-formulaire {
     text-align: center;
     margin-top: 20px;
 }
 
-.form-links a {
+.liens-formulaire a {
     color: var(--couleur-bleu);
     text-decoration: none;
     font-weight: bold;
 }
 
-.form-links a:hover {
+.liens-formulaire a:hover {
     text-decoration: underline;
 }
 
+/* footer */
 footer {
     background-color: var(--couleur-bleu);
     color: white;
@@ -161,6 +166,7 @@ footer {
     margin-top: auto;
 }
 
+/* responsive mobile */
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.5em;
@@ -171,7 +177,12 @@ footer {
         gap: 10px;
     }
     
-    .form-container {
+    .conteneur-formulaire {
         padding: 30px 20px;
     }
+}
+
+/* Polices titres */
+h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
 }

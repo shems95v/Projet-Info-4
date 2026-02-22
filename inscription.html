@@ -5,10 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Atlas des Saveurs</title>
     <link rel="stylesheet" href="inscription.css">
+   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- header -->
     <header>
-        <h1>🍽️ Atlas des Saveurs</h1>
+        <h1>L'Atlas des Saveurs</h1>
         <nav>
             <a href="accueil.html">Accueil</a>
             <a href="présentation.html">Menu</a>
@@ -19,31 +21,33 @@
     </header>
 
     <main>
-        <div class="form-container">
+        <!-- formulaire d'inscription -->
+        <div class="conteneur-formulaire">
             <h2>Inscription</h2>
             
-            <div class="info-message">
+            <div class="message-info">
                 <p>Créez un compte pour profiter de nos services : retrouver vos commandes, bénéficier de remises exclusives et plus encore !</p>
             </div>
 
             <form>
-                <div class="form-group">
-                    <label for="nom">Nom <span class="required">*</span></label>
+                <!-- infos personnelles -->
+                <div class="groupe-formulaire">
+                    <label for="nom">Nom <span class="obligatoire">*</span></label>
                     <input type="text" id="nom" name="nom" placeholder="Dupont" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="prenom">Prénom <span class="required">*</span></label>
+                <div class="groupe-formulaire">
+                    <label for="prenom">Prénom <span class="obligatoire">*</span></label>
                     <input type="text" id="prenom" name="prenom" placeholder="Jean" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="email">Adresse email <span class="required">*</span></label>
+                <div class="groupe-formulaire">
+                    <label for="email">Adresse email <span class="obligatoire">*</span></label>
                     <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="telephone">Numéro de téléphone <span class="required">*</span></label>
+                <div class="groupe-formulaire">
+                    <label for="telephone">Numéro de téléphone <span class="obligatoire">*</span></label>
                     <input 
                         type="tel" 
                         id="telephone" 
@@ -56,13 +60,14 @@
                     >
                 </div>
 
-                <div class="form-group">
-                    <label for="adresse">Adresse de livraison <span class="required">*</span></label>
+                <!-- adresse de livraison -->
+                <div class="groupe-formulaire">
+                    <label for="adresse">Adresse de livraison <span class="obligatoire">*</span></label>
                     <input type="text" id="adresse" name="adresse" placeholder="12 rue de la République" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="code_postal">Code postal <span class="required">*</span></label>
+                <div class="groupe-formulaire">
+                    <label for="code_postal">Code postal <span class="obligatoire">*</span></label>
                     <input 
                         type="text" 
                         id="code_postal" 
@@ -75,13 +80,14 @@
                     >
                 </div>
 
-                <div class="form-group">
-                    <label for="ville">Ville <span class="required">*</span></label>
+                <div class="groupe-formulaire">
+                    <label for="ville">Ville <span class="obligatoire">*</span></label>
                     <input type="text" id="ville" name="ville" placeholder="Paris" required>
                 </div>
 
-                <div class="form-group">
-                    <label for="password">Mot de passe <span class="required">*</span></label>
+                <!-- mot de passe -->
+                <div class="groupe-formulaire">
+                    <label for="password">Mot de passe <span class="obligatoire">*</span></label>
                     <input 
                         type="password" 
                         id="password" 
@@ -93,8 +99,8 @@
                     >
                 </div>
 
-                <div class="form-group">
-                    <label for="password_confirm">Confirmer le mot de passe <span class="required">*</span></label>
+                <div class="groupe-formulaire">
+                    <label for="password_confirm">Confirmer le mot de passe <span class="obligatoire">*</span></label>
                     <input 
                         type="password" 
                         id="password_confirm" 
@@ -105,16 +111,17 @@
                     >
                 </div>
 
-                <div class="form-group">
+                <div class="groupe-formulaire">
                     <label for="commentaires">Informations complémentaires</label>
                     <textarea id="commentaires" name="commentaires" placeholder="Allergies, préférences de livraison..."></textarea>
                 </div>
 
-                <div class="form-group">
+                <div class="groupe-formulaire">
                     <button type="submit">S'inscrire</button>
                 </div>
 
-                <div class="form-links">
+                <!-- lien vers connexion -->
+                <div class="liens-formulaire">
                     <p>Vous avez déjà un compte ? <a href="connexion.html">Se connecter</a></p>
                 </div>
             </form>

@@ -1,3 +1,9 @@
+:root {
+    --borderradius: 10px;
+    --couleur-bleu: #2563eb;
+    --couleur-bleu-fonce: #1d4ed8;
+}
+
 body {
     font-family: 'DM Sans', Arial, sans-serif;
     margin: 0;
@@ -7,9 +13,8 @@ body {
     flex-direction: column;
 }
 
-/* header */
 header {
-    background-color: #2563eb;
+    background-color: var(--couleur-bleu);
     padding: 30px 20px;
     text-align: center;
 }
@@ -36,10 +41,9 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #1d4ed8;
+    background-color: var(--couleur-bleu-fonce);
 }
 
-/* main */
 main {
     flex: 1;
     padding: 40px 20px;
@@ -51,23 +55,22 @@ main {
 }
 
 .profil-container h2 {
-    color: #2563eb;
+    color: var(--couleur-bleu);
     font-size: 2em;
     text-align: center;
     margin-bottom: 40px;
 }
 
-/* sections */
 .profil-section {
     background: white;
     padding: 30px;
     margin-bottom: 30px;
-    border-radius: 10px;
+    border-radius: var(--borderradius);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 .profil-section h3 {
-    color: #2563eb;
+    color: var(--couleur-bleu);
     font-size: 1.5em;
     margin: 0 0 25px 0;
     display: flex;
@@ -75,16 +78,19 @@ main {
     justify-content: space-between;
 }
 
+
 .edit-icon {
     cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
     font-size: 1.2em;
+    transition: transform 0.2s;
 }
 
 .edit-icon:hover {
     transform: scale(1.2);
 }
 
-/* grille infos perso */
 .info-grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -101,7 +107,7 @@ main {
 }
 
 .info-item strong {
-    color: #2563eb;
+    color: var(--couleur-bleu);
     margin-bottom: 5px;
     font-size: 0.9em;
 }
@@ -111,7 +117,75 @@ main {
     font-size: 1em;
 }
 
-/* commandes */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    color: #333;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.required {
+    color: #ef4444;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--borderradius);
+    font-size: 16px;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--couleur-bleu);
+}
+
+.form-group small {
+    display: block;
+    color: #666;
+    font-size: 0.85em;
+    margin-top: 5px;
+}
+
+.form-actions {
+    display: flex;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn {
+    flex: 1;
+    padding: 12px;
+    border: none;
+    border-radius: var(--borderradius);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    background-color: var(--couleur-bleu);
+    color: white;
+}
+
+.btn:hover {
+    background-color: var(--couleur-bleu-fonce);
+}
+
+.btn-secondary {
+    background-color: #6b7280;
+}
+
+.btn-secondary:hover {
+    background-color: #4b5563;
+}
+
 .commandes-list {
     display: flex;
     flex-direction: column;
@@ -121,8 +195,8 @@ main {
 .commande-card {
     background-color: #f9fafb;
     padding: 20px;
-    border-radius: 10px;
-    border-left: 4px solid #2563eb;
+    border-radius: var(--borderradius);
+    border-left: 4px solid var(--couleur-bleu);
 }
 
 .commande-header {
@@ -133,7 +207,7 @@ main {
 
 .commande-numero {
     font-weight: bold;
-    color: #2563eb;
+    color: var(--couleur-bleu);
 }
 
 .commande-date {
@@ -160,157 +234,61 @@ main {
     color: #065f46;
 }
 
-/* fidelite */
-.fidelite-niveau {
-    background-color: #eff6ff;
-    border-left: 4px solid #2563eb;
-    border-radius: 10px;
-    padding: 15px 20px;
-    margin-bottom: 25px;
-}
-
-.niveau-titre {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #2563eb;
-    margin: 0 0 8px 0;
-}
-
-.fidelite-points {
-    margin-bottom: 25px;
-}
-
-.fidelite-points p {
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.barre-fond {
-    background-color: #e5e7eb;
-    border-radius: 999px;
-    height: 14px;
-    width: 100%;
-}
-
-.barre-remplie {
-    background-color: #2563eb;
-    height: 14px;
-    border-radius: 999px;
-    width: 64%;
-}
-
-.texte-progression {
-    font-size: 0.85em;
-    color: #6b7280;
-    margin-top: 6px;
-}
-
-.fidelite-avantages {
-    margin-bottom: 25px;
-}
-
-.fidelite-avantages h4 {
-    color: #2563eb;
-    margin-bottom: 15px;
-}
-
-.avantages-liste {
-    display: flex;
-    gap: 15px;
-}
-
-.avantage-item {
-    flex: 1;
-    background-color: #f0f9ff;
-    border: 1px solid #bae6fd;
-    border-radius: 10px;
-    padding: 15px;
-    text-align: center;
-}
-
-.avantage-item span {
-    font-size: 1.8em;
-}
-
-.avantage-item p {
-    font-size: 0.88em;
-    color: #1e3a5f;
-    margin: 8px 0 0 0;
-}
-
-/* tableau historique */
-.fidelite-historique h4 {
-    color: #2563eb;
-    margin-bottom: 15px;
-}
-
-.fidelite-historique table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.92em;
-}
-
-.fidelite-historique thead tr {
-    background-color: #eff6ff;
-}
-
-.fidelite-historique th {
-    text-align: left;
-    padding: 10px 14px;
-    color: #2563eb;
-    border-bottom: 2px solid #dbeafe;
-}
-
-.fidelite-historique td {
-    padding: 10px 14px;
-    color: #333;
-    border-bottom: 1px solid #f3f4f6;
-}
-
-.points-plus {
-    color: #065f46;
-    font-weight: bold;
-}
-
-.points-moins {
-    color: #b91c1c;
-    font-weight: bold;
-}
-
-/* footer */
 footer {
-    background-color: #2563eb;
+    background-color: var(--couleur-bleu);
     color: white;
     text-align: center;
     padding: 10px;
     margin-top: auto;
 }
 
-/* responsive mobile */
 @media (max-width: 768px) {
     header h1 {
         font-size: 1.5em;
     }
-
+    
     nav {
         flex-direction: column;
         gap: 10px;
     }
-
+    
     .info-grid {
         grid-template-columns: 1fr;
     }
-
+    
     .profil-section {
         padding: 20px;
     }
-
+    
     .commande-header {
         flex-direction: column;
         gap: 5px;
     }
-
-    .avantages-liste {
+    
+    .form-actions {
         flex-direction: column;
     }
+}
+
+/* Polices titres */
+h1, h2, h3 {
+    font-family: 'Playfair Display', Georgia, serif;
+}
+
+.btn-noter {
+    display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
+    padding: 5px 12px;
+    border-radius: 15px;
+    font-size: 0.85em;
+    font-weight: bold;
+    background-color: #fef9c3;
+    color: #854d0e;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
+.btn-noter:hover {
+    background-color: #fde047;
 }

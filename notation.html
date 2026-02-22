@@ -1,21 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Notation de la commande - L'Atlas Des Saveurs</title>
-<link rel="stylesheet" href="notation.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Notation de la commande - L'Atlas Des Saveurs</title>
+  <link rel="stylesheet" href="notation.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- header -->
   <header>
     <h1>L'Atlas Des Saveurs</h1>
   </header>
+
   <main>
     <h2>Noter votre commande</h2>
+
     <form>
-      <div class="notation-group">
+
+      <!-- notation de la livraison (étoiles) -->
+      <div class="notation-groupe">
         <label>Livraison :</label>
-        <div class="stars" role="radiogroup" aria-label="Notation de la livraison">
+        <div class="stars">
           <input type="radio" id="livraison-5" name="livraison" value="5" />
           <label for="livraison-5" class="star" title="Excellent">&#9733;</label>
           <input type="radio" id="livraison-4" name="livraison" value="4" />
@@ -29,9 +35,10 @@
         </div>
       </div>
 
-      <div class="notation-group">
+      <!-- notation de la qualité (étoiles) -->
+      <div class="notation-groupe">
         <label>Qualité des produits :</label>
-        <div class="stars" role="radiogroup" aria-label="Notation de la qualité des produits">
+        <div class="stars">
           <input type="radio" id="qualite-5" name="qualite" value="5" />
           <label for="qualite-5" class="star" title="Excellent">&#9733;</label>
           <input type="radio" id="qualite-4" name="qualite" value="4" />
@@ -45,12 +52,14 @@
         </div>
       </div>
 
-      <div class="notation-group">
+      <!-- commentaire libre -->
+      <div class="notation-groupe">
         <label for="commentaire">Commentaires (optionnel) :</label>
         <textarea id="commentaire" name="commentaire" placeholder="Votre avis..."></textarea>
       </div>
 
       <button type="submit">Envoyer</button>
+
     </form>
   </main>
 </body>

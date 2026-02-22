@@ -1,11 +1,11 @@
-/* Variables pour les couleurs */
+/* couleurs */
 :root {
     --borderradius: 10px;
     --couleur-bleu: #2563eb;
     --couleur-bleu-fonce: #1d4ed8;
 }
 
-/* Reset de base */
+
 body {
     font-family: 'DM Sans', Arial, sans-serif;
     margin: 0;
@@ -71,20 +71,27 @@ header h1 {
 
 .conteneur-recherche input {
     flex: 1;
-    padding: 12px;
+    padding: 12px 16px;
     border: none;
-    border-radius: var(--borderradius);
-    font-size: 16px;
+    border-radius: 25px;
+    font-size: 15px;
+    font-family: inherit;
+}
+
+.conteneur-recherche input:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,255,255,0.4);
 }
 
 .conteneur-recherche button {
-    padding: 12px 20px;
+    padding: 12px 18px;
     background: white;
     color: var(--couleur-bleu);
     border: none;
     cursor: pointer;
-    border-radius: var(--borderradius);
-    font-size: 18px;
+    border-radius: 25px;
+    font-size: 17px;
+    transition: background 0.2s;
 }
 
 .conteneur-recherche button:hover {
@@ -101,7 +108,7 @@ header h1 {
     margin: 0 auto;
 }
 
-/* Panneau de filtres */
+/* filtres */
 .filtres {
     background: white;
     padding: 20px;
@@ -138,7 +145,7 @@ header h1 {
     cursor: pointer;
 }
 
-/* Bouton réinitialiser */
+/* bouton reset */
 .bouton-reinitialiser {
     width: 100%;
     padding: 12px;
@@ -155,14 +162,14 @@ header h1 {
     background-color: var(--couleur-bleu-fonce);
 }
 
-/* Grille de produits */
+/* grille */
 .grille-produits {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
     gap: 20px;
 }
 
-/* Carte produit */
+/* carte */
 .carte-produit {
     background: white;
     border: 1px solid #ddd;
@@ -170,17 +177,17 @@ header h1 {
     overflow: hidden;
 }
 
-/* Image produit */
+/* image */
 .image-produit {
     height: 180px;
     width: 100%;
-    object-fit: cover;    /* recadre l'image sans la déformer */
+    object-fit: cover;
     display: block;
-    background-color: #e2e8f0;  /* couleur si l'image ne charge pas */
+    background-color: #e2e8f0;
 }
 
 
-/* Infos produit */
+/* infos */
 .infos-produit {
     padding: 15px;
 }

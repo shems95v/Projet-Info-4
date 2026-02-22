@@ -9,7 +9,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'DM Sans', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: var(--couleur-fond);
@@ -76,3 +76,9 @@ main {
   }
 }
 
+
+
+/* Polices titres */
+h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+}
