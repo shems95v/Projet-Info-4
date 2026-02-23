@@ -323,7 +323,7 @@ h1, h2, h3 {
 .barre-remplie {
     background-color: var(--couleur-bleu);
     height: 100%;
-    width: 64%; /* 320/500 */
+    width: 64%;
     border-radius: 10px;
 }
 
