@@ -1,19 +1,47 @@
+<?php 
+
+if(!file_exists("inscription.json")){
+    $message[] = "Fichier JSON manquant";
+    $backdata = array();
+}
+else {
+    $backdata =json_decode(file_get_contents("inscription.json"),true);
+}
+if(!empty($_POST['nom']) and !empty($_POST['prenom']) and !empty($_POST['telephone']) and !empty($_POST['email']) and !empty($_POST['adresse']) and !empty($_POST['code_postal']) and !empty($_POST['ville']) and !empty($_POST['password']) and !empty($_POST['password_confirm'] and $_POST['commentaire'])){
+    $backdata[] = array(
+        'nom' => $_POST['nom'],
+        'prenom' => $_POST['prenom'],
+        'telephone' => $_POST['telephone'],
+        'email' => $_POST['email'],
+        'adresse' => $_POST['adresse'],
+        'code_postal' => $_POST['code_postal'],
+        'ville' => $_POST['ville'],
+        'password' => $_POST['password'],
+        'password_confirm' => $_POST['password_confirm']
+    );
+    
+}
+if($_POST['password_confirm'] == $_POST['password']){
+    file_put_contents("inscription.json",json_encode($backdata,JSON_PRETTY_PRINT));}
+else{
+    $message = "mdp different";
+}
+    
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inscription - Atlas des Saveurs</title>
-    <link rel="stylesheet" href="inscription.css">
-   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- header -->
     <header>
-        <h1>L'Atlas des Saveurs</h1>
+        <h1>🍽️ Atlas des Saveurs</h1>
         <nav>
-            <a href="accueil.html">Accueil</a>
-            <a href="presentation.html">Menu</a>
+            <a href="index.html">Accueil</a>
+            <a href="produits.html">Menu</a>
             <a href="profil.html">Mon Profil</a>
             <a href="inscription.html">Inscription</a>
             <a href="connexion.html">Connexion</a>
@@ -21,37 +49,36 @@
     </header>
 
     <main>
-        <!-- formulaire d'inscription -->
-        <div class="conteneur-formulaire">
+        <div class="form-container">
             <h2>Inscription</h2>
             
-            <div class="message-info">
+            <div class="info-message">
                 <p>Créez un compte pour profiter de nos services : retrouver vos commandes, bénéficier de remises exclusives et plus encore !</p>
             </div>
 
-            <form>
-                <!-- infos personnelles -->
-                <div class="groupe-formulaire">
-                    <label for="nom">Nom <span class="obligatoire">*</span></label>
-                    <input type="text" id="nom" name="nom" placeholder="Dupont" required>
+            <form action="inscription.php" method="POST">
+                <div class="form-group">
+                    <label for="nom">Nom <span class="required">*</span></label>
+                    <input type="text" id="nom" name="nom" placeholder="Dupont" value="<?php $_POST['nom'] ?? "";?>" required>
                 </div>
 
-                <div class="groupe-formulaire">
-                    <label for="prenom">Prénom <span class="obligatoire">*</span></label>
-                    <input type="text" id="prenom" name="prenom" placeholder="Jean" required>
+                <div class="form-group">
+                    <label for="prenom">Prénom <span class="required">*</span></label>
+                    <input type="text" id="prenom" name="prenom" placeholder="Jean" value="<?php $_POST['prenom'] ?? "";?>"required>
                 </div>
 
-                <div class="groupe-formulaire">
-                    <label for="email">Adresse email <span class="obligatoire">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required>
+                <div class="form-group">
+                    <label for="email">Adresse email <span class="required">*</span></label>
+                    <input type="email" id="email" name="email" value="<?php $_POST['email'] ?? "";?>" placeholder="votre.email@exemple.com" required>
                 </div>
 
-                <div class="groupe-formulaire">
-                    <label for="telephone">Numéro de téléphone <span class="obligatoire">*</span></label>
+                <div class="form-group">
+                    <label for="telephone">Numéro de téléphone <span class="required">*</span></label>
                     <input 
                         type="tel" 
                         id="telephone" 
                         name="telephone" 
+                        value="<?php $_POST['telephone'] ?? "";?>"
                         placeholder="0612345678"
                         pattern="[0-9]{10}"
                         maxlength="10"
@@ -60,18 +87,18 @@
                     >
                 </div>
 
-                <!-- adresse de livraison -->
-                <div class="groupe-formulaire">
-                    <label for="adresse">Adresse de livraison <span class="obligatoire">*</span></label>
-                    <input type="text" id="adresse" name="adresse" placeholder="12 rue de la République" required>
+                <div class="form-group">
+                    <label for="adresse">Adresse de livraison <span class="required">*</span></label>
+                    <input type="text" id="adresse" name="adresse" value="<?php $_POST['adresse'] ?? "";?>"placeholder="12 rue de la République" required>
                 </div>
 
-                <div class="groupe-formulaire">
-                    <label for="code_postal">Code postal <span class="obligatoire">*</span></label>
+                <div class="form-group">
+                    <label for="code_postal">Code postal <span class="required">*</span></label>
                     <input 
                         type="text" 
                         id="code_postal" 
                         name="code_postal" 
+                        value="<?php $_POST['code_postal'] ?? "";?>"
                         placeholder="75001"
                         pattern="[0-9]{5}"
                         maxlength="5"
@@ -80,18 +107,18 @@
                     >
                 </div>
 
-                <div class="groupe-formulaire">
-                    <label for="ville">Ville <span class="obligatoire">*</span></label>
-                    <input type="text" id="ville" name="ville" placeholder="Paris" required>
+                <div class="form-group">
+                    <label for="ville">Ville <span class="required">*</span></label>
+                    <input type="text" id="ville" name="ville" value="<?php $_POST['ville'] ?? "";?>"placeholder="Paris" required>
                 </div>
 
-                <!-- mot de passe -->
-                <div class="groupe-formulaire">
-                    <label for="password">Mot de passe <span class="obligatoire">*</span></label>
+                <div class="form-group">
+                    <label for="password">Mot de passe <span class="required">*</span></label>
                     <input 
                         type="password" 
                         id="password" 
                         name="password" 
+                        value="<?php $_POST['password'] ?? "";?>"
                         placeholder="Minimum 8 caractères"
                         minlength="8"
                         title="Le mot de passe doit contenir au moins 8 caractères"
@@ -99,29 +126,30 @@
                     >
                 </div>
 
-                <div class="groupe-formulaire">
-                    <label for="password_confirm">Confirmer le mot de passe <span class="obligatoire">*</span></label>
+                <div class="form-group">
+                    <label for="password_confirm">Confirmer le mot de passe <span class="required">*</span></label>
                     <input 
                         type="password" 
                         id="password_confirm" 
                         name="password_confirm" 
+                        value="<?php $_POST['password_confirm'] ?? "";?>"
                         placeholder="Confirmer votre mot de passe"
                         minlength="8"
                         required
                     >
+                    <?php echo "<p>".$message."<p>";?>
                 </div>
 
-                <div class="groupe-formulaire">
+                <div class="form-group">
                     <label for="commentaires">Informations complémentaires</label>
                     <textarea id="commentaires" name="commentaires" placeholder="Allergies, préférences de livraison..."></textarea>
                 </div>
 
-                <div class="groupe-formulaire">
+                <div class="form-group">
                     <button type="submit">S'inscrire</button>
                 </div>
 
-                <!-- lien vers connexion -->
-                <div class="liens-formulaire">
+                <div class="form-links">
                     <p>Vous avez déjà un compte ? <a href="connexion.html">Se connecter</a></p>
                 </div>
             </form>
@@ -133,3 +161,4 @@
     </footer>
 </body>
 </html>
+
