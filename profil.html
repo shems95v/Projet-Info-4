@@ -1,3 +1,15 @@
+<?php
+session_start();
+
+if(!isset($_SESSION['user'])) {
+    header("Location: connexion.php"); // redirige si non connecté
+    exit();
+}
+
+$user = $_SESSION['user']; // récupère toutes les infos
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,10 +25,10 @@
     <header>
         <h1>L'Atlas des Saveurs</h1>
         <nav>
-            <a href="accueil.html">Accueil</a>
-            <a href="presentation.html">Menu</a>
-            <a href="profil.html">Mon Profil</a>
-            <a href="connexion.html">Déconnexion</a>
+            <a href="accueil.php">Accueil</a>
+            <a href="presentation.php">Menu</a>
+            <a href="profil.php">Mon Profil</a>
+            <a href="connexion.php">Déconnexion</a>
         </nav>
     </header>
 
@@ -37,28 +49,36 @@
                 <div class="info-grid">
                     <div class="info-item">
                         <strong>Nom :</strong>
-                        <span>AUBREE</span>
+                        <span><?php echo $user['nom'] ?? ""?></span>
                     </div>
                     <div class="info-item">
                         <strong>Prénom :</strong>
-                        <span>Timothée</span>
+                        <span><?php echo $user['prenom'] ?? ""?></span>
                     </div>
                     <div class="info-item">
                         <strong>Email :</strong>
-                        <span>timothee@web.com</span>
+                        <span><?php echo $user['email'] ?? ""?></span>
                     </div>
                     <div class="info-item">
                         <strong>Téléphone :</strong>
-                        <span>0612345678</span>
+                        <span><?php echo $user['telephone'] ?? ""?></span>
                     </div>
                     <!-- full-width = occupe les 2 colonnes de la grille -->
                     <div class="info-item full-width">
                         <strong>Adresse :</strong>
-                        <span>12 rue de la République, 75001 Paris</span>
+                        <span><?php echo $user['adresse'] ?? ""?></span>
                     </div>
                     <div class="info-item full-width">
-                        <strong>Informations complémentaires :</strong>
-                        <span>Allergique aux fruits de mer.</span>
+                        <strong>Ville :</strong>
+                        <span> <?php echo $user['ville'] ?? ""?></span>
+                    </div>
+                    <div class="info-item full-width">
+                        <strong>code postale :</strong>
+                        <span> <?php echo $user['code_postal'] ?? ""?> </span>
+                    </div>
+                    <div class="info-item full-width">
+                        <strong>Role :</strong>
+                        <span> <?php echo $user['role'] ?? ""?> </span>
                     </div>
                 </div>
             </section>
