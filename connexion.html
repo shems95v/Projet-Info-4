@@ -1,3 +1,36 @@
+<?php 
+session_start();
+if(!file_exists("inscription.json")){
+    $message[] = "Fichier JSON manquant";
+    $backdata = array();
+}
+else {
+    $backdata =json_decode(file_get_contents("inscription.json"),true);
+}
+$verife = "";
+$trouve = false;
+if(!empty($_POST['motdepasse']) && !empty($_POST['email'] )  ){
+    foreach($backdata as $key){
+        if($key["email"] == $_POST["email"] && $key["password"] == $_POST["motdepasse"]){
+            $trouve = true;
+            $tab = $key;
+            break;
+        }
+    
+    }
+    if(!$trouve) {
+        $verife = "Email ou mot de passe incorrect";
+    } else {
+        $_SESSION['user'] = $tab;
+        header("Location: profil.php");
+        exit(); 
+    }
+
+}
+
+
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -13,11 +46,11 @@
     <header>
         <h1>L'Atlas des Saveurs</h1>
         <nav>
-            <a href="accueil.html">Accueil</a>
-            <a href="presentation.html">Menu</a>
-            <a href="profil.html">Mon Profil</a>
-            <a href="inscription.html">Inscription</a>
-            <a href="connexion.html">Connexion</a>
+            <a href="accueil.php">Accueil</a>
+            <a href="presentation.php">Menu</a>
+            <a href="profil.php">Mon Profil</a>
+            <a href="inscription.php">Inscription</a>
+            <a href="connexion.php">Connexion</a>
         </nav>
     </header>
 
@@ -26,16 +59,24 @@
         <div class="conteneur-formulaire">
             <h2>Connexion</h2>
 
-            <form>
+            <form action = "connexion.php" method="POST">
 
                 <div class="groupe-formulaire">
                     <label for="email">Adresse email <span class="obligatoire">*</span></label>
-                    <input type="email" id="email" name="email" placeholder="votre.email@exemple.com" required>
+                    <input type="email" 
+                    id="email" 
+                    name="email"
+                    value="<?php $_POST['email'] ?? "";?>"
+                    placeholder="votre.email@exemple.com" required>
                 </div>
 
                 <div class="groupe-formulaire">
                     <label for="motdepasse">Mot de passe <span class="obligatoire">*</span></label>
-                    <input type="password" id="motdepasse" name="motdepasse" placeholder="Votre mot de passe" required>
+                    <input type="password" id="motdepasse" name="motdepasse" 
+                    value="<?php $_POST['motdepasse'] ?? "";?>"
+                    placeholder="Votre mot de passe" 
+                    required>
+                    <?php echo "<p>".$verife."<p>";?>
                 </div>
 
                 <!-- bouton de soumission -->
@@ -47,7 +88,7 @@
 
             <!-- lien vers la page inscription -->
             <div class="liens-formulaire">
-                <p>Pas encore de compte ? <a href="inscription.html">S'inscrire</a></p>
+                <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
             </div>
         </div>
     </main>
