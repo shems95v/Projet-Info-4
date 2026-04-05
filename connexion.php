@@ -22,7 +22,7 @@ if(!empty($_POST['motdepasse']) && !empty($_POST['email'] )  ){
         $verife = "Email ou mot de passe incorrect";
     } else {
         $_SESSION['user'] = $tab;
-        header("Location: profil.php");
+        header("Location: accueil.php");
         exit(); 
     }
 
@@ -96,6 +96,9 @@ if(!empty($_POST['motdepasse']) && !empty($_POST['email'] )  ){
     <footer>
         <p>&copy; 2026 Atlas des Saveurs - Tous droits réservés</p>
     </footer>
+
+</body>
+</html>
 
 </body>
 </html>
