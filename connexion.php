@@ -1,36 +1,37 @@
-<?php 
+<?php
 session_start();
-if(!file_exists("inscription.json")){
-    $message[] = "Fichier JSON manquant";
-    $backdata = array();
-}
-else {
-    $backdata =json_decode(file_get_contents("inscription.json"),true);
-}
-$verife = "";
-$trouve = false;
-if(!empty($_POST['motdepasse']) && !empty($_POST['email'] )  ){
-    foreach($backdata as $key){
-        if($key["email"] == $_POST["email"] && $key["password"] == $_POST["motdepasse"]){
-            $trouve = true;
-            $tab = $key;
-            break;
+require_once("includes/functions.php");
+
+$erreur = "";
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+    $login = trim($_POST["login"] ?? "");
+    $password = trim($_POST["motdepasse"] ?? "");
+
+    $user = trouverUtilisateurParLogin($login, $password);
+
+    if ($user) {
+        $_SESSION["user"] = $user;
+
+        if ($user["role"] === "admin") {
+            header("Location: admin.php");
+            exit();
+        } elseif ($user["role"] === "restaurateur") {
+            header("Location: restaurateur.php");
+            exit();
+        } elseif ($user["role"] === "livreur") {
+            header("Location: livraison.php");
+            exit();
+        } else {
+            header("Location: profil.php");
+            exit();
         }
-    
-    }
-    if(!$trouve) {
-        $verife = "Email ou mot de passe incorrect";
     } else {
-        $_SESSION['user'] = $tab;
-        header("Location: accueil.php");
-        exit(); 
+        $erreur = "Login ou mot de passe incorrect.";
     }
-
 }
-
-
-
 ?>
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -42,63 +43,55 @@ if(!empty($_POST['motdepasse']) && !empty($_POST['email'] )  ){
 </head>
 <body>
 
-    <!-- header -->
-    <header>
-        <h1>L'Atlas des Saveurs</h1>
-        <nav>
-            <a href="accueil.php">Accueil</a>
-            <a href="presentation.php">Menu</a>
-            <a href="profil.php">Mon Profil</a>
-            <a href="inscription.php">Inscription</a>
-            <a href="connexion.php">Connexion</a>
-        </nav>
-    </header>
+<header>
+    <h1>L'Atlas des Saveurs</h1>
+    <nav>
+        <a href="accueil.php">Accueil</a>
+        <a href="presentation.php">Menu</a>
+        <a href="profil.php">Mon Profil</a>
+        <a href="inscription.php">Inscription</a>
+        <a href="connexion.php">Connexion</a>
+        <a href="panier.php">Panier</a>
+    </nav>
+</header>
 
-    <main>
-        <!-- formulaire de connexion -->
-        <div class="conteneur-formulaire">
-            <h2>Connexion</h2>
+<main>
+    <div class="conteneur-formulaire">
+        <h2>Connexion</h2>
 
-            <form action = "connexion.php" method="POST">
+        <?php if (!empty($erreur)): ?>
+            <p style="color:red; margin-bottom:15px; text-align:center;">
+                <?= htmlspecialchars($erreur) ?>
+            </p>
+        <?php endif; ?>
 
-                <div class="groupe-formulaire">
-                    <label for="email">Adresse email <span class="obligatoire">*</span></label>
-                    <input type="email" 
-                    id="email" 
-                    name="email"
-                    value="<?php $_POST['email'] ?? "";?>"
-                    placeholder="votre.email@exemple.com" required>
-                </div>
+        <form method="POST" action="connexion.php">
 
-                <div class="groupe-formulaire">
-                    <label for="motdepasse">Mot de passe <span class="obligatoire">*</span></label>
-                    <input type="password" id="motdepasse" name="motdepasse" 
-                    value="<?php $_POST['motdepasse'] ?? "";?>"
-                    placeholder="Votre mot de passe" 
-                    required>
-                    <?php echo "<p>".$verife."<p>";?>
-                </div>
-
-                <!-- bouton de soumission -->
-                <div class="groupe-formulaire">
-                    <button type="submit">Se connecter</button>
-                </div>
-
-            </form>
-
-            <!-- lien vers la page inscription -->
-            <div class="liens-formulaire">
-                <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
+            <div class="groupe-formulaire">
+                <label for="login">Login <span class="obligatoire">*</span></label>
+                <input type="text" id="login" name="login" placeholder="Votre login" required>
             </div>
+
+            <div class="groupe-formulaire">
+                <label for="motdepasse">Mot de passe <span class="obligatoire">*</span></label>
+                <input type="password" id="motdepasse" name="motdepasse" placeholder="Votre mot de passe" required>
+            </div>
+
+            <div class="groupe-formulaire">
+                <button type="submit">Se connecter</button>
+            </div>
+
+        </form>
+
+        <div class="liens-formulaire">
+            <p>Pas encore de compte ? <a href="inscription.php">S'inscrire</a></p>
         </div>
-    </main>
+    </div>
+</main>
 
-    <footer>
-        <p>&copy; 2026 Atlas des Saveurs - Tous droits réservés</p>
-    </footer>
-
-</body>
-</html>
+<footer>
+    <p>&copy; 2026 Atlas des Saveurs - Tous droits réservés</p>
+</footer>
 
 </body>
 </html>

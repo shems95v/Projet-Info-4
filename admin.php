@@ -1,107 +1,82 @@
 <?php
 session_start();
 
-
+/* Vérification : admin uniquement */
 if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
     header("Location: connexion.php");
     exit();
 }
 
-if(!file_exists("inscription.json")){
-    $message[] = "Fichier JSON manquant";
-    $user= array();
-}
-else {
-    $users = json_decode(file_get_contents("inscription.json"), true);
-}
-
+/* Chargement des utilisateurs */
+$users = json_decode(file_get_contents("data/users.json"), true);
 ?>
 
 <!DOCTYPE html>
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Admin - Utilisateurs</title>
 <link rel="stylesheet" href="admin.css">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 
 <body>
 
-<div class="conteneur-admin">
+<header>
+    <h1>Panel Administrateur</h1>
+    <nav>
+        <a href="profil.php">Retour profil</a>
+        <a href="logout.php">Se déconnecter</a>
+    </nav>
+</header>
 
-    <!-- ===== BARRE LATÉRALE ===== -->
-    <aside class="barre-laterale">
-        <h2>Admin</h2>
-        <ul>
-            <li class="actif"><a href="#">Utilisateurs</a></li> <br>
-            <li class="actif"><a href="accueil.php" class="bouton-modifier">Accueil</a> </li> <br>
-            <li class="actif"><a href="presentation.php" class="bouton-modifier">Menu</a></li><br>
-            <li class="actif"><a href="profil.php" class="bouton-modifier">Mon profil </a></li><br>
-        </ul>
-    </aside>
+<main>
+    <h2>Liste des utilisateurs</h2>
 
-    <!-- ===== CONTENU PRINCIPAL ===== -->
-    <div class="contenu-principal">
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Login</th>
+                <th>Nom complet</th>
+                <th>Email</th>
+                <th>Rôle</th>
+                <th>Statut</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
 
-        <header>
-            <h1>Panel Administrateur</h1>
-            <a href="logout.php" class="bouton-modifier">Se déconnecter</a>
-
-        </header>
-
-        <h2>Liste des utilisateurs</h2>
-
-        <div class="conteneur-tableau">
-            <table>
+        <tbody>
+            <?php foreach ($users as $user): ?>
                 <tr>
-                    <th>ID</th>
-                    <th>Nom</th>
-                    <th>Numéro de portable</th>
-                    <th>Email</th>
-                    <th>Rôle</th>
-                    <th>Statut</th>
-                    <th>Actions</th>
-                </tr>
-
-                <?php foreach ($users as $user): ?>
-                <tr>
-                    <td><?= $user['id'] ?? ' '?></td>
-                    <td><?= $user['nom'] ?? ' '?></td>
-                    <td><?= $user['telephone'] ?? ' '?></td>
-                    <td><?= $user['email'] ?? ' '?></td>
-
-                    <!-- BADGE ROLE -->
+                    <td>#<?= htmlspecialchars($user['id']) ?></td>
+                    <td><?= htmlspecialchars($user['login'] ?? '') ?></td>
                     <td>
-                        <span class="badge <?= $user['role'] ?>">
-                            <?= $user['role'] ?>
+                        <?= htmlspecialchars(($user['prenom'] ?? '') . ' ' . ($user['nom'] ?? '')) ?>
+                    </td>
+                    <td><?= htmlspecialchars($user['email'] ?? '') ?></td>
+                    <td>
+                        <span class="badge role-<?= htmlspecialchars($user['role'] ?? 'inconnu') ?>">
+                            <?= htmlspecialchars($user['role'] ?? 'inconnu') ?>
                         </span>
                     </td>
-
-                    <!-- BADGE STATUT -->
                     <td>
-                       <?php $actif = $user['actif'] ?? false; ?>
-
-                    <td>
-                        <span class="badge <?= $actif ? 'actif' : 'hors-service' ?>">
-                            <?= $actif ? "Actif" : "Bloqué" ?>
+                        <span class="badge <?= !empty($user['actif']) ? 'badge-actif' : 'badge-bloque' ?>">
+                            <?= !empty($user['actif']) ? 'Actif' : 'Bloqué' ?>
                         </span>
                     </td>
-
                     <td>
-                        <button class="bouton-modifier">
-                            <?= $actif ? "Bloquer" : "Débloquer" ?>
-                        </button>
-                        <button class="bouton-modifier">Modifier Role</button>
+                        <!-- Affichage uniquement en phase 2 -->
+                        <button type="button">Bloquer</button>
+                        <button type="button">Débloquer</button>
+                        <button type="button">Passer VIP</button>
                     </td>
                 </tr>
-                <?php endforeach; ?>
-
-            </table>
-        </div>
-
-    </div>
-
-</div>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</main>
 
 </body>
 </html>
