@@ -1,63 +1,16 @@
-Projet L'Atlas des Saveurs – Phase 2
+Projet L'Atlas des saveurs - Phase 1
 
-Description
+Description du Projet
 
-Projet réalisé en préING2 à CY Tech (2025-2026).
-
-Développement d’un site web de restauration permettant de gérer :
-
-- commandes
-- paiement
-- livraison
-- gestion multi-utilisateurs
-  
-Objectif Phase 2
-
-Mise en place du côté serveur avec :
-
-- PHP
-- sessions utilisateurs
-- données en JSON
-- pages dynamiques
-
-Fonctionnalités
-
-- 👤 Inscription / Connexion
-
-- 🛒 Panier + validation de commande
-
-- 💳 Paiement via CYBank
-
-- 📦 Suivi des commandes
-
-- 🍽️ Interface restaurateur (gestion commandes)
-
-- 🚚 Interface livreur (livraisons)
-
-- 🛠️ Interface admin (utilisateurs – affichage)
-
-Organisation : 
-
-/atlas
-├── data/ (JSON)
-├── includes/
-├── images/
-├── *.php
-
-Lancement : 
+Ce projet, réalisé dans le cadre de la filière préING2 à CY Tech (2025-2026), consiste à concevoir et développer le site web complet d'un restaurant ou d'une chaîne de restaurants.
 
 
-Comptes test
-- Admin : admin1 / 1234
-- Client : client1 / 1234
-- Livreur : livreur1 / 1234
-- Restaurateur : resto1 / 1234
+L'objectif final est de proposer une application multi-utilisateurs fonctionnelle couvrant toute la chaîne de commande : du choix du client à la livraison, en passant par le paiement et la gestion par le restaurateur.
 
-Auteurs
+Objectifs de la Phase 1
 
-Shems BOUDJEBINA
-Mathis LECLERCQ
-Timothée AUBREE
+La première phase est dédiée à la partie graphique côté client.
 
+Auteurs : Shems BOUDJEBINA & Mathis LECLERCQ & Timothée AUBREE. 
 
-⚠️ Images obligatoirement dans images/
+⚠️ ATTENTION : Toutes les images doivent être impérativement stockées dans un dossier nommé images/ 

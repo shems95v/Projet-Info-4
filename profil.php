@@ -22,12 +22,29 @@ $user = $_SESSION["user"];
 
     <header>
         <h1>L'Atlas des Saveurs</h1>
-        <nav>
+        <nav class="navigation">
+            <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
+                echo '<a href="admin.php">Admin</a>';
+            }
+             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'livreur') {
+                echo '<a href="livraison.php">Livraison</a>';
+             }
+             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'restaurateur') {
+                echo '<a href="commande.php">commande</a>';
+             }
+             ?>
             <a href="accueil.php">Accueil</a>
             <a href="presentation.php">Menu</a>
-            <a href="profil.php">Mon Profil</a>
-            <a href="panier.php">Panier</a>
-            <a href="logout.php">Déconnexion</a>
+            <?php
+            if (!isset($_SESSION['user'])) {
+                echo '<a href="inscription.php">Inscription</a>';
+                echo '<a href="connexion.php">Connexion</a>';
+            } else {
+                echo '<a href="profil.php">Mon profil</a>';
+                echo '<a href="panier.php">Panier</a>';
+                echo '<a href="logout.php">Déconnexion</a>';
+            }
+            ?>
         </nav>
     </header>
 
@@ -63,7 +80,10 @@ $user = $_SESSION["user"];
                         <strong>Prénom :</strong>
                         <span><?= htmlspecialchars($user["prenom"] ?? "") ?></span>
                     </div>
-
+                    <div class="info-item">
+                        <strong>Login :</strong>
+                        <span><?= htmlspecialchars($user["login"] ?? "") ?></span>
+                    </div>
                     <div class="info-item">
                         <strong>Email :</strong>
                         <span><?= htmlspecialchars($user["email"] ?? "") ?></span>

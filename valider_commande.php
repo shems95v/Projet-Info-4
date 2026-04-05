@@ -1,5 +1,6 @@
 <?php
 session_start();
+date_default_timezone_set('Europe/Paris');
 require_once("includes/functions.php");
 
 if (!isset($_SESSION["user"])) {
@@ -28,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["confirmer_commande"])
                 "id" => $plat["id"],
                 "nom" => $plat["nom"],
                 "prix" => $plat["prix"],
-                "quantite" => (int)$quantite
+                "quantite" => (int) $quantite
             ];
         }
     }
@@ -65,45 +66,58 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["confirmer_commande"])
 ?>
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Validation de la commande</title>
-<link rel="stylesheet" href="inscription.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validation de la commande</title>
+    <link rel="stylesheet" href="inscription.css">
 </head>
+
 <body>
-<header>
-    <h1>L'Atlas des Saveurs</h1>
-</header>
+    <header>
+        <h1>L'Atlas des Saveurs</h1>
+    </header>
 
-<main>
-    <div class="conteneur-formulaire">
-        <h2>Valider ma commande</h2>
+    <main>
+        <div class="conteneur-formulaire">
+            <h2>Valider ma commande</h2>
 
-        <form method="POST" action="valider_commande.php">
-            <div class="groupe-formulaire">
-                <label for="mode_recuperation">Mode</label>
-                <select id="mode_recuperation" name="mode_recuperation" required>
-                    <option value="livraison">Livraison</option>
-                    <option value="emporter">À emporter</option>
-                </select>
-            </div>
+            <form method="POST" action="valider_commande.php">
+                <div class="groupe-formulaire">
+                    <label for="mode_recuperation">Mode</label>
+                    <select id="mode_recuperation" name="mode_recuperation" required>
+                        <option value="livraison">Livraison</option>
+                        <option value="emporter">À emporter</option>
+                    </select>
+                </div>
 
-            <div class="groupe-formulaire">
-                <label for="date_livraison">Date/heure souhaitée</label>
-                <input type="datetime-local" id="date_livraison" name="date_livraison">
-            </div>
+                <div class="groupe-formulaire">
+                    <label for="date_livraison">Date souhaitée</label>
+                    <input type="date" id="date_livraison" name="date_livraison" value="<?= date('Y-m-d'); ?>">
+                </div>
+                <div class="groupe-formulaire">
+                    <label for="date_livraison">heure souhaitée</label>
+                    <input type="time" id="heure_livraison" name="heure_livraison" 
+                        min="<?= date('H:i', strtotime('+30 minutes')) ?>" 
+                    value="<?= date('H:i', strtotime('+30 minutes')) ?>" 
+                    max="23:00" 
+                    required
+                    >
+                    <small>Choisissez une heure entre maintenant +30min et 23h, par tranche de 15 minutes.</small>
+                </div>
 
-            <div class="groupe-formulaire">
-                <label for="commentaire">Commentaire</label>
-                <textarea id="commentaire" name="commentaire" placeholder="Instructions de livraison..."></textarea>
-            </div>
+                <div class="groupe-formulaire">
+                    <label for="commentaire">Commentaire</label>
+                    <textarea id="commentaire" name="commentaire" placeholder="Instructions de livraison..."></textarea>
+                </div>
 
-            <div class="groupe-formulaire">
-                <button type="submit" name="confirmer_commande">Continuer vers le paiement</button>
-            </div>
-        </form>
-    </div>
-</main>
+                <div class="groupe-formulaire">
+                    <button type="submit" name="confirmer_commande">Continuer vers le paiement</button>
+                </div>
+            </form>
+        </div>
+    </main>
 </body>
+
 </html>
