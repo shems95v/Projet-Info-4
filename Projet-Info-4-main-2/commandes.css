@@ -1,0 +1,153 @@
+:root {
+    --borderradius: 10px;
+    --couleur-bleu: #2563eb;
+    --couleur-bleu-fonce: #1d4ed8;
+    --couleur-blanc: #ffffff;
+    --couleur-fond: #f8fafc;
+    --couleur-texte: #333;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    background-color: var(--couleur-fond);
+    color: var(--couleur-texte);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    background-color: var(--couleur-bleu);
+    padding: 25px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: white;
+    font-size: 2em;
+    margin-bottom: 15px;
+}
+
+.navigation {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 14px;
+    border-radius: 20px;
+}
+
+.navigation a:hover {
+    background-color: rgba(255,255,255,0.2);
+}
+
+.conteneur-commandes {
+    flex: 1;
+    max-width: 900px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 20px 50px;
+}
+
+.conteneur-commandes h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--couleur-bleu);
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.commande-card {
+    background-color: var(--couleur-blanc);
+    border-radius: var(--borderradius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 20px;
+    margin-bottom: 20px;
+}
+
+.commande-header {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 15px;
+    font-weight: bold;
+    color: var(--couleur-bleu);
+}
+
+.commande-details p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.liste-plats {
+    margin: 10px 0 15px 20px;
+}
+
+.liste-plats li {
+    margin-bottom: 6px;
+}
+
+.statut-badge {
+    display: inline-block;
+    background-color: #dbeafe;
+    color: #1d4ed8;
+    padding: 4px 10px;
+    border-radius: 14px;
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.btn-noter,
+.btn-retour-menu {
+    display: inline-block;
+    margin-top: 12px;
+    background-color: var(--couleur-bleu);
+    color: white;
+    text-decoration: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+.btn-noter:hover,
+.btn-retour-menu:hover {
+    background-color: var(--couleur-bleu-fonce);
+}
+
+.aucune-commande {
+    background-color: white;
+    padding: 30px;
+    border-radius: var(--borderradius);
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+footer {
+    background-color: var(--couleur-bleu);
+    color: white;
+    text-align: center;
+    padding: 15px;
+    font-size: 0.9em;
+}
+
+@media (max-width: 700px) {
+    .commande-header {
+        flex-direction: column;
+    }
+
+    header h1 {
+        font-size: 1.6em;
+    }
+}
