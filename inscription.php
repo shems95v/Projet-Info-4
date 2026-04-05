@@ -53,6 +53,8 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp)){
             'code_postal' => $code_postal,
             'ville' => $ville,
             'password' => $password,
+            'actif'=> 'actif'
+
             
         );
         file_put_contents("inscription.json",json_encode($backdata,JSON_PRETTY_PRINT));
@@ -191,5 +193,3 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp)){
     </footer>
 </body>
 </html>
-
-
