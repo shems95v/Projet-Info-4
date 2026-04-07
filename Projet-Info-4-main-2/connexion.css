@@ -1,0 +1,150 @@
+:root {
+    --borderradius: 10px;
+    --couleur-bleu: #2563eb;
+    --couleur-bleu-fonce: #1d4ed8;
+}
+
+body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    margin: 0;
+    background-color: #f8fafc;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* ===== HEADER ===== */
+header {
+    background-color: var(--couleur-bleu);
+    padding: 30px 20px;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: var(--couleur-bleu-fonce);
+}
+
+/* ===== FORMULAIRE ===== */
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+}
+
+.conteneur-formulaire {
+    background: white;
+    padding: 40px;
+    border-radius: var(--borderradius);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 450px;
+}
+
+.conteneur-formulaire h2 {
+    color: var(--couleur-bleu);
+    font-size: 1.8em;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.groupe-formulaire {
+    margin-bottom: 20px;
+}
+
+.groupe-formulaire label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.obligatoire {
+    color: #ef4444;
+}
+
+.groupe-formulaire input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #ddd;
+    border-radius: var(--borderradius);
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.groupe-formulaire input:focus {
+    outline: none;
+    border-color: var(--couleur-bleu);
+}
+
+.groupe-formulaire button {
+    width: 100%;
+    padding: 14px;
+    background-color: var(--couleur-bleu);
+    color: white;
+    border: none;
+    border-radius: var(--borderradius);
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.groupe-formulaire button:hover {
+    background-color: var(--couleur-bleu-fonce);
+}
+
+.liens-formulaire {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.liens-formulaire a {
+    color: var(--couleur-bleu);
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.liens-formulaire a:hover {
+    text-decoration: underline;
+}
+
+/* ===== FOOTER ===== */
+footer {
+    background-color: var(--couleur-bleu);
+    color: white;
+    text-align: center;
+    padding: 10px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    header h1 { font-size: 1.5em; }
+    nav { flex-direction: column; gap: 10px; }
+    .conteneur-formulaire { padding: 30px 20px; }
+}
+
+/* ===== POLICES TITRES ===== */
+h1, h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+}
