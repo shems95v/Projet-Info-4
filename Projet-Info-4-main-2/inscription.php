@@ -24,28 +24,31 @@ if(!file_exists("data/users.json")){
 else {
     $backdata =json_decode(file_get_contents("data/users.json"),true);
 }
-
+if($_SERVER["REQUEST_METHOD"] === "POST"){
 if($password_confirm != $password){
     $verife_mdp = "mdp different";}
 foreach($backdata as $key){
     if($key["email"] == $email){
         $verife_email = "email deja utilisé";
+        break;
     }
-    else if($key["telephone"] == $telephone){
+    if($key["login"] == $login){
         $verife_log = "login deja utilisé";
+        break;
     }
-    else if($key["login"] == $login){
+    if($key["telephone"] == $telephone){
         $verife_tel = "numero deja utilisé";
+        break;
     }
 }
 if(!empty($telephone) && substr($telephone, 0, 2) != "06" && substr($telephone, 0, 2) != "07"){
     $verife_tel = "Faux numero";
 }
+}
 
 
 
-
-if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp)){
+if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp) && empty($verife_log)){
     if(!empty($nom) && !empty($prenom) && !empty($telephone) && !empty($email) && !empty($adresse) and !empty($code_postal) && !empty($ville) && !empty($password) && !empty($password_confirm )&& !empty($login)){
         $backdata[] = array(
             'id' => uniqid(),
@@ -68,6 +71,7 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp)){
         header("Location: connexion.php");
     }
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -81,7 +85,7 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp)){
     <header>
         <h1>🍽️ Atlas des Saveurs</h1>
         <nav>
-            <a href="index.php">Accueil</a>
+            <a href="accueil.php">Accueil</a>
             <a href="produits.php">Menu</a>
             <a href="profil.php">Mon Profil</a>
             <a href="inscription.php">Inscription</a>
@@ -126,7 +130,7 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp)){
             <input type="tel" 
                 id="telephone" 
                 name="telephone" 
-                value="<?php $telephone;?>"
+                value="<?php $telephone; ?>"
                 placeholder="0612345678"
                 pattern="[0-9]{10}"
                 maxlength="10"
