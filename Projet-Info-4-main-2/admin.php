@@ -60,6 +60,7 @@ $users = json_decode(file_get_contents("data/users.json"), true);
                 <th>ID</th>
                 <th>Login</th>
                 <th>Nom complet</th>
+                <th>Numero</th>
                 <th>Email</th>
                 <th>Rôle</th>
                 <th>Statut</th>
@@ -71,7 +72,8 @@ $users = json_decode(file_get_contents("data/users.json"), true);
             <?php foreach ($users as $user): ?>
                 <tr>
                     <td><?= $user['id'] ?? ' '?></td>
-                    <td><?= $user['nom'] ?? ' '?></td>
+                    <td><?= $user['login'] ?? ' '?></td>
+                    <td><?= $user['nom'] ?? ' '?> <?= $user['prenom'] ?? ' '?></td>
                     <td><?= $user['telephone'] ?? ' '?></td>
                     <td><?= $user['email'] ?? ' '?></td>
                     <td>
