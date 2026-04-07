@@ -86,7 +86,7 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp) && empty($ve
         <h1>🍽️ Atlas des Saveurs</h1>
         <nav>
             <a href="accueil.php">Accueil</a>
-            <a href="produits.php">Menu</a>
+            <a href="presentation.php">Menu</a>
             <a href="profil.php">Mon Profil</a>
             <a href="inscription.php">Inscription</a>
             <a href="connexion.php">Connexion</a>
