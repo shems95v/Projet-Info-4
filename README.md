@@ -6,19 +6,20 @@ Projet réalisé en préING2 à CY Tech (2025-2026).
 
 Développement d’un site web de restauration permettant de gérer :
 
-commandes
-paiement
-livraison
-gestion multi-utilisateurs
+- commandes
+- paiement
+- livraison
+- gestion multi-utilisateurs
+- 
 Objectif Phase 2
 
 Mise en place du côté serveur avec :
 
-PHP
-sessions utilisateurs
-données en JSON
-pages dynamiques
-Fonctionnalités
+- PHP
+- sessions utilisateurs
+- données en JSON
+- pages dynamiques
+- Fonctionnalités
 
 👤 Inscription / Connexion
 
@@ -46,6 +47,7 @@ Admin : admin1 / 1234
 Client : client1 / 1234
 Livreur : livreur1 / 1234
 Restaurateur : resto1 / 1234
+
 Auteurs
 
 Shems BOUDJEBINA Mathis LECLERCQ Timothée AUBREE
