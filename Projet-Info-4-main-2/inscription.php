@@ -64,7 +64,7 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp)){
 
             
         );
-        file_put_contents("users.json",json_encode($backdata,JSON_PRETTY_PRINT));
+        file_put_contents("data/users.json",json_encode($backdata,JSON_PRETTY_PRINT));
         header("Location: connexion.php");
     }
 }
