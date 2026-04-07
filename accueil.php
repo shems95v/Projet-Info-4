@@ -1,6 +1,10 @@
-<?php
+<?php 
 session_start();
 ?>
+
+<?php if (isset($_SESSION['user']['role']) === 'admin'): ?>
+    <a href="admin.php">Panel Admin</a>
+<?php endif; ?>
 
 <!DOCTYPE html>
 <html lang="fr">
@@ -17,28 +21,12 @@ session_start();
     <header>
         <h1>L'Atlas Des Saveurs</h1>
         <nav class="navigation">
-            <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
-                echo '<a href="admin.php">Admin</a>';
-            }
-             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'livreur') {
-                echo '<a href="livraison.php">Livraison</a>';
-             }
-             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'restaurateur') {
-                echo '<a href="commande.php">commande</a>';
-             }
-             ?>
             <a href="accueil.php">Accueil</a>
             <a href="presentation.php">Menu</a>
-            <?php
-            if (!isset($_SESSION['user'])) {
-                echo '<a href="inscription.php">Inscription</a>';
-                echo '<a href="connexion.php">Connexion</a>';
-            } else {
-                echo '<a href="profil.php">Mon profil</a>';
-                echo '<a href="panier.php">Panier</a>';
-                echo '<a href="logout.php">Déconnexion</a>';
-            }
-            ?>
+            <a href="profil.php">Mon profil</a>
+            <a href="inscription.php">Inscription</a>
+            <a href="connexion.php">Connexion</a>
+            <a href="panier.php">Panier</a>
         </nav>
         <div class="conteneur-recherche">
             <input type="text" placeholder="Rechercher un plat, une saveur...">
@@ -99,7 +87,7 @@ session_start();
 
         <!-- bouton vers la page menu complète -->
         <div class="voir-menu">
-            <a href="présentation.html">Voir tout le menu →</a>
+            <a href="presentation.php">Voir tout le menu →</a>
         </div>
 
     </main>

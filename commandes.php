@@ -1,7 +1,6 @@
 <?php
 session_start();
 require_once("includes/functions.php");
-date_default_timezone_set('Europe/Paris');
 
 /* sécurité : utilisateur connecté obligatoire */
 if (!isset($_SESSION["user"])) {

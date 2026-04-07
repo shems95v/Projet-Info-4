@@ -23,30 +23,18 @@ if (!is_array($plats)) {
 <header>
     <h1>Menu Gourmand</h1>
 
-     <nav class="navigation">
-            <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
-                echo '<a href="admin.php">Admin</a>';
-            }
-             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'livreur') {
-                echo '<a href="livraison.php">Livraison</a>';
-             }
-             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'restaurateur') {
-                echo '<a href="commande.php">commande</a>';
-             }
-             ?>
-            <a href="accueil.php">Accueil</a>
-            <a href="presentation.php">Menu</a>
-            <?php
-            if (!isset($_SESSION['user'])) {
-                echo '<a href="inscription.php">Inscription</a>';
-                echo '<a href="connexion.php">Connexion</a>';
-            } else {
-                echo '<a href="profil.php">Mon profil</a>';
-                echo '<a href="panier.php">Panier</a>';
-                echo '<a href="logout.php">Déconnexion</a>';
-            }
-            ?>
-        </nav>
+    <nav class="navigation">
+        <a href="accueil.php">Accueil</a>
+        <a href="presentation.php">Menu</a>
+        <a href="profil.php">Profil</a>
+        <a href="panier.php">Panier</a>
+
+        <?php if (isset($_SESSION["user"])): ?>
+            <a href="logout.php">Déconnexion</a>
+        <?php else: ?>
+            <a href="connexion.php">Connexion</a>
+        <?php endif; ?>
+    </nav>
 </header>
 
 <main class="conteneur-principal">
