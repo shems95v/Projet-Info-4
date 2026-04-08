@@ -80,10 +80,8 @@ $users = json_decode(file_get_contents("data/users.json"), true);
                         <span class="badge role-<?= htmlspecialchars($user['role'] ?? 'inconnu') ?>">
                             <?= htmlspecialchars($user['role'] ?? 'inconnu') ?>
                         </span>
-                    </td>
-                    <td>
                        <?php $actif = $user['actif'] ?? false; ?>
-
+                    </td>
                     <td>
                         <span class="badge <?= !empty($user['actif']) ? 'badge-actif' : 'badge-bloque' ?>">
                             <?= !empty($user['actif']) ? 'Actif' : 'Bloqué' ?>
