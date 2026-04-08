@@ -105,21 +105,21 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp) && empty($ve
         
         <div class="groupe-formulaire">
             <label for="nom">Nom <span class="obligatoire">*</span></label>
-            <input type="text" id="nom" name="nom" placeholder="Dupont" value="<?php $_POST['nom'] ?? "";?>" required>
+            <input type="text" id="nom" name="nom" placeholder="Dupont" value="<?php echo htmlspecialchars($nom);?>" required>
         </div>
 
         <div class="groupe-formulaire">
             <label for="prenom">Prénom <span class="obligatoire">*</span></label>
-            <input type="text" id="prenom" name="prenom" placeholder="Jean"  value="<?php $prenom?>" required>
+            <input type="text" id="prenom" name="prenom" placeholder="Jean"  value="<?php echo htmlspecialchars($prenom);?>" required>
         </div>
         <div class="groupe-formulaire">
             <label for="prenom">Login <span class="obligatoire">*</span></label>
-            <input type="text" id="login" name="login" value="<?php $login;?>" placeholder="Jean" required>
+            <input type="text" id="login" name="login" value="<?php echo htmlspecialchars($login);?>" placeholder="Jean" required>
             <?php echo "<p style='color:red; margin-bottom:15px; text-align:center;'>".$verife_log."</p>"; ?>
         </div>
         <div class="groupe-formulaire">
             <label for="email">Adresse email <span class="obligatoire">*</span></label>
-            <input type="email" id="email" name="email" value="<?php $email;?>" placeholder="votre.email@exemple.com"
+            <input type="email" id="email" name="email" value="<?php echo htmlspecialchars($email);?>" placeholder="votre.email@exemple.com"
              title="Veuillez entrer un email"
             required>
             <?php echo "<p style='color:red; margin-bottom:15px; text-align:center;'>".$verife_email."</p>"; ?>
@@ -130,7 +130,7 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp) && empty($ve
             <input type="tel" 
                 id="telephone" 
                 name="telephone" 
-                value="<?php $telephone; ?>"
+                value="<?php echo htmlspecialchars($telephone); ?>"
                 placeholder="0612345678"
                 pattern="[0-9]{10}"
                 maxlength="10"
@@ -141,12 +141,12 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp) && empty($ve
 
         <div class="groupe-formulaire">
             <label for="adresse">Adresse de livraison <span class="obligatoire">*</span></label>
-            <input type="text" id="adresse" name="adresse"  value="<?php $adresse;?>" placeholder="12 rue..." required>
+            <input type="text" id="adresse" name="adresse"  value="<?php echo htmlspecialchars($adresse);?>" placeholder="12 rue..." required>
         </div>
 
         <div class="groupe-formulaire">
             <label for="code_postal">Code postal <span class="obligatoire">*</span></label>
-            <input type="text" id="code_postal" name="code_postal" value="<?php $code_postal;?>" placeholder="75001" 
+            <input type="text" id="code_postal" name="code_postal" value="<?php echo htmlspecialchars($code_postal);?>" placeholder="75001" 
             pattern="[0-9]{5}"
             maxlength="5"
             title="Veuillez entrer exactement 5 chiffres"
@@ -155,7 +155,7 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp) && empty($ve
 
         <div class="groupe-formulaire">
             <label for="ville">Ville <span class="obligatoire">*</span></label>
-            <input type="text" id="ville" name="ville" placeholder="Paris" value="<?php $ville;?>" required>
+            <input type="text" id="ville" name="ville" placeholder="Paris" value="<?php echo htmlspecialchars($ville);?>" required>
         </div>
 
         <div class="groupe-formulaire">
@@ -181,7 +181,7 @@ if(empty($verife_email) && empty($verife_tel) && empty($verife_mdp) && empty($ve
         </div>
         <div class="groupe-formulaire">
                 <label for="commentaire">Informations complémentaires</label>
-                <textarea id="commentaire" name="commentaire"  value="<?php $commentaire;?>" placeholder="Allergies, préférences de livraison..."></textarea>
+                <textarea id="commentaire" name="commentaire"  value="<?php echo htmlspecialchars($commentaire);?>" placeholder="Allergies, préférences de livraison..."></textarea>
             </div>
 
         <div class="groupe-formulaire">
