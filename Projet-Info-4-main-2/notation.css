@@ -128,3 +128,57 @@ button:hover {
 h1, h2 {
     font-family: 'Playfair Display', Georgia, serif;
 }
+
+/* ===== MODE SOMBRE ROSE / VIOLET ===== */
+
+.dark-mode {
+    background-color: #1e0f2f;
+    color: #f8c8ff;
+}
+
+.dark-mode header {
+    background-color: #2d0d44;
+    color: white;
+}
+
+.dark-mode main {
+    background-color: #3b0f5f;
+    box-shadow: 0 0 8px rgba(0,0,0,0.4);
+}
+
+.dark-mode h2 {
+    color: #ff9ce8;
+}
+
+.dark-mode .notation-groupe label {
+    color: #ffd6f7;
+}
+
+.dark-mode label.star {
+    color: #6b4b7d;
+}
+
+.dark-mode label.star:hover,
+.dark-mode label.star:hover ~ label.star {
+    color: #ff9ce8;
+}
+
+.dark-mode input[type="radio"]:checked ~ label.star,
+.dark-mode input[type="radio"]:checked ~ label.star ~ label.star {
+    color: #ff9ce8;
+}
+
+.dark-mode textarea {
+    background-color: #2a123f;
+    border-color: #5d2a7f;
+    color: white;
+}
+
+.dark-mode button {
+    background-color: #ff4fd8;
+    color: white;
+}
+
+.dark-mode button:hover {
+    background-color: #e13bc0;
+}

@@ -4,7 +4,9 @@
     --couleur-bleu-fonce: #1d4ed8;
     --couleur-blanc: #ffffff;
     --couleur-fond: #f8fafc;
+    --couleur-texte: #333;
 }
+
 
 * {
     box-sizing: border-box;
@@ -12,16 +14,17 @@
     padding: 0;
 }
 
+
 body {
     font-family: 'DM Sans', Arial, sans-serif;
     background-color: var(--couleur-fond);
-    color: #333;
+    color: var(--couleur-texte);
     min-height: 100vh;
     display: flex;
     flex-direction: column;
 }
 
-/* ===== HEADER ===== */
+
 header {
     background-color: var(--couleur-bleu);
     padding: 30px 20px;
@@ -85,7 +88,7 @@ header h1 {
     background-color: #f0f0f0;
 }
 
-/* ===== CONTENU PRINCIPAL ===== */
+
 main {
     flex: 1;
     max-width: 1000px;
@@ -111,7 +114,7 @@ h4 {
     margin-bottom: 25px;
 }
 
-/* ===== COLONNES ===== */
+
 .plats {
     display: flex;
     gap: 20px;
@@ -139,7 +142,7 @@ ul {
     gap: 12px;
 }
 
-/* ===== CARTES PLATS ===== */
+
 .carte-plat {
     display: flex;
     flex-direction: column;
@@ -162,10 +165,10 @@ ul {
     min-height: 300px;
 }
 
-.carte-plat-katsu    { background-image: url("images/katsu-curry.jpg"); }
-.carte-plat-gyozas   { background-image: url("images/gyozas.jpg"); }
-.carte-plat-baklava  { background-image: url("images/baklava.jpg"); }
-.carte-plat-pastilla { background-image: url("images/pastilla.jpg"); }
+.carte-plat-katsu    { background-image: url("Images/katsu-curry.jpg"); }
+.carte-plat-gyozas   { background-image: url("Images/gyozas.jpg"); }
+.carte-plat-baklava  { background-image: url("Images/baklava.jpg"); }
+.carte-plat-pastilla { background-image: url("Images/pastilla.jpg"); }
 
 .nom-plat {
     display: block;
@@ -181,7 +184,7 @@ ul {
     margin-top: 4px;
 }
 
-/* ===== BOUTON VOIR MENU ===== */
+
 .voir-menu {
     text-align: center;
     margin-top: 30px;
@@ -203,7 +206,7 @@ ul {
     color: white;
 }
 
-/* ===== FOOTER ===== */
+
 footer {
     background-color: var(--couleur-bleu);
     color: white;
@@ -212,7 +215,7 @@ footer {
     font-size: 0.9em;
 }
 
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media (max-width: 700px) {
     .plats {
         flex-direction: column;
@@ -221,4 +224,50 @@ footer {
     header h1 {
         font-size: 1.5em;
     }
+}
+
+/* MODE SOMBRE */
+.dark-mode {
+    background-color: #1e0f2f; 
+    color: #f8c8ff;
+}
+
+.dark-mode header {
+    background-color: #2d0d44;
+}
+
+.dark-mode .colonne {
+    background-color: #3b0f5f;
+    border-color: #5d2a7f;
+}
+
+.dark-mode h3{
+    color: #ff9ce8;
+}
+.dark-mode h4{
+    color: #ff9ce8;
+}
+.dark-mode .voir-menu a {
+    color: #ff9ce8;
+    border: 2px solid #ff9ce8;
+}
+.dark-mode .voir-menu a:hover {
+    background-color: #ff9ce8;
+    color: #5d2a7f;
+}
+
+
+.dark-mode .intro {
+    color: #ffc8ff;
+}
+
+.dark-mode footer {
+    background-color: #2d0d44;
+    color: #ffc8ff;
+}
+.dark-mode header h1{
+     color: #ffc8ff;
+}
+.dark-mode .navigation a {
+    color: #ffc8ff; 
 }

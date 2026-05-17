@@ -1,58 +1,39 @@
 <?php
+
 session_start();
+require_once "auth.php";
+verifierSession(['admin']);
 
-/* Vérification : admin uniquement */
-if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'admin') {
-    header("Location: connexion.php");
-    exit();
-}
-
-/* Chargement des utilisateurs */
 $users = json_decode(file_get_contents("data/users.json"), true);
 ?>
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Admin - Utilisateurs</title>
-<link rel="stylesheet" href="admin.css">
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Utilisateurs</title>
+    <link rel="stylesheet" href="admin.css">
+    <script src="modeSombre.js"></script>
+    <script src="admin.js" defer></script>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
-
 <body>
-
 <header>
     <h1>Panel Administrateur</h1>
-     <nav class="navigation">
-            <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
-                echo '<a href="admin.php">Admin</a>';
-            }
-             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'livreur') {
-                echo '<a href="livraison.php">Livraison</a>';
-             }
-             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'restaurateur') {
-                echo '<a href="commande.php">commande</a>';
-             }
-             ?>
-            <a href="accueil.php">Accueil</a>
-            <a href="presentation.php">Menu</a>
-            <?php
-            if (!isset($_SESSION['user'])) {
-                echo '<a href="inscription.php">Inscription</a>';
-                echo '<a href="connexion.php">Connexion</a>';
-            } else {
-                echo '<a href="profil.php">Mon profil</a>';
-                echo '<a href="panier.php">Panier</a>';
-                echo '<a href="logout.php">Déconnexion</a>';
-            }
-            ?>
-        </nav>
+    <button id="btn-dark-mode">Changer thème</button>
+    <nav class="navigation">
+        <a href="admin.php">Admin</a>
+        <a href="accueil.php">Accueil</a>
+        <a href="presentation.php">Menu</a>
+        <a href="profil.php">Mon profil</a>
+        <a href="panier.php">Panier</a>
+        <a href="logout.php">Déconnexion</a>
+    </nav>
 </header>
-
 <main>
     <h2>Liste des utilisateurs</h2>
+
+    <div id="message-admin"></div>
 
     <table>
         <thead>
@@ -60,45 +41,53 @@ $users = json_decode(file_get_contents("data/users.json"), true);
                 <th>ID</th>
                 <th>Login</th>
                 <th>Nom complet</th>
-                <th>Numero</th>
                 <th>Email</th>
                 <th>Rôle</th>
                 <th>Statut</th>
                 <th>Actions</th>
             </tr>
         </thead>
-
         <tbody>
             <?php foreach ($users as $user): ?>
-                <tr>
-                    <td><?= $user['id'] ?? ' '?></td>
-                    <td><?= $user['login'] ?? ' '?></td>
-                    <td><?= $user['nom'] ?? ' '?> <?= $user['prenom'] ?? ' '?></td>
-                    <td><?= $user['telephone'] ?? ' '?></td>
-                    <td><?= $user['email'] ?? ' '?></td>
+                <?php $actif = !empty($user['actif']); ?>
+                <tr id="ligne-<?= $user['id'] ?>">
+                    <td><?= htmlspecialchars($user['id'] ?? '') ?></td>
+                    <td><?= htmlspecialchars($user['login'] ?? '') ?></td>
+                    <td><?= htmlspecialchars(($user['prenom'] ?? '') . ' ' . ($user['nom'] ?? '')) ?></td>
+                    <td><?= htmlspecialchars($user['email'] ?? '') ?></td>
                     <td>
-                        <span class="badge role-<?= htmlspecialchars($user['role'] ?? 'inconnu') ?>">
+                        <span class="badge role-<?= htmlspecialchars($user['role'] ?? 'inconnu') ?>" id="role-<?= $user['id'] ?>">
                             <?= htmlspecialchars($user['role'] ?? 'inconnu') ?>
                         </span>
-                       <?php $actif = $user['actif'] ?? false; ?>
                     </td>
                     <td>
-                        <span class="badge <?= !empty($user['actif']) ? 'badge-actif' : 'badge-bloque' ?>">
-                            <?= !empty($user['actif']) ? 'Actif' : 'Bloqué' ?>
+                        <span class="badge <?= $actif ? 'badge-actif' : 'badge-bloque' ?>" id="statut-<?= $user['id'] ?>">
+                            <?= $actif ? 'Actif' : 'Bloqué' ?>
                         </span>
                     </td>
-
                     <td>
-                        <button class="bouton-modifier">
+                        <button 
+                            class="bouton-bloquer" 
+                            data-id="<?= $user['id'] ?>"
+                            data-actif="<?= $actif ? '1' : '0' ?>">
                             <?= $actif ? "Bloquer" : "Débloquer" ?>
                         </button>
-                        <button class="bouton-modifier">Modifier Role</button>
+
+                        <select class="select-role" data-id="<?= $user['id'] ?>">
+                            <?php foreach (['client','admin','livreur','restaurateur'] as $r): ?>
+                                <option value="<?= $r ?>" <?= ($user['role'] ?? '') === $r ? 'selected' : '' ?>>
+                                    <?= $r ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                        <button class="bouton-role" data-id="<?= $user['id'] ?>">
+                            Changer rôle
+                        </button>
                     </td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
 </main>
-
 </body>
 </html>

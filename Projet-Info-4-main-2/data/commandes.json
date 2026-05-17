@@ -34,7 +34,7 @@
         "transaction": "CCC333",
         "user_id": "client3",
         "restaurant_id": 1,
-        "livreur_id": "69d2a19a3cd04",
+        "livreur_id": "4",
         "nom_client": "Paul Client",
         "adresse": "3 rue C",
         "telephone": "0600000003",
@@ -42,12 +42,12 @@
         "plats": [],
         "total": 30,
         "statut_paiement": "payé",
-        "statut_commande": "En livraison"
+        "statut_commande": "Livrée"
     },
     {
         "id": 3004,
         "transaction": "DDD444",
-        "user_id": "client4",
+        "user_id": "3",
         "restaurant_id": 1,
         "livreur_id": "69d2a19a3cd04",
         "nom_client": "Sophie Client",
@@ -57,7 +57,11 @@
         "plats": [],
         "total": 18,
         "statut_paiement": "payé",
-        "statut_commande": "Livrée"
+        "statut_commande": "Livrée",
+        "note_livraison": 3,
+        "note_qualite": 4,
+        "commentaire_note": "",
+        "date_notation": "2026-05-17 12:33:21"
     },
     {
         "id": 3005,
@@ -131,6 +135,172 @@
             }
         ],
         "total": 47.5,
+        "statut_paiement": "en_attente",
+        "statut_commande": "En attente"
+    },
+    {
+        "id": 3008,
+        "transaction": "D96D092AD96E",
+        "user_id": "5",
+        "restaurant_id": 1,
+        "livreur_id": null,
+        "nom_client": "Atlas Restaurant",
+        "adresse": "",
+        "telephone": "",
+        "interphone": "",
+        "etage": "",
+        "commentaire": "",
+        "date_creation": "2026-05-13 11:18:08",
+        "date_livraison_prevue": "2026-05-13",
+        "mode_recuperation": "livraison",
+        "plats": [
+            {
+                "id": 1,
+                "nom": "Katsu Curry",
+                "prix": 14.5,
+                "quantite": 1
+            }
+        ],
+        "total": 14.5,
+        "statut_paiement": "en_attente",
+        "statut_commande": "En attente"
+    },
+    {
+        "id": 3009,
+        "transaction": "74771FE0501B",
+        "user_id": "1",
+        "restaurant_id": 1,
+        "livreur_id": null,
+        "nom_client": "One Admin",
+        "adresse": "",
+        "telephone": "",
+        "interphone": "",
+        "etage": "",
+        "commentaire": "",
+        "date_creation": "2026-05-15 16:17:55",
+        "date_livraison_prevue": "2026-05-16",
+        "mode_recuperation": "livraison",
+        "plats": [
+            {
+                "id": 5,
+                "nom": "Pastilla au Poulet",
+                "prix": 9.5,
+                "quantite": 3
+            }
+        ],
+        "total": 28.5,
+        "statut_paiement": "en_attente",
+        "statut_commande": "En attente"
+    },
+    {
+        "id": 3010,
+        "transaction": "F44054734379",
+        "user_id": "3",
+        "restaurant_id": 1,
+        "livreur_id": null,
+        "nom_client": "Timothée AUBREE",
+        "adresse": "12 rue de la République",
+        "telephone": "0612345678",
+        "interphone": "",
+        "etage": "",
+        "commentaire": "",
+        "date_creation": "2026-05-15 16:20:28",
+        "date_livraison_prevue": "2026-05-15",
+        "mode_recuperation": "livraison",
+        "plats": [
+            {
+                "id": 1,
+                "nom": "Katsu Curry",
+                "prix": 14.5,
+                "quantite": 2
+            }
+        ],
+        "total": 29,
+        "statut_paiement": "en_attente",
+        "statut_commande": "En attente"
+    },
+    {
+        "id": 3011,
+        "transaction": "TEST_MODIF_01",
+        "user_id": "3",
+        "restaurant_id": 1,
+        "livreur_id": null,
+        "nom_client": "Timothée AUBREE",
+        "adresse": "12 rue de la République",
+        "telephone": "0612345678",
+        "interphone": "4521",
+        "etage": "3",
+        "commentaire": "",
+        "date_creation": "2026-05-16 10:00:00",
+        "date_livraison_prevue": "2026-05-16 12:00:00",
+        "mode_recuperation": "livraison",
+        "plats": [
+            {
+                "id": 1,
+                "nom": "Katsu Curry",
+                "prix": 14.5,
+                "quantite": 1
+            }
+        ],
+        "total": 14.5,
+        "statut_paiement": "payé",
+        "statut_commande": "Payée",
+        "transaction_supplement": "C482F899CD93",
+        "montant_supplement": 15,
+        "statut_supplement": "en_attente",
+        "ticket_reduction": 31
+    },
+    {
+        "id": 3012,
+        "transaction": "AF0E277E8371",
+        "user_id": "3",
+        "restaurant_id": 1,
+        "livreur_id": null,
+        "nom_client": "Timothée AUBREE",
+        "adresse": "12 rue de la République",
+        "telephone": "0612345678",
+        "interphone": "",
+        "etage": "",
+        "commentaire": "",
+        "date_creation": "2026-05-16 23:33:01",
+        "date_livraison_prevue": "2026-05-16",
+        "mode_recuperation": "livraison",
+        "plats": [
+            {
+                "id": 1,
+                "nom": "Katsu Curry",
+                "prix": 14.5,
+                "quantite": 1
+            }
+        ],
+        "total": 14.5,
+        "statut_paiement": "en_attente",
+        "statut_commande": "En attente"
+    },
+    {
+        "id": 3013,
+        "transaction": "AEAF790F591E",
+        "user_id": "3",
+        "restaurant_id": 1,
+        "livreur_id": null,
+        "nom_client": "Timothée AUBREE",
+        "adresse": "12 rue de la République",
+        "telephone": "0612345678",
+        "interphone": "",
+        "etage": "",
+        "commentaire": "",
+        "date_creation": "2026-05-17 14:35:14",
+        "date_livraison_prevue": "2026-05-17",
+        "mode_recuperation": "livraison",
+        "plats": [
+            {
+                "id": 1,
+                "nom": "Katsu Curry",
+                "prix": 14.5,
+                "quantite": 20
+            }
+        ],
+        "total": 290,
         "statut_paiement": "en_attente",
         "statut_commande": "En attente"
     }

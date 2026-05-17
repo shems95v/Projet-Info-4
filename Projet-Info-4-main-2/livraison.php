@@ -1,17 +1,45 @@
 <?php
 session_start();
+require_once "auth.php";
+verifierSession(['livreur', 'admin']);
 
-/* sécurité : livreur uniquement */
-if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'livreur') {
-    header("Location: connexion.php");
+$user = $_SESSION['user'];
+
+/* traitement livraison terminée */
+if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["commande_id"])) {
+
+    $commandes = json_decode(file_get_contents("data/commandes.json"), true);
+
+    foreach ($commandes as &$commande) {
+
+        if ($commande["id"] == $_POST["commande_id"]) {
+
+            // sécurité : bon livreur
+            if (($commande["livreur_id"] ?? null) != $user["id"]) {
+                die("Accès refusé");
+            }
+
+            // sécurité : bon statut
+            if (($commande["statut_commande"] ?? "") !== "En livraison") {
+                die("Action impossible");
+            }
+
+            // mise à jour
+            $commande["statut_commande"] = "Livrée";
+
+            break;
+        }
+    }
+
+    file_put_contents("data/commandes.json", json_encode($commandes, JSON_PRETTY_PRINT));
+
+    header("Location: livraison.php");
     exit();
 }
 
 /* charger commandes */
 $commandes = json_decode(file_get_contents("data/commandes.json"), true);
 
-/* utilisateur connecté */
-$user = $_SESSION['user'];
 $livraisonTrouvee = false;
 ?>
 
@@ -22,13 +50,40 @@ $livraisonTrouvee = false;
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Livraisons</title>
 <link rel="stylesheet" href="livraison.css">
+<script src="modeSombre.js"></script>
 </head>
 
 <body>
 
 <header>
     <h1>Mes livraisons</h1>
-    <a href="profil.php">← Retour</a>
+    <button id="btn-dark-mode">Changer thème</button>
+     <nav class="navigation">
+            <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
+                echo '<a href="admin.php">Admin</a>';
+                echo '<a href="livraison.php">Livraison</a>';
+                echo '<a href="commandes.php">commandes</a>';
+            }
+             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'livreur') {
+                echo '<a href="livraison.php">Livraison</a>';
+             }
+             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'restaurateur') {
+                echo '<a href="commande.php">commandes</a>';
+             }
+             ?>
+            <a href="accueil.php">Accueil</a>
+            <a href="presentation.php">Menu</a>
+            <?php
+            if (!isset($_SESSION['user'])) {
+                echo '<a href="inscription.php">Inscription</a>';
+                echo '<a href="connexion.php">Connexion</a>';
+            } else {
+                echo '<a href="profil.php">Mon profil</a>';
+                echo '<a href="panier.php">Panier</a>';
+                echo '<a href="logout.php">Déconnexion</a>';
+            }
+            ?>
+        </nav>
 </header>
 
 <main>
@@ -59,17 +114,21 @@ $livraisonTrouvee = false;
         </section>
 
         <section class="actions">
-            <a
-                class="btn"
-                href="https://www.google.com/maps/dir/?api=1&destination=<?= urlencode($commande['adresse'] ?? '') ?>"
-                target="_blank"
-            >
-                Ouvrir dans Maps
-            </a>
+<form method="POST">
+    <input type="hidden" name="commande_id" value="<?= $commande['id'] ?>">
 
-            <button class="btn btn-delivered" type="button">
-                Livraison terminée
-            </button>
+    <a
+        class="btn"
+        href="https://www.google.com/maps/dir/?api=1&destination=<?= urlencode($commande['adresse'] ?? '') ?>"
+        target="_blank"
+    >
+        Ouvrir dans Maps
+    </a>
+
+    <button class="btn btn-delivered" type="submit" name="livrer">
+        🚚 Livraison terminée
+    </button>
+</form>
         </section>
     <?php endif; ?>
 <?php endforeach; ?>

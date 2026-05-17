@@ -1,9 +1,47 @@
 <?php
+
 session_start();
+require_once "auth.php";
+verifierSession();
 
 if (!isset($_SESSION["user"])) {
-    header("Location: connexion.php");
     exit();
+}
+
+if (!file_exists("data/users.json")) {
+    exit("Fichier introuvable");
+}
+
+$backdata = json_decode(file_get_contents("data/users.json"), true);
+
+$idUsers = $_SESSION["user"]["id"];
+
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $email = $_POST["email2"] ?? "";
+    $telephone = $_POST["telephone2"] ?? "";
+    $login = $_POST["login"] ?? "";
+
+
+    
+
+foreach ($backdata as &$user) {
+    if ($user["id"] == $idUsers) {
+        $user["nom"]         = $_POST["nom2"];
+        $user["prenom"]      = $_POST["prenom2"];
+        $user["email"]       = $_POST["email2"];
+        $user["telephone"]   = $_POST["telephone2"];
+        $user["adresse"]     = $_POST["adresse2"];
+        $user["commentaire"] = $_POST["commentaire2"];
+        $_SESSION["user"] = $user;
+        break;
+    }
+}
+
+file_put_contents(
+    "data/users.json",
+    json_encode($backdata, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE)
+);
 }
 
 $user = $_SESSION["user"];
@@ -16,21 +54,26 @@ $user = $_SESSION["user"];
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mon Profil - Atlas des Saveurs</title>
     <link rel="stylesheet" href="profil.css">
+    <script src="modeSombre.js" defer></script>
+    <script src="profil.js" defer></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
     <header>
         <h1>L'Atlas des Saveurs</h1>
+        <button id="btn-dark-mode">Changer thème</button>
         <nav class="navigation">
             <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
                 echo '<a href="admin.php">Admin</a>';
+                echo '<a href="livraison.php">Livraison</a>';
+                echo '<a href="commandes.php">commandes</a>';
             }
              if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'livreur') {
                 echo '<a href="livraison.php">Livraison</a>';
              }
              if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'restaurateur') {
-                echo '<a href="commande.php">commande</a>';
+                echo '<a href="commandes.php">commandes</a>';
              }
              ?>
             <a href="accueil.php">Accueil</a>
@@ -65,46 +108,98 @@ $user = $_SESSION["user"];
             <?php endif; ?>
 
             <section class="profil-section">
-                <h3>
-                    📋 Informations personnelles
-                    <a href="#" class="edit-icon" title="Modifier">✏️</a>
-                </h3>
+    <h3>
+        📋 Informations personnelles
+        <a href="#" class="edit-icon" id="btn-edit" title="Modifier">✏️</a>
+    </h3>
 
-                <div class="info-grid">
-                    <div class="info-item">
-                        <strong>Nom :</strong>
-                        <span><?= htmlspecialchars($user["nom"] ?? "") ?></span>
-                    </div>
+   
+    <div id="info-view">
+        <div class="info-grid">
 
-                    <div class="info-item">
-                        <strong>Prénom :</strong>
-                        <span><?= htmlspecialchars($user["prenom"] ?? "") ?></span>
-                    </div>
-                    <div class="info-item">
-                        <strong>Login :</strong>
-                        <span><?= htmlspecialchars($user["login"] ?? "") ?></span>
-                    </div>
-                    <div class="info-item">
-                        <strong>Email :</strong>
-                        <span><?= htmlspecialchars($user["email"] ?? "") ?></span>
-                    </div>
+            <div class="info-item">
+                <strong>Nom :</strong>
+                <span id ="nom-affichage"><?= htmlspecialchars($user["nom"] ?? "") ?></span>
+            </div>
 
-                    <div class="info-item">
-                        <strong>Téléphone :</strong>
-                        <span><?= htmlspecialchars($user["telephone"] ?? "Non renseigné") ?></span>
-                    </div>
+            <div class="info-item">
+                <strong>Prénom :</strong>
+                <span id ="prenom-affichage"><?= htmlspecialchars($user["prenom"] ?? "") ?></span>
+            </div>
 
-                    <div class="info-item full-width">
-                        <strong>Adresse :</strong>
-                        <span><?= htmlspecialchars($user["adresse"] ?? "Non renseignée") ?></span>
-                    </div>
+            <div class="info-item">
+                <strong>Login :</strong>
+                <span id ="login-affichage"><?= htmlspecialchars($user["login"] ?? "") ?></span>
+            </div>
 
-                    <div class="info-item full-width">
-                        <strong>Informations complémentaires :</strong>
-                        <span><?= htmlspecialchars($user["commentaire"] ?? "Aucune information complémentaire") ?></span>
-                    </div>
-                </div>
-            </section>
+            <div class="info-item">
+                <strong>Email :</strong>
+                <span id ="email-affichage"><?= htmlspecialchars($user["email"] ?? "") ?></span>
+            </div>
+
+            <div class="info-item">
+                <strong>Téléphone :</strong>
+                <span id ="tel-affichage"><?= htmlspecialchars($user["telephone"] ?? "Non renseigné") ?></span>
+            </div>
+
+            <div class="info-item full-width">
+                <strong>Adresse :</strong>
+                <span id ="adresse-affichage"><?= htmlspecialchars($user["adresse"] ?? "Non renseignée") ?></span>
+            </div>
+
+            <div class="info-item full-width">
+                <strong>Informations complémentaires :</strong>
+                <span id ="com-affichage"><?= htmlspecialchars($user["commentaire"] ?? "Aucune information complémentaire") ?></span>
+            </div>
+
+        </div>
+    </div>
+
+    <form id="info-edit" action="profil.php" method="POST" style="display:none;">
+        <div class="info-grid">
+
+            <div class="info-item">
+                <strong>Nom :</strong>
+                <input type="text" name="nom2" value="<?= htmlspecialchars($user["nom"] ?? "") ?>">
+            </div>
+
+            <div class="info-item">
+                <strong>Prénom :</strong>
+                <input type="text" name="prenom2" value="<?= htmlspecialchars($user["prenom"] ?? "") ?>">
+            </div>
+
+            <div class="info-item">
+                <strong>Login :</strong>
+                <input type="text" name="login" value="<?= htmlspecialchars($user["login"] ?? "") ?>" 
+                >
+                
+            </div>
+
+            <div class="info-item">
+                <strong>Email :</strong>
+                <input type="email" name="email2" value="<?= htmlspecialchars($user["email"] ?? "") ?>">
+            </div>
+
+            <div class="info-item">
+                <strong>Téléphone :</strong>
+                <input type="text" name="telephone2" value="<?= htmlspecialchars($user["telephone"] ?? "") ?>">
+            </div>
+
+            <div class="info-item full-width">
+                <strong>Adresse :</strong>
+                <input type="text" name="adresse2" value="<?= htmlspecialchars($user["adresse"] ?? "") ?>">
+            </div>
+
+            <div class="info-item full-width">
+                <strong>Informations complémentaires :</strong>
+                <textarea name="commentaire2"><?= htmlspecialchars($user["commentaire"] ?? "") ?></textarea>
+            </div>
+
+        </div>
+
+        <button type="submit" class="btn">Enregistrer</button>
+    </form>
+</section>
 
             <section class="profil-section">
                 <h3>📦 Mes commandes</h3>
@@ -129,76 +224,7 @@ $user = $_SESSION["user"];
             </section>
         </div>
 
-        <section class="profil-section">
-            <h3>⭐ Mon compte fidélité</h3>
-
-            <div class="fidelite-niveau">
-                <p class="niveau-titre">🥈 Niveau Argent</p>
-                <p>Vous bénéficiez de <strong>5% de réduction</strong> sur toutes vos commandes et d'une livraison offerte à partir de 25 €.</p>
-            </div>
-
-            <div class="fidelite-points">
-                <p><strong>Vos points :</strong> 320 / 500 pour atteindre le niveau 🥇 Or</p>
-                <div class="barre-fond">
-                    <div class="barre-remplie"></div>
-                </div>
-                <p class="texte-progression">Il vous manque 180 points pour passer au niveau supérieur.</p>
-            </div>
-
-            <div class="fidelite-avantages">
-                <h4>Vos avantages actuels :</h4>
-                <div class="avantages-liste">
-                    <div class="avantage-item">
-                        <span>🚚</span>
-                        <p>Livraison offerte dès 25 €</p>
-                    </div>
-                    <div class="avantage-item">
-                        <span>🏷️</span>
-                        <p>5% de réduction permanente</p>
-                    </div>
-                    <div class="avantage-item">
-                        <span>🎂</span>
-                        <p>Dessert offert pour votre anniversaire</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="fidelite-historique">
-                <h4>Historique des points :</h4>
-                <table>
-                    <thead>
-                        <tr>
-                            <th>Date</th>
-                            <th>Description</th>
-                            <th>Points</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>28/01/2026</td>
-                            <td>Commande validée</td>
-                            <td class="points-plus">+ 33 pts</td>
-                        </tr>
-                        <tr>
-                            <td>15/01/2026</td>
-                            <td>Commande validée</td>
-                            <td class="points-plus">+ 28 pts</td>
-                        </tr>
-                        <tr>
-                            <td>02/01/2026</td>
-                            <td>Commande validée</td>
-                            <td class="points-plus">+ 45 pts</td>
-                        </tr>
-                        <tr>
-                            <td>20/12/2025</td>
-                            <td>Bon de réduction utilisé</td>
-                            <td class="points-moins">− 100 pts</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-    </main>
+ 
 
     <footer>
         <p>&copy; 2026 Atlas des Saveurs - Tous droits réservés</p>

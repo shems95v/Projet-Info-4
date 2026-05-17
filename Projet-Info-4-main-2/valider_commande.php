@@ -71,12 +71,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST["confirmer_commande"])
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Validation de la commande</title>
+    <script src="modeSombre.js"></script>
     <link rel="stylesheet" href="inscription.css">
 </head>
 
 <body>
     <header>
         <h1>L'Atlas des Saveurs</h1>
+        <button id="btn-dark-mode">Changer thème</button>
     </header>
 
     <main>

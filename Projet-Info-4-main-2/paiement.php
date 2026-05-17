@@ -54,12 +54,14 @@ $control = md5(
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Paiement CYBank</title>
+    <script src="modeSombre.js"></script>
     <link rel="stylesheet" href="connexion.css">
 </head>
 <body>
 
 <header>
     <h1>Paiement de votre commande</h1>
+    <button id="btn-dark-mode">Changer thème</button>
 </header>
 
 <main>

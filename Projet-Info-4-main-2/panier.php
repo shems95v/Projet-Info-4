@@ -55,126 +55,16 @@ foreach ($panier as $quantite) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Mon panier - L'Atlas des Saveurs</title>
 <link rel="stylesheet" href="presentation.css">
+<link id="theme-style" rel="stylesheet" href="panier.css">
+<script src="modeSombre.js"></script>
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
-<style>
-.panier-box {
-    max-width: 900px;
-    margin: 30px auto;
-    background: #fff;
-    padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-}
 
-.panier-box h2 {
-    margin-bottom: 20px;
-    color: #2563eb;
-    text-align: center;
-    font-family: 'Playfair Display', Georgia, serif;
-}
-
-.panier-resume {
-    margin-bottom: 20px;
-    color: #444;
-    font-weight: 600;
-}
-
-.panier-ligne {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 12px 0;
-    border-bottom: 1px solid #ddd;
-    gap: 15px;
-}
-
-.panier-actions {
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.total-box {
-    margin-top: 20px;
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #2563eb;
-}
-
-.btn-principal {
-    display: inline-block;
-    padding: 12px 18px;
-    background: #2563eb;
-    color: #fff;
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.btn-principal:hover {
-    background: #1d4ed8;
-}
-
-.btn-secondaire {
-    padding: 10px 14px;
-    border: 1px solid #2563eb;
-    background: #fff;
-    color: #2563eb;
-    border-radius: 8px;
-    cursor: pointer;
-    text-decoration: none;
-    font-weight: 600;
-}
-
-.btn-secondaire:hover {
-    background: #eff6ff;
-}
-
-.btn-supprimer {
-    padding: 8px 12px;
-    border: 1px solid #dc2626;
-    background: #fff;
-    color: #dc2626;
-    border-radius: 8px;
-    cursor: pointer;
-    font-weight: 600;
-}
-
-.btn-supprimer:hover {
-    background: #fef2f2;
-}
-
-.actions-bas {
-    margin-top: 20px;
-    display: flex;
-    gap: 10px;
-    flex-wrap: wrap;
-}
-
-.message-vide {
-    text-align: center;
-    padding: 20px 0;
-}
-
-@media (max-width: 700px) {
-    .panier-ligne {
-        flex-direction: column;
-        align-items: flex-start;
-    }
-
-    .panier-actions {
-        width: 100%;
-    }
-}
-</style>
 </head>
 <body>
 
 <header>
     <h1>L'Atlas des Saveurs</h1>
+    <button id="btn-dark-mode">Changer thème</button>
      <nav class="navigation">
             <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
                 echo '<a href="admin.php">Admin</a>';

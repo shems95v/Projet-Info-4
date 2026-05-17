@@ -1,3 +1,87 @@
+<?php
+session_start();
+require_once("includes/functions.php");
+
+/* Sécurité : client connecté obligatoire */
+if (!isset($_SESSION['user']) || $_SESSION['user']['role'] !== 'client') {
+    header("Location: connexion.php");
+    exit();
+}
+
+$user = $_SESSION['user'];
+
+/* Récupération de l'id commande depuis l'URL */
+$commande_id = isset($_GET['id']) ? (int)$_GET['id'] : 0;
+
+if ($commande_id === 0) {
+    header("Location: commandes.php");
+    exit();
+}
+
+/* Chargement des commandes */
+$commandes = lireJSON("data/commandes.json");
+
+/* Recherche de la commande */
+$commande = null;
+$indexCommande = null;
+foreach ($commandes as $i => $c) {
+    if ((int)$c['id'] === $commande_id) {
+        $commande = $c;
+        $indexCommande = $i;
+        break;
+    }
+}
+
+/* Vérifications de sécurité */
+if ($commande === null) {
+    header("Location: commandes.php");
+    exit();
+}
+
+// La commande doit appartenir au client connecté
+if (($commande['user_id'] ?? null) != $user['id']) {
+    header("Location: commandes.php");
+    exit();
+}
+
+// La commande doit être en mode livraison et avoir le statut "Livrée"
+$statut     = strtolower($commande['statut_commande'] ?? '');
+$mode       = $commande['mode_recuperation'] ?? '';
+$dejaNotee  = isset($commande['note_livraison']) && $commande['note_livraison'] !== null;
+
+if ($statut !== 'livrée' || $mode !== 'livraison') {
+    header("Location: commandes.php");
+    exit();
+}
+
+if ($dejaNotee) {
+    header("Location: commandes.php");
+    exit();
+}
+
+/* Traitement du formulaire de notation */
+$erreur = '';
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $noteLivraison = isset($_POST['livraison']) ? (int)$_POST['livraison'] : 0;
+    $noteQualite   = isset($_POST['qualite'])   ? (int)$_POST['qualite']   : 0;
+    $commentaire   = trim($_POST['commentaire'] ?? '');
+
+    if ($noteLivraison < 1 || $noteLivraison > 5 || $noteQualite < 1 || $noteQualite > 5) {
+        $erreur = "Veuillez attribuer une note à la livraison et à la qualité des produits.";
+    } else {
+        /* Sauvegarde de la note dans le JSON */
+        $commandes[$indexCommande]['note_livraison'] = $noteLivraison;
+        $commandes[$indexCommande]['note_qualite']   = $noteQualite;
+        $commandes[$indexCommande]['commentaire_note'] = $commentaire;
+        $commandes[$indexCommande]['date_notation']  = date('Y-m-d H:i:s');
+
+        ecrireJSON("data/commandes.json", $commandes);
+
+        header("Location: commandes.php?note=ok");
+        exit();
+    }
+}
+?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -5,20 +89,24 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Notation de la commande - L'Atlas Des Saveurs</title>
   <link rel="stylesheet" href="notation.css" />
+  <script src="modeSombre.js"></script>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
-  <!-- header -->
   <header>
     <h1>L'Atlas Des Saveurs</h1>
   </header>
 
   <main>
-    <h2>Noter votre commande</h2>
+    <h2>Noter votre commande #<?= htmlspecialchars($commande_id) ?></h2>
 
-    <form>
+    <?php if ($erreur): ?>
+      <p style="color:red; text-align:center;"><?= htmlspecialchars($erreur) ?></p>
+    <?php endif; ?>
 
-      <!-- notation de la livraison (étoiles) -->
+    <form method="POST" action="notation.php?id=<?= $commande_id ?>">
+
+      <!-- Notation de la livraison (étoiles) -->
       <div class="notation-groupe">
         <label>Livraison :</label>
         <div class="stars">
@@ -35,7 +123,7 @@
         </div>
       </div>
 
-      <!-- notation de la qualité (étoiles) -->
+      <!-- Notation de la qualité (étoiles) -->
       <div class="notation-groupe">
         <label>Qualité des produits :</label>
         <div class="stars">
@@ -52,7 +140,7 @@
         </div>
       </div>
 
-      <!-- commentaire libre -->
+      <!-- Commentaire libre -->
       <div class="notation-groupe">
         <label for="commentaire">Commentaires (optionnel) :</label>
         <textarea id="commentaire" name="commentaire" placeholder="Votre avis..."></textarea>

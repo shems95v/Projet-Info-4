@@ -397,3 +397,139 @@ h1, h2, h3 {
     color: #991b1b;
     font-weight: bold;
 }
+/* ===== MODE SOMBRE ROSE / VIOLET ===== */
+
+.dark-mode {
+    background-color: #1e0f2f;
+    color: #f8c8ff;
+}
+
+.dark-mode header {
+    background-color: #2d0d44;
+}
+
+.dark-mode nav a {
+    color: #ffc8ff;
+}
+
+.dark-mode nav a:hover {
+    background-color: #5d2a7f;
+}
+
+.dark-mode .profil-section {
+    background-color: #3b0f5f;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.dark-mode .profil-container h2,
+.dark-mode .profil-section h3,
+.dark-mode .info-item strong,
+.dark-mode .commande-numero,
+.dark-mode .fidelite-avantages h4,
+.dark-mode .fidelite-historique h4,
+.dark-mode .niveau-titre,
+.dark-mode .fidelite-historique th {
+    color: #ff9ce8;
+}
+
+.dark-mode .info-item span,
+.dark-mode .commande-details p,
+.dark-mode .avantage-item p,
+.dark-mode .texte-progression,
+.dark-mode .form-group label,
+.dark-mode .form-group small {
+    color: #ffd6f7;
+}
+
+.dark-mode .form-group input,
+.dark-mode .form-group textarea {
+    background-color: #2a123f;
+    border-color: #5d2a7f;
+    color: white;
+}
+
+.dark-mode .form-group input:focus,
+.dark-mode .form-group textarea:focus {
+    border-color: #ff9ce8;
+}
+
+.dark-mode .btn {
+    background-color: #ff4fd8;
+    color: white;
+}
+
+.dark-mode .btn:hover {
+    background-color: #e13bc0;
+}
+
+.dark-mode .btn-secondary {
+    background-color: #6b217f;
+}
+
+.dark-mode .btn-secondary:hover {
+    background-color: #581c87;
+}
+
+.dark-mode .commande-card {
+    background-color: #2a123f;
+    border-left: 4px solid #ff9ce8;
+}
+
+.dark-mode .commande-date {
+    color: #d8b4fe;
+}
+
+.dark-mode .statut-livree {
+    background-color: #5b2167;
+    color: #ffd6f7;
+}
+
+.dark-mode .btn-noter {
+    background-color: #ff9ce8;
+    color: #2d0d44;
+}
+
+.dark-mode .btn-noter:hover {
+    background-color: #ff4fd8;
+    color: white;
+}
+
+.dark-mode .fidelite-niveau {
+    background-color: #44205f;
+    border-left: 4px solid #ff9ce8;
+}
+
+.dark-mode .barre-fond {
+    background-color: #2a123f;
+}
+
+.dark-mode .barre-remplie {
+    background-color: #ff4fd8;
+}
+
+.dark-mode .avantage-item {
+    background-color: #2a123f;
+    border-color: #5d2a7f;
+}
+
+.dark-mode .fidelite-historique th {
+    background-color: #2a123f;
+}
+
+.dark-mode .fidelite-historique td {
+    border-bottom: 1px solid #5d2a7f;
+    color: #ffd6f7;
+}
+
+.dark-mode .points-plus {
+    color: #86efac;
+}
+
+.dark-mode .points-moins {
+    color: #fca5a5;
+}
+
+.dark-mode footer {
+    background-color: #2d0d44;
+    color: #ffc8ff;
+}

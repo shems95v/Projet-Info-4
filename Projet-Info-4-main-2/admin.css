@@ -148,3 +148,86 @@ button:hover {
         padding: 8px 0;
     }
 }
+
+/* ===== MODE SOMBRE ===== */
+
+.dark-mode {
+    background-color: #1e0f2f;
+    color: #f8c8ff;
+}
+
+.dark-mode header {
+    background-color: #2d0d44;
+}
+
+.dark-mode main h2 {
+    color: #ff9ce8;
+}
+
+.dark-mode table {
+    background-color: #3b0f5f;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.dark-mode th {
+    background-color: #4b176d;
+    color: #ff9ce8;
+}
+
+.dark-mode td {
+    border-bottom: 1px solid #5d2a7f;
+    color: #ffc8ff;
+}
+
+.dark-mode tr {
+    background-color: #3b0f5f;
+}
+
+.dark-mode tr:hover {
+    background-color: #4b176d;
+}
+
+.dark-mode button {
+    background-color: #ff9ce8;
+    color: #2d0d44;
+}
+
+.dark-mode button:hover {
+    background-color: #ffb7ef;
+}
+
+.dark-mode .badge-actif {
+    background-color: #3c0397;
+    color: #ae86db;
+}
+
+.dark-mode .badge-bloque {
+    background-color: #7f1d1d;
+    color: #fecaca;
+}
+
+.dark-mode .role-admin {
+    background-color: #312e81;
+    color: #c4b5fd;
+}
+
+.dark-mode .role-client {
+    background-color: #581c87;
+    color: #f0abfc;
+}
+
+.dark-mode .role-livreur {
+    background-color: #68022d;
+    color: #e0037d;
+}
+
+.dark-mode .role-restaurateur {
+    background-color: #52044e;
+    color: #cf21e6;
+}
+.dark-mode header h1{
+     color: #ffc8ff;
+}
+.dark-mode .navigation a {
+    color: #ffc8ff; 
+}

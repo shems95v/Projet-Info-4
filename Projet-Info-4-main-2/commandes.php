@@ -19,13 +19,27 @@ $commandes = lireJSON("data/commandes.json");
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mes commandes - L'Atlas des Saveurs</title>
     <link rel="stylesheet" href="commandes.css">
+    <script src="modeSombre.js"></script>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
     <h1>L'Atlas des Saveurs</h1>
+    <button id="btn-dark-mode">Changer thème</button>
     <nav class="navigation">
+        <?php if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'admin') {
+                echo '<a href="admin.php">Admin</a>';
+                echo '<a href="livraison.php">Livraison</a>';
+                echo '<a href="commandes.php">commandes</a>';
+            }
+             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'livreur') {
+                echo '<a href="livraison.php">Livraison</a>';
+             }
+             if (isset($_SESSION['user']['role']) && $_SESSION['user']['role'] === 'restaurateur') {
+                echo '<a href="commande.php">commandes</a>';
+             }
+             ?>
         <a href="accueil.php">Accueil</a>
         <a href="presentation.php">Menu</a>
         <a href="profil.php">Mon profil</a>
@@ -36,6 +50,21 @@ $commandes = lireJSON("data/commandes.json");
 
 <main class="conteneur-commandes">
     <h2>Mes commandes</h2>
+
+    <?php if (isset($_SESSION['message_paiement'])): ?>
+        <p style="background:#dcfce7;border:1px solid #16a34a;border-radius:8px;
+                  padding:12px;color:#15803d;font-weight:600;margin-bottom:20px;">
+            ✅ <?= htmlspecialchars($_SESSION['message_paiement']) ?>
+        </p>
+        <?php unset($_SESSION['message_paiement']); ?>
+    <?php endif; ?>
+
+    <?php if (isset($_GET['modif']) && $_GET['modif'] === 'ok'): ?>
+        <p style="background:#dcfce7;border:1px solid #16a34a;border-radius:8px;
+                  padding:12px;color:#15803d;font-weight:600;margin-bottom:20px;">
+            ✅ Votre commande a bien été modifiée.
+        </p>
+    <?php endif; ?>
 
     <?php
     $commandesTrouvees = false;
@@ -102,17 +131,39 @@ $commandes = lireJSON("data/commandes.json");
                     <?= number_format((float)($commande["total"] ?? 0), 2, ",", " ") ?> €
                 </p>
 
-                <?php if (mb_strtolower($statutCommande) === "livrée" || mb_strtolower($statutCommande) === "livree"): ?>
-                    <a href="notation.php" class="btn-noter">⭐ Noter la commande</a>
-                <?php endif; ?>
+<?php
+$estLivree = strtolower($statutCommande) === "livrée" || strtolower($statutCommande) === "livree";
+$estLivraison = isset($commande["mode_recuperation"]) && $commande["mode_recuperation"] === "livraison";
+$pasEncoreNotee = !isset($commande["note_livraison"]) || $commande["note_livraison"] === null;
+?>
+
+<?php if ($estLivree && $estLivraison && $pasEncoreNotee): ?>
+    <a href="notation.php?id=<?= $commande["id"] ?>" class="btn-noter">
+        ⭐ Noter la commande
+    </a>
+<?php elseif ($estLivree && $estLivraison && !$pasEncoreNotee): ?>
+    <p style="color: green;">✔️ Déjà notée</p>
+<?php endif; ?>
+
+<?php if (($commande['statut_commande'] ?? '') === 'Payée'): ?>
+    <a href="modifier_commande.php?id=<?= $commande['id'] ?>" class="btn-noter"
+       style="background:#f59e0b;margin-top:8px;display:inline-block;">
+        ✏️ Modifier la commande
+    </a>
+    <?php if (isset($commande['ticket_reduction']) && $commande['ticket_reduction'] > 0): ?>
+        <p style="color:#16a34a;margin-top:6px;">
+            🎟️ Ticket de réduction disponible :
+            <strong><?= number_format($commande['ticket_reduction'], 2, ',', ' ') ?> €</strong>
+        </p>
+    <?php endif; ?>
+<?php endif; ?>
             </div>
         </article>
     <?php endforeach; ?>
 
     <?php if (!$commandesTrouvees): ?>
         <div class="aucune-commande">
-            <p>Vous n’avez encore aucune commande.</p>
-            <a href="presentation.php" class="btn-retour-menu">Voir le menu</a>
+            <p>Il n'y a encore aucune commande.</p>
         </div>
     <?php endif; ?>
 </main>
