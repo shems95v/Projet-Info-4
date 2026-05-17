@@ -1,12 +1,12 @@
-# 🍽️ L'Atlas des Saveurs — Projet Creative-Yumland
+# L'Atlas des Saveurs — Projet Creative-Yumland
 
 Projet web réalisé dans le cadre du cours d'Informatique 4 — préING2 CY Tech (2025-2026).
 
-## 📖 Description
+## Description
 
 Site web d'un restaurant de cuisine du monde permettant de gérer la chaîne complète d'une commande : du choix des plats par le client jusqu'à la livraison, en passant par le paiement via l'API CYBank et le traitement côté restaurateur.
 
-## 👥 Profils utilisateurs
+## Profils utilisateurs
 
 | Rôle | Description |
 |------|-------------|
@@ -15,7 +15,7 @@ Site web d'un restaurant de cuisine du monde permettant de gérer la chaîne com
 | **Restaurateur** | Gère les statuts des commandes et assigne les livreurs |
 | **Livreur** | Consulte et valide ses livraisons depuis smartphone |
 
-## 🗂️ Structure du projet
+##  Structure du projet
 
 ```
 atlas_des_saveurs/
@@ -57,7 +57,7 @@ atlas_des_saveurs/
 └── filtres.js                      # Filtres asynchrones (présentation)
 ```
 
-## ⚙️ Technologies utilisées
+##  Technologies utilisées
 
 - **HTML / CSS** — Structure et charte graphique (mode clair/sombre)
 - **PHP** — Génération dynamique des pages, logique serveur, gestion des sessions
@@ -65,7 +65,7 @@ atlas_des_saveurs/
 - **JSON** — Stockage des données (pas de base de données)
 - **API CYBank** — Simulation de paiement en ligne
 
-## 🚀 Installation et lancement
+##  Installation et lancement
 
 1. Cloner le dépôt :
    ```bash
@@ -84,9 +84,9 @@ atlas_des_saveurs/
    http://localhost/atlas_des_saveurs/accueil.php
    ```
 
-> ✅ Aucune base de données requise — tout est stocké en JSON dans `data/`.
+>  Aucune base de données requise — tout est stocké en JSON dans `data/`.
 
-## 🔐 Comptes de test
+##  Comptes de test
 
 Tous les comptes ont le mot de passe **`1234`**.
 
@@ -98,7 +98,7 @@ Tous les comptes ont le mot de passe **`1234`**.
 | `livreur1` | Livreur |
 | `resto1` | Restaurateur |
 
-## 📦 Fonctionnalités implémentées
+##  Fonctionnalités implémentées
 
 **Côté client**
 - Inscription et connexion sécurisées avec validation côté client (JS)
@@ -130,7 +130,7 @@ Tous les comptes ont le mot de passe **`1234`**.
 - Vérification des rôles à chaque page (`auth.php`)
 - Déconnexion automatique si compte bloqué
 
-## 📅 Phases du projet
+##  Phases du projet
 
 | Phase | Contenu |
 |-------|---------|
@@ -139,7 +139,7 @@ Tous les comptes ont le mot de passe **`1234`**.
 | **Phase 3** | JavaScript, requêtes asynchrones, filtres, profil modifiable, mode sombre |
 | **Phase 4** | soutenance finale |
 
-## ✍️ Auteurs
+##  Auteurs
 
 Projet réalisé par : Shems BOUDJEBINA, Mathis LECLERCQ et Timothée AUBREE
 
