@@ -137,10 +137,10 @@ Tous les comptes ont le mot de passe **`1234`**.
 | **Phase 1** | HTML + CSS statique, charte graphique |
 | **Phase 2** | PHP dynamique, inscription, connexion, commandes, paiement CYBank |
 | **Phase 3** | JavaScript, requêtes asynchrones, filtres, profil modifiable, mode sombre |
-| **Phase 4** | Bonnes pratiques, soutenance finale |
+| **Phase 4** | soutenance finale |
 
 ## ✍️ Auteurs
 
-Projet réalisé par : *(à compléter)*
+Projet réalisé par : Shems BOUDJEBINA, Mathis LECLERCQ et Timothée AUBREE
 
 Encadrants : C. Le Breton & R. Grignon — CY Tech 2025-2026
