@@ -1,0 +1,335 @@
+:root {
+    --bleu:        #2563eb;
+    --bleu-fonce:  #1d4ed8;
+    --blanc:       #ffffff;
+    --fond:        #f8fafc;
+    --texte:       #1f2937;
+    --gris-clair:  #e5e7eb;
+    --radius:      10px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+    font-family: 'DM Sans', Arial, sans-serif;
+    background: var(--fond);
+    color: var(--texte);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Header */
+header {
+    background: var(--bleu);
+    padding: 18px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.header-left h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: white;
+    font-size: 1.6em;
+}
+
+.header-sub {
+    color: rgba(255,255,255,0.75);
+    font-size: 0.85em;
+    display: block;
+    margin-top: 2px;
+}
+
+.header-nav {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.header-nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    padding: 7px 14px;
+    border-radius: 20px;
+    transition: background 0.2s;
+}
+
+.header-nav a:hover { background: rgba(255,255,255,0.2); }
+
+#btn-dark-mode {
+    background: rgba(255,255,255,0.15);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 7px 14px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+#btn-dark-mode:hover { background: rgba(255,255,255,0.3); }
+
+/* Main  */
+main {
+    flex: 1;
+    max-width: 1000px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 30px 20px 50px;
+}
+
+.page-titre {
+    font-family: 'Playfair Display', Georgia, serif;
+    color: var(--bleu);
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+}
+
+/* Sections par statut */
+.section-statut { margin-bottom: 35px; }
+
+.section-titre {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.1em;
+    font-weight: 700;
+    padding: 10px 16px;
+    border-radius: var(--radius);
+    margin-bottom: 14px;
+    color: white;
+}
+
+.section-titre.payee          { background: #7c3aed; }
+.section-titre.en-preparation { background: #d97706; }
+.section-titre.prete          { background: #16a34a; }
+.section-titre.en-livraison   { background: var(--bleu); }
+.section-titre.livree         { background: #15803d; }
+.section-titre.en-attente     { background: #6b7280; }
+
+.compteur {
+    background: rgba(255,255,255,0.3);
+    border-radius: 20px;
+    padding: 2px 10px;
+    font-size: 0.9em;
+}
+
+/* Carte commande */
+.commande-card {
+    background: var(--blanc);
+    border-radius: var(--radius);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    padding: 20px;
+    margin-bottom: 16px;
+    transition: box-shadow 0.2s;
+}
+
+.commande-card:hover { box-shadow: 0 4px 14px rgba(0,0,0,0.12); }
+
+.commande-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--gris-clair);
+}
+
+.commande-id {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 1.15em;
+    font-weight: 700;
+    color: var(--bleu);
+}
+
+.commande-date {
+    color: #6b7280;
+    font-size: 0.9em;
+    flex: 1;
+}
+
+/* Badges */
+.badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.82em;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+}
+
+.badge.en-attente     { background: #6b7280; }
+.badge.payee          { background: #7c3aed; }
+.badge.en-preparation { background: #d97706; }
+.badge.prete          { background: #16a34a; }
+.badge.en-livraison   { background: var(--bleu); }
+.badge.livree         { background: #15803d; }
+
+/* Corps commande */
+.commande-info-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px 20px;
+    margin-bottom: 14px;
+}
+
+.commande-info-grid p { font-size: 0.92em; line-height: 1.6; }
+
+/* Liste plats */
+.liste-plats {
+    list-style: none;
+    border: 1px solid var(--gris-clair);
+    border-radius: 8px;
+    overflow: hidden;
+    margin-bottom: 12px;
+}
+
+.liste-plats li {
+    display: flex;
+    gap: 10px;
+    padding: 8px 14px;
+    font-size: 0.92em;
+    border-bottom: 1px solid var(--gris-clair);
+}
+
+.liste-plats li:last-child { border-bottom: none; }
+.liste-plats li:nth-child(even) { background: #f9fafb; }
+
+.plat-nom { flex: 1; }
+.plat-qte { font-weight: 700; color: #374151; }
+.plat-prix { color: var(--bleu); font-weight: 600; }
+
+.aucun-plat { color: #9ca3af; font-size: 0.9em; margin-bottom: 12px; }
+
+.total-ligne {
+    font-size: 1em;
+    margin-bottom: 8px;
+}
+
+.livreur-info {
+    color: #059669;
+    font-size: 0.93em;
+    margin-bottom: 8px;
+}
+
+/* Actions */
+.actions {
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.select-livreur {
+    flex: 1;
+    min-width: 180px;
+    padding: 9px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 8px;
+    font-size: 0.92em;
+    background: white;
+    cursor: pointer;
+}
+
+.btn-statut {
+    padding: 9px 18px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.92em;
+    font-weight: 700;
+    cursor: pointer;
+    color: white;
+    transition: opacity 0.2s;
+}
+
+.btn-statut:hover:not(:disabled) { opacity: 0.85; }
+.btn-statut:disabled { opacity: 0.5; cursor: default; }
+
+/* Couleurs des boutons selon la destination */
+.btn-en-preparation { background: #d97706; }
+.btn-prete          { background: #16a34a; }
+.btn-en-livraison   { background: var(--bleu); }
+.btn-livree         { background: #15803d; }
+
+.commande-terminee {
+    color: #6b7280;
+    font-style: italic;
+    font-size: 0.92em;
+}
+
+.msg-retour {
+    font-size: 0.9em;
+    font-weight: 600;
+}
+
+.aucune-commande {
+    text-align: center;
+    color: #9ca3af;
+    padding: 40px;
+    font-size: 1.1em;
+}
+
+/* Mode sombre */
+.dark-mode {
+    background: #1e0f2f;
+    color: #f8c8ff;
+}
+
+.dark-mode header { background: #2d0d44; }
+.dark-mode .header-left h1 { color: #ffc8ff; }
+.dark-mode .header-sub { color: rgba(255,200,255,0.6); }
+.dark-mode #btn-dark-mode { border-color: rgba(255,200,255,0.4); }
+
+.dark-mode .page-titre { color: #ff9ce8; }
+
+.dark-mode .commande-card {
+    background: #3b0f5f;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.4);
+}
+
+.dark-mode .commande-header { border-bottom-color: #5d2a7f; }
+.dark-mode .commande-id { color: #ff9ce8; }
+.dark-mode .commande-date { color: #d8b4fe; }
+
+.dark-mode .commande-info-grid p { color: #ffc8ff; }
+
+.dark-mode .liste-plats {
+    border-color: #5d2a7f;
+}
+
+.dark-mode .liste-plats li {
+    border-bottom-color: #5d2a7f;
+    color: #ffc8ff;
+}
+
+.dark-mode .liste-plats li:nth-child(even) { background: #2d0d44; }
+.dark-mode .plat-prix { color: #ff9ce8; }
+.dark-mode .plat-qte { color: #e9d5ff; }
+
+.dark-mode .total-ligne { color: #ffc8ff; }
+.dark-mode .livreur-info { color: #6ee7b7; }
+
+.dark-mode .select-livreur {
+    background: #2a123f;
+    border-color: #5d2a7f;
+    color: #ffc8ff;
+}
+
+.dark-mode .commande-terminee { color: #9ca3af; }
+.dark-mode .aucune-commande { color: #9ca3af; }
+
+/* Responsive */
+@media (max-width: 700px) {
+    .commande-info-grid { grid-template-columns: 1fr; }
+    .actions { flex-direction: column; align-items: stretch; }
+    .select-livreur, .btn-statut { width: 100%; }
+    .header-left h1 { font-size: 1.3em; }
+}
